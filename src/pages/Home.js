@@ -42,7 +42,7 @@ function Home() {
         <div className="container-fluid heroone">
             <div className="row">
                 <div className="col-sm text-center imgset" > 
-                    <video playsinline autoPlay muted loop id="backgroundVideo">
+                    <video playsInline autoPlay muted loop id="backgroundVideo">
                     <source src="./Videos/video.mp4" type="video/mp4" />
                           </video> 
                          {/* background-video */}
@@ -117,7 +117,7 @@ function Home() {
                <div className="col-sm-12"> <img src="css/images/sectionfourimg.png" className="rotate"/>
                    <h1 className="headsmain pl-5 mbd-0 text-center cb  sec-ad"> What ?</h1>
                    <p className="para text-center  "> ZERO is a the first metaverse lottery. Everyday, a lottery will be held for
-                       <br /> holder to win hell of lot of NFTs bluechip NFTs & (mainly > 1E) , Eth and
+                       <br /> holder to win hell of lot of NFTs bluechip NFTs & (mainly - 1E) , Eth and
                        <br /> some juicy prizes (shhh.. surprise) </p>
                </div>
            </div>
@@ -128,7 +128,7 @@ function Home() {
                <div className="col-sm-12">
                    <h1 className="headsmain pl-5 mbd-0 text-center cb sec-ad"> What ?</h1>
                    <p className="para text-center  "> ZERO is a the first metaverse lottery. Everyday, a lottery will be held for
-                       <br /> holder to win hell of lot of NFTs bluechip NFTs & (mainly > 1E) , Eth and
+                       <br /> holder to win hell of lot of NFTs bluechip NFTs & (mainly - 1E) , Eth and
                        <br /> some juicy prizes (shhh.. surprise) </p>
                </div>
            </div>
