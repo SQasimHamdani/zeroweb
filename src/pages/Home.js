@@ -42,7 +42,7 @@ function Home() {
         <div className="container-fluid heroone">
             <div className="row">
                 <div className="col-sm text-center imgset" > 
-                    <video autoPlay muted loop id="backgroundVideo">
+                    <video playsinline autoPlay muted loop id="backgroundVideo">
                     <source src="./Videos/video.mp4" type="video/mp4" />
                           </video> 
                          {/* background-video */}
