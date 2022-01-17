@@ -74,7 +74,7 @@ function Home() {
        <div id="roadmapsection" className="container-fluid herothree headsets">
            <div className="row">
            <div className="col-sm-12">
-           <h1 className="headsmain colorred text-center"> MAIN PROCESS</h1>
+           <h1 className="headsmain colorred text-center"> MINT PROCESS</h1>
     <div className="main-timeline">
                                 <div className="timeline">
                                 <div className="icon"></div>
@@ -86,7 +86,7 @@ function Home() {
                                     </div>
                                 </div>
                                 <div className="timeline-content">
-                                    <h5 className="title">Pay back zero</h5>
+                                    <h5 className="title">Pay back ZERO</h5>
                                 </div>
                             </div>
     
@@ -100,7 +100,7 @@ function Home() {
                                     </div>
                                 </div>
                                 <div className="timeline-content">
-                                    <h5 className="title">Multiple Cool cats raffle</h5>
+                                    <h5 className="title">Multiple Cool Cats Raffle</h5>
                                   
                                 </div>
                             </div>
@@ -115,7 +115,7 @@ function Home() {
                                     </div>
                                 </div>
                                 <div className="timeline-content">
-                                    <h5 className="title">Cool cats, clone X, World of women
+                                    <h5 className="title">Cool Cats, Clone X, World of Women
                                     </h5>
                                 </div>
                             </div>
@@ -130,7 +130,7 @@ function Home() {
                                     </div>
                                 </div>
                                 <div className="timeline-content">
-                                    <h5 className="title">BORED APE raffle
+                                    <h5 className="title">BORED APE Raffle
                                     </h5>
                                     
                                 </div>
@@ -253,7 +253,7 @@ the prizes of the daily lotteries</p>
        <div id="faqsection" className="container-fluid herosix">
             <div className="row text-right pr-5">
                 <div className="col-sm-12 pb-2">
-                    <h1 className="headsmain cb pt-3"> FAQ</h1> </div>
+                    <h1 className="headsmain cb pt-3"> FAQ - Frequently Asked Questions</h1> </div>
 
             </div>
             <div className="row text-left">
@@ -263,10 +263,10 @@ the prizes of the daily lotteries</p>
                     <p className="para cb"> A total of 5555 unique ZERO Character </p>
                     <h3 className="headsmain  mbd-0 cb mtt "> When Zero launch?</h3>
                     <p className="para cb"> Presale for Whitelisted people will begins Jan 19th 2022, 6PM EST <br/>
-Public sale will start 24hrs after, Jan 20th, 6PM EST </p>
+                                            Public sale will start 24hrs after, Jan 20th, 6PM EST </p>
                     <h3 className="headsmain  mbd-0 cb mtt "> What is the mint cost ?</h3>
                     <p className="para cb"> Presale (Whitelisted) : 0,04E <br />
-Public sale : 0,069 </p>
+                                            Public sale : 0,069 </p>
                     <h3 className="headsmain  mbd-0 cb mtt "> Still have question ?</h3>
                     <p className="para cb">Head to our Discord to learn more and ask any questions.</p>
                 </div>
@@ -277,19 +277,18 @@ Public sale : 0,069 </p>
             </div>
                 <div className="col-sm-6 set-colend ">
                     <h3 className="headsmain  mbd-0 cb mtt pb-3 "> What’s the benefit of <br />
-holding a Zero NFT ?</h3>
-                    <p className="para cb pb-3"> Zero NFT grant exclusive access to 
-the daily lotteries where blue-chip 
-NFT will be dropped </p>
-                    <h3 className="headsmain  mbd-0 cb mtt pb-3"> Will holders receive <br />
-free mint pass for the  <br />
-new collection ?</h3>
-                    <p className="para cb pb-3"> Each holders will receive a free pass <br />
-for the the companion of Zero <br />
-(hint :emoji women) that will grant  <br />
-access to the fully immersive lottery  <br />
-in the meravers</p>      
-
+                        holding a Zero NFT ?</h3>
+                                            <p className="para cb pb-3"> Zero NFT grant exclusive access to 
+                        the daily lotteries where blue-chip 
+                        NFT will be dropped </p>
+                                            <h3 className="headsmain  mbd-0 cb mtt pb-3"> Will holders receive <br />
+                        free mint pass for the  <br />
+                        new collection ?</h3>
+                                            <p className="para cb pb-3"> Each holders will receive a free pass <br />
+                        for the the companion of Zero <br />
+                        👩 that will grant  <br />
+                        access to the fully immersive lottery  <br />
+                        in the meraverse</p>      
                 </div>
             </div>
        </div>

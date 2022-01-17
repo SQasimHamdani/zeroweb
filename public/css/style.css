@@ -375,7 +375,7 @@ font-size: 35px;
     padding: 5%;
   }
 }
-#background {
+#backgroundVideo {
   width: 100%;
 }
 
@@ -457,7 +457,7 @@ font-size: 35px;
 }
 
 .main-timeline .icon:after {
-  border: 2px solid #c6c6c6;
+  border: 2px solid #a7b42b;
   left: 3px
 }
 
@@ -511,23 +511,33 @@ font-size: 35px;
   transition: all 0.33s ease-out 0s
 }
 
+.main-timeline .date-outer:hover::before {
+  background: #d3434a;
+  /* border: 2px solid #232323; */
+  left: -6px;
+}
+
 .main-timeline .date-outer:before {
   background: #991e24;
   /* border: 2px solid #232323; */
-  left: -6px
+  left: -6px;
 }
+
+
 
 .main-timeline .date-outer:after {
   border: 2px solid #c6c6c6;
-  left: 6px
+  left: 6px;
 }
 
+
 .main-timeline .timeline:hover .date-outer:before {
-  left: 6px
+  left: 6px;
 }
 
 .main-timeline .timeline:hover .date-outer:after {
-  left: -6px
+  left: -6px;
+  
 }
 
 .main-timeline .date {
