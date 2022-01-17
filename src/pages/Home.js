@@ -12,7 +12,7 @@ function Home() {
                 <div className="collapse navbar-collapse" id="navbarText">
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item active">
-                            <a className="nav-link" href="#zerosection">Zero <span className="sr-only">(current)</span></a>
+                            <a className="nav-link" href="#zerosection">Zero</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="#roadmapsection">Roadmap</a>
@@ -25,13 +25,13 @@ function Home() {
                         </li>
                     </ul>
                     <span className="navbar-text" >
-                            <a href="asda">
-                            <img className="seicon" src="images/stwitter.svg"/>
+                            <a href="https://twitter.com/zerozeronft" target={{target:"_blank"}}>
+                            <img className="seicon" src="images/twitter.svg"/>
                             </a>
-                            <a href="asda">
+                            <a href="">
                             <img className="seicon" src="images/discord.svg"/>
                             </a>
-                            <a href="asda">
+                            <a href="">
                             <img className="seicon" src="images/opensea.svg"/>
                             </a>
                     </span>
@@ -43,7 +43,7 @@ function Home() {
             <div className="row">
                 <div className="col-sm text-center imgset" > 
                     <video playsInline autoPlay muted loop id="backgroundVideo">
-                    <source src="./Videos/video.mp4" type="video/mp4" />
+                    <source src="./Videos/videobg.mp4" type="video/mp4" />
                           </video> 
                          {/* background-video */}
     
@@ -51,12 +51,10 @@ function Home() {
             </div>
             <div className="row">
                <div className="col-sm  text-center ">
-                    <button  className="mintbtn m-2 " onClick={() => {
+                    <button  className="mintbtn m-4  " onClick={() => {
                         window.location.href = "https://mint.zeroproject.com"
                             }}>
-                        <div class="left"></div>
                             Mint Now
-                        <div class="right"></div>
                     </button>
                </div>
            </div>
@@ -201,11 +199,11 @@ function Home() {
                    <div className="row">
                        <div className="col-sm-12"> <img src="images/44.png" height="300" className="mt-5"/>
                            <h3 className="headsmain  mbd-0 text-center cb mtt "> SYED</h3>
-                           <h3 className="headsmain mbm text-center cb ">Artist</h3>
-                           <p className="para text-center"> NFT investor, artist and creator. Early in
-                               <br /> the NFT space. Former consultant in
-                               <br /> digital strategy and founder of ecommerce
-                               <br /> Marketplace </p>
+                           <h3 className="headsmain mbm text-center cb ">Artists Group</h3>
+                           <p className="para text-center"> Syed is a Co-Founder of Gallictic NFT Studio 
+                               <br /> along with Habib and Talal. Expertise in 
+                               <br /> Designing and Generating Awesome 
+                               <br /> NFT Tokens </p>
                        </div>
                    </div>
                </div>
@@ -215,18 +213,18 @@ function Home() {
        <div id="faqsection" className="container-fluid herosix">
             <div className="row text-center">
                 <div className="col-sm-12 pb-2">
-                    <h1 className="headsmain cb "> FAQ</h1> </div>
+                    <h1 className="headsmain cb "> FAQs</h1> </div>
             </div>
             <div className="row text-right">
                 <div className="col-sm-12 ">
                     <h3 className="headsmain  mbd-0 cb mtt "> What is the total supply ?</h3>
-                    <p className="para cb"> A total of 4444 unique Superlative Apes NFTs will be created </p>
+                    <p className="para cb"> A total of 5555 unique Superlative Apes NFTs will be created </p>
                     <h3 className="headsmain  mbd-0 cb mtt "> What is an NFT ?</h3>
-                    <p className="para cb"> A total of 4444 unique Superlative Apes NFTs will be created </p>
+                    <p className="para cb"> A total of 5555 unique Superlative Apes NFTs will be created </p>
                     <h3 className="headsmain  mbd-0 cb mtt "> What is an NFT ?</h3>
-                    <p className="para cb"> A total of 4444 unique Superlative Apes NFTs will be created </p>
+                    <p className="para cb"> A total of 5555 unique Superlative Apes NFTs will be created </p>
                     <h3 className="headsmain  mbd-0 cb mtt "> What is an NFT ?</h3>
-                    <p className="para cb"> A total of 4444 unique Superlative Apes NFTs will be created </p>
+                    <p className="para cb"> A total of 5555 unique Superlative Apes NFTs will be created </p>
                     <div class="herolastone"></div>
                 </div>
             </div>
@@ -235,16 +233,16 @@ function Home() {
            <div className="row text-center" id="footer_block" >
                <div className="col-sm-12 pb-2">
                    <div className="main-block"> 
-                   <a href="asda">
+                   <a href="">
                     <i className="bi bi-twitter cbw"></i>
                    </a>
-                   <a href="asda">
+                   <a href="">
                     <i className="bi bi-instagram cbw"></i>
                    </a>
-                   <a href="asda">
+                   <a href="">
                     <i className="bi bi-twitter cbw"></i> 
                    </a>
-                   <a href="asda">
+                   <a href="">
                     <i className="bi bi-facebook cbw"></i> 
                    </a>
                    </div>
