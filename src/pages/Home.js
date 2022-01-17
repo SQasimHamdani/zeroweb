@@ -73,40 +73,80 @@ function Home() {
             </div>
         </div>
               
-       <div id="roadmapsection" className="container-fluid herothree">
+       <div id="roadmapsection" className="container-fluid herothree headsets">
            <div className="row">
-               <div className="col-sm-12 col-md-12 col-lg-6 pl-5 col-fil mtcol ">
-                   <h1 className="headsmain colorred text-center headset"> MAIN PROCESS</h1>
-                   <div className="block_container ">
-                       <div id="bloc1" className="fillcir">
-                           <h3 className="mr-3">20%</h3></div>
-                       <div id="bloc2">
-                           <h3 className="ml-3 col-fil h_font">Pay back zero</h3></div>
-                   </div>
-                   <div className="block_container ">
-                       <div id="bloc1" className="fillcir">
-                           <h3 className="mr-3">50%</h3></div>
-                       <div id="bloc2">
-                           <h3 className="ml-3 col-fil h_font">Multiple Cool cats raffle</h3></div>
-                   </div>
-                   <div className="block_container ">
-                       <div id="bloc1" className="fillcir">
-                           <h3 className="mr-3">70%</h3></div>
-                       <div id="bloc2">
-                           <h3 className="ml-3 col-fil h_font">Cool cats, clone X, World of women</h3></div>
-                   </div>
-                   <div className= "block_container ">
-                       <div id="bloc1" className="fillcir">
-                           <h3 className="mr-3">70%</h3></div>
-                       <div id="bloc2">
-                           <h3 className="ml-3 col-fil h_font">BORED APE raffle</h3></div>
-                   </div>
-               </div>
-               <div className="col-sm-12 col-md-12 col-lg-6 text-center bgimgsecthree"> </div>
-           </div>
-           <div className="row pl-5 col-fil">
+           <div className="col-sm-12">
+           <h1 className="headsmain colorred text-center"> MAIN PROCESS</h1>
+    <div className="main-timeline">
+                                <div className="timeline">
+                                <div className="icon"></div>
+                                <div className="date-content">
+                                    <div className="date-outer">
+                                        <span className="date">
+                                        <span className="year">20%</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className="timeline-content">
+                                    <h5 className="title">Pay back zero</h5>
+                                </div>
+                            </div>
+    
+                            <div className="timeline">
+                                <div className="icon"></div>
+                                <div className="date-content">
+                                    <div className="date-outer">
+                                        <span className="date">
+                                        <span className="year">50%</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className="timeline-content">
+                                    <h5 className="title">Multiple Cool cats raffle</h5>
+                                  
+                                </div>
+                            </div>
+                           
+                            <div className="timeline">
+                                <div className="icon"></div>
+                                <div className="date-content">
+                                    <div className="date-outer">
+                                        <span className="date">
+                                        <span className="year">70%</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className="timeline-content">
+                                    <h5 className="title">Cool cats, clone X, World of women
+                                    </h5>
+                                </div>
+                            </div>
+                         
+                            <div className="timeline">
+                                <div className="icon"></div>
+                                <div className="date-content">
+                                    <div className="date-outer">
+                                        <span className="date">
+                                        <span className="year">100%</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className="timeline-content">
+                                    <h5 className="title">BORED APE raffle
+                                    </h5>
+                                    
+                                </div>
+                            </div>
+                     
+    
+                        </div>
+                        <div className="row pl-5 col-fil">
                <div className="col-sm-12">
-               <h1 className="headsmain colorred pl-5 col-fil pb-3"> SO WHAT ABOUT AFTER MINT SOLD OUT ??? </h1> </div> </div>
+               <h1 className="headsmain colorred pl-5 col-fil pb-3"> SO WHAT ABOUT AFTER MINT SOLD OUT ??? </h1> </div>
+               </div>
+
+              </div>
+              </div>
        </div>
        <div className="container-fluid herofour">
            <div className="row pl-5 col-fil">
