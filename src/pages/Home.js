@@ -12,7 +12,7 @@ function Home() {
                 <div className="collapse navbar-collapse" id="navbarText">
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item active">
-                            <a className="nav-link" href="#zerosection">Zero <span className="sr-only">(current)</span></a>
+                            <a className="nav-link" href="#zerosection">Zero</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="#roadmapsection">Roadmap</a>
@@ -25,13 +25,13 @@ function Home() {
                         </li>
                     </ul>
                     <span className="navbar-text" >
-                            <a href="asda">
-                            <img className="seicon" src="images/stwitter.svg"/>
+                            <a href="https://twitter.com/zerozeronft" target={{target:"_blank"}}>
+                            <img className="seicon" src="images/twitter.svg"/>
                             </a>
-                            <a href="asda">
+                            <a href="">
                             <img className="seicon" src="images/discord.svg"/>
                             </a>
-                            <a href="asda">
+                            <a href="">
                             <img className="seicon" src="images/opensea.svg"/>
                             </a>
                     </span>
@@ -43,20 +43,18 @@ function Home() {
             <div className="row">
                 <div className="col-sm text-center imgset" > 
                     <video playsInline autoPlay muted loop id="backgroundVideo">
-                    <source src="./Videos/video5k.mp4" type="video/mp4" />
-                          </video> 
-                         {/* background-video */}
-    
+
+                    	<source src="./Videos/video5k.mp4" type="video/mp4" />
+
+                    </video>    
                 </div>
             </div>
             <div className="row">
                <div className="col-sm  text-center ">
-                    <button  className="mintbtn m-2 " onClick={() => {
+                    <button  className="mintbtn m-4  " onClick={() => {
                         window.location.href = "https://mint.zeroproject.com"
                             }}>
-                        <div class="left"></div>
                             Mint Now
-                        <div class="right"></div>
                     </button>
                </div>
            </div>
@@ -241,11 +239,11 @@ the prizes of the daily lotteries</p>
                    <div className="row">
                        <div className="col-sm-12"> <img src="images/44.png" height="300" className="mt-5"/>
                            <h3 className="headsmain  mbd-0 text-center cb mtt "> SYED</h3>
-                           <h3 className="headsmain mbm text-center cb ">Artist</h3>
-                           <p className="para text-center"> NFT investor, artist and creator. Early in
-                               <br /> the NFT space. Former consultant in
-                               <br /> digital strategy and founder of ecommerce
-                               <br /> Marketplace </p>
+                           <h3 className="headsmain mbm text-center cb ">Artists Group</h3>
+                           <p className="para text-center"> Syed is a Co-Founder of Gallictic NFT Studio 
+                               <br /> along with Habib and Talal. Expertise in 
+                               <br /> Designing and Generating Awesome 
+                               <br /> NFT Tokens </p>
                        </div>
                    </div>
                </div>
@@ -256,10 +254,12 @@ the prizes of the daily lotteries</p>
             <div className="row text-right pr-5">
                 <div className="col-sm-12 pb-2">
                     <h1 className="headsmain cb pt-3"> FAQ</h1> </div>
+
             </div>
             <div className="row text-left">
                 <div className="col-sm-12 set-colend ">
                     <h3 className="headsmain  mbd-0 cb mtt "> What is the total supply ?</h3>
+
                     <p className="para cb"> A total of 5555 unique ZERO Character </p>
                     <h3 className="headsmain  mbd-0 cb mtt "> When Zero launch?</h3>
                     <p className="para cb"> Presale for Whitelisted people will begins Jan 19th 2022, 6PM EST <br/>
@@ -273,7 +273,7 @@ Public sale : 0,069 </p>
             </div>
             <div className="row text-right flexxcol">
             <div className="col-sm-6">
-            <div class="herolastone"></div>
+            <div className="herolastone"></div>
             </div>
                 <div className="col-sm-6 set-colend ">
                     <h3 className="headsmain  mbd-0 cb mtt pb-3 "> What’s the benefit of <br />
@@ -289,6 +289,7 @@ for the the companion of Zero <br />
 (hint :emoji women) that will grant  <br />
 access to the fully immersive lottery  <br />
 in the meravers</p>      
+
                 </div>
             </div>
        </div>
@@ -296,16 +297,16 @@ in the meravers</p>
            <div className="row text-center" id="footer_block" >
                <div className="col-sm-12 pb-2">
                    <div className="main-block"> 
-                   <a href="asda">
+                   <a href="">
                     <i className="bi bi-twitter cbw"></i>
                    </a>
-                   <a href="asda">
+                   <a href="">
                     <i className="bi bi-instagram cbw"></i>
                    </a>
-                   <a href="asda">
+                   <a href="">
                     <i className="bi bi-twitter cbw"></i> 
                    </a>
-                   <a href="asda">
+                   <a href="">
                     <i className="bi bi-facebook cbw"></i> 
                    </a>
                    </div>
