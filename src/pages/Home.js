@@ -43,10 +43,10 @@ function Home() {
             <div className="row">
                 <div className="col-sm text-center imgset" > 
                     <video playsInline autoPlay muted loop id="backgroundVideo">
-                    <source src="./Videos/videobg.mp4" type="video/mp4" />
-                          </video> 
-                         {/* background-video */}
-    
+
+                    	<source src="./Videos/video5k.mp4" type="video/mp4" />
+
+                    </video>    
                 </div>
             </div>
             <div className="row">
@@ -71,40 +71,80 @@ function Home() {
             </div>
         </div>
               
-       <div id="roadmapsection" className="container-fluid herothree">
+       <div id="roadmapsection" className="container-fluid herothree headsets">
            <div className="row">
-               <div className="col-sm-12 col-md-12 col-lg-6 pl-5 col-fil mtcol ">
-                   <h1 className="headsmain colorred text-center headset"> MAIN PROCESS</h1>
-                   <div className="block_container ">
-                       <div id="bloc1" className="fillcir">
-                           <h3 className="mr-3">20%</h3></div>
-                       <div id="bloc2">
-                           <h3 className="ml-3 col-fil h_font">Pay back zero</h3></div>
-                   </div>
-                   <div className="block_container ">
-                       <div id="bloc1" className="fillcir">
-                           <h3 className="mr-3">50%</h3></div>
-                       <div id="bloc2">
-                           <h3 className="ml-3 col-fil h_font">Multiple Cool cats raffle</h3></div>
-                   </div>
-                   <div className="block_container ">
-                       <div id="bloc1" className="fillcir">
-                           <h3 className="mr-3">70%</h3></div>
-                       <div id="bloc2">
-                           <h3 className="ml-3 col-fil h_font">Cool cats, clone X, World of women</h3></div>
-                   </div>
-                   <div className= "block_container ">
-                       <div id="bloc1" className="fillcir">
-                           <h3 className="mr-3">70%</h3></div>
-                       <div id="bloc2">
-                           <h3 className="ml-3 col-fil h_font">BORED APE raffle</h3></div>
-                   </div>
-               </div>
-               <div className="col-sm-12 col-md-12 col-lg-6 text-center bgimgsecthree"> </div>
-           </div>
-           <div className="row pl-5 col-fil">
+           <div className="col-sm-12">
+           <h1 className="headsmain colorred text-center"> MAIN PROCESS</h1>
+    <div className="main-timeline">
+                                <div className="timeline">
+                                <div className="icon"></div>
+                                <div className="date-content">
+                                    <div className="date-outer">
+                                        <span className="date">
+                                        <span className="year">20%</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className="timeline-content">
+                                    <h5 className="title">Pay back zero</h5>
+                                </div>
+                            </div>
+    
+                            <div className="timeline">
+                                <div className="icon"></div>
+                                <div className="date-content">
+                                    <div className="date-outer">
+                                        <span className="date">
+                                        <span className="year">50%</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className="timeline-content">
+                                    <h5 className="title">Multiple Cool cats raffle</h5>
+                                  
+                                </div>
+                            </div>
+                           
+                            <div className="timeline">
+                                <div className="icon"></div>
+                                <div className="date-content">
+                                    <div className="date-outer">
+                                        <span className="date">
+                                        <span className="year">70%</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className="timeline-content">
+                                    <h5 className="title">Cool cats, clone X, World of women
+                                    </h5>
+                                </div>
+                            </div>
+                         
+                            <div className="timeline">
+                                <div className="icon"></div>
+                                <div className="date-content">
+                                    <div className="date-outer">
+                                        <span className="date">
+                                        <span className="year">100%</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className="timeline-content">
+                                    <h5 className="title">BORED APE raffle
+                                    </h5>
+                                    
+                                </div>
+                            </div>
+                     
+    
+                        </div>
+                        <div className="row pl-5 col-fil">
                <div className="col-sm-12">
-               <h1 className="headsmain colorred pl-5 col-fil pb-3"> SO WHAT ABOUT AFTER MINT SOLD OUT ??? </h1> </div> </div>
+               <h1 className="headsmain colorred pl-5 col-fil pb-3"> SO WHAT ABOUT AFTER MINT SOLD OUT ??? </h1> </div>
+               </div>
+
+              </div>
+              </div>
        </div>
        <div className="container-fluid herofour">
            <div className="row pl-5 col-fil">
@@ -112,46 +152,46 @@ function Home() {
                <h1 className="headsmain mbd-0 pl-5 col-fil"> LET THE LOTTERY BEGINS</h1> </div>
                </div>
            <div className="row bgimgsecfour ">
-               <div className="col-sm-12"> <img src="css/images/sectionfourimg.png" className="rotate"/>
-                   <h1 className="headsmain pl-5 mbd-0 text-center cb  sec-ad"> What ?</h1>
-                   <p className="para text-center  "> ZERO is a the first metaverse lottery. Everyday, a lottery will be held for
+               <div className="col-sm-12"> <img src="images/wheelimg.png" className="adjimg"/>
+               <h1 className="headsmain mbd-0 cb mtt left-set"> HOW TO PLAY</h1>
+                   <p className="para left-set"> ZERO is a the first metaverse lottery. Everyday, a lottery will be held for
                        <br /> holder to win hell of lot of NFTs bluechip NFTs & (mainly - 1E) , Eth and
                        <br /> some juicy prizes (shhh.. surprise) </p>
                </div>
            </div>
            <div className="row bgimgsecfour  ">
-               <div className="col-sm-12 p-0"> <img src="css/images/sectionfourtwo.png"  className="rotater"/> </div>
+               <div className="col-sm-12 p-0"> <img src="css/images/sectionfourtwo.png"  className="rotate"/> 
+               <h1 className="headsmain mbd-0 cb mtt left-set right-set">WHO CAN PLAY ?</h1>
+               <p className="para left-set right-set"> Only #zero NFT holders will be eligible for the lottery, meaning that you need to 
+hold at least one #zero NFT to be eligible for the lottery. Of course, the more 
+#zero you own, the more entries you have. See it like loto tickets</p>
+  </div>
            </div>
-           <div className="row">
+           <div className="row bgimgsecfour ">
                <div className="col-sm-12">
-                   <h1 className="headsmain pl-5 mbd-0 text-center cb sec-ad"> What ?</h1>
-                   <p className="para text-center  "> ZERO is a the first metaverse lottery. Everyday, a lottery will be held for
-                       <br /> holder to win hell of lot of NFTs bluechip NFTs & (mainly - 1E) , Eth and
-                       <br /> some juicy prizes (shhh.. surprise) </p>
-               </div>
+               <img src="images/62.png" className="adjimg rotater"/>
+               <h1 className="headsmain mbd-0 cb mtt left-set"> HOW TO PLAY</h1>
+                   <p className="para left-set pt-2 pb-2"> Only by holding a #zero NFT grant you exclusive access. Though we want the 
+lottery to be fun, attractive and most of all gratifying, this is our P2E way, you play 
+to earn big!  </p>    
+<p className="para left-set pt-2 pb-2"> Daily lotteries will be held based on one or several #zero attributes… Meaning 
+that we will announce everyday (stealth announcement) in discord and/or twitter 
+the attributes that will be eligible for the lottery of the day. After announcement 
+we will give several hour to snapshot the holders that have the eligible attributes.  </p>    
+<p className="para left-set pt-2 pb-2"> By doing that we want to give the chance to any holder to to be selected for the 
+lottery.   </p>
+<p className="para left-set pt-2 pb-2"> Make wise moves, hold, sell, buy the NFT with the announced attributes ? it’s up to 
+you </p>
+            </div>
            </div>
-           <div className="row">
-               <div className="col-sm-12">
-                   <h1 className="headsmain pl-5 mbd-0 text-center cb mtt "> HOW TO PLAY</h1>
-                   <p className="para text-center  "> It’s simple as f… only by holding a #zero NFT grant you access. Though we want the lottery to be fun,
-                       <br /> attractive and most of all gratifying, this is our P2E, you play to earn big!
-                       <br /> Each daily lottery will be held on one or several #zero attributes… Meaning that we will announced
-                       <br /> everyday in a stealth announcement in discord or twitter the attributes that will be eligible for the raffle
-                       <br /> of the day. After the stealth announcement we will give 1 hour to snapshot the holders that have this
-                       <br /> attibutes or combination of attribute. The main purpose of this new concept is to allow everyone to
-                       <br /> have a chance to be selected for the lottery.
-                       <br /> Make wise moves, hold, sel, buy the NFT with the announced attributes ? it’s up to you
-                       <br /> </p>
-               </div>
+           <div className="row bgimgsecfour  ">
+               <div className="col-sm-12 p-0"> <img src="images/wheelimg.png"  className="adjimgs"/> 
+               <h1 className="headsmain mbd-0 cb mtt left-set right-set">WHAT CAN I WIN ?</h1>
+               <p className="para left-set right-set"> Here’s the list of NFT that will be put in the community pool and thus be <br /> 
+the prizes of the daily lotteries</p>
+  </div>
            </div>
-           <div className="row">
-               <div className="col-sm-12">
-                   <h1 className="headsmain pl-5 mbd-0 text-center cb mtt "> WHAT TO EARN </h1>
-                   <p className="para text-center"> Here’s the list of NFT that will be put in the community pool and thus be the prizes of the daily
-                       <br /> lotteries </p>
-               </div>
-           </div>
-           <div className="row">
+                   <div className="row">
                <div className="col-sm-12 text-center imgset"> <img src="images/backgroundpng.png" height="200" className=""/> </div>
            </div>
        </div>
@@ -211,21 +251,45 @@ function Home() {
        </div>
 
        <div id="faqsection" className="container-fluid herosix">
-            <div className="row text-center">
+            <div className="row text-right pr-5">
                 <div className="col-sm-12 pb-2">
-                    <h1 className="headsmain cb "> FAQs</h1> </div>
+                    <h1 className="headsmain cb pt-3"> FAQ</h1> </div>
+
             </div>
-            <div className="row text-right">
-                <div className="col-sm-12 ">
+            <div className="row text-left">
+                <div className="col-sm-12 set-colend ">
                     <h3 className="headsmain  mbd-0 cb mtt "> What is the total supply ?</h3>
-                    <p className="para cb"> A total of 5555 unique Superlative Apes NFTs will be created </p>
-                    <h3 className="headsmain  mbd-0 cb mtt "> What is an NFT ?</h3>
-                    <p className="para cb"> A total of 5555 unique Superlative Apes NFTs will be created </p>
-                    <h3 className="headsmain  mbd-0 cb mtt "> What is an NFT ?</h3>
-                    <p className="para cb"> A total of 5555 unique Superlative Apes NFTs will be created </p>
-                    <h3 className="headsmain  mbd-0 cb mtt "> What is an NFT ?</h3>
-                    <p className="para cb"> A total of 5555 unique Superlative Apes NFTs will be created </p>
-                    <div class="herolastone"></div>
+
+                    <p className="para cb"> A total of 5555 unique ZERO Character </p>
+                    <h3 className="headsmain  mbd-0 cb mtt "> When Zero launch?</h3>
+                    <p className="para cb"> Presale for Whitelisted people will begins Jan 19th 2022, 6PM EST <br/>
+Public sale will start 24hrs after, Jan 20th, 6PM EST </p>
+                    <h3 className="headsmain  mbd-0 cb mtt "> What is the mint cost ?</h3>
+                    <p className="para cb"> Presale (Whitelisted) : 0,04E <br />
+Public sale : 0,069 </p>
+                    <h3 className="headsmain  mbd-0 cb mtt "> Still have question ?</h3>
+                    <p className="para cb">Head to our Discord to learn more and ask any questions.</p>
+                </div>
+            </div>
+            <div className="row text-right flexxcol">
+            <div className="col-sm-6">
+            <div className="herolastone"></div>
+            </div>
+                <div className="col-sm-6 set-colend ">
+                    <h3 className="headsmain  mbd-0 cb mtt pb-3 "> What’s the benefit of <br />
+holding a Zero NFT ?</h3>
+                    <p className="para cb pb-3"> Zero NFT grant exclusive access to 
+the daily lotteries where blue-chip 
+NFT will be dropped </p>
+                    <h3 className="headsmain  mbd-0 cb mtt pb-3"> Will holders receive <br />
+free mint pass for the  <br />
+new collection ?</h3>
+                    <p className="para cb pb-3"> Each holders will receive a free pass <br />
+for the the companion of Zero <br />
+(hint :emoji women) that will grant  <br />
+access to the fully immersive lottery  <br />
+in the meravers</p>      
+
                 </div>
             </div>
        </div>
