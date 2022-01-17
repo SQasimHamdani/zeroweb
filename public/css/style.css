@@ -29,7 +29,15 @@ body {
   --bg-color: #141218;
 }
 
-
+.adjimg{
+  float: right;
+  margin: -7% -1% 0 0;
+}
+.adjimgs{
+  transform: rotate(
+180deg);
+  float: left;
+}
 .mintbtn {
   position:relative;
   padding: 10px 20px;  
@@ -213,7 +221,9 @@ a:hover {
     background-size: contain;
   transform: rotate(180deg);
 }
-
+.herolastone{
+background: url('images/74.png')bottom center no-repeat !important;
+background-size: contain !important;}
 
 .herofour {
   height: fit-content;
@@ -226,23 +236,9 @@ a:hover {
   background: #469ca8;
   padding: 5%;
 }
-
-.herosix {
-  height: fit-content;
-  background: #fcf9dd;
-  padding: 5%;
-  background-image: url('images/74.png');
-  background-repeat: no-repeat;
-  background-size: 56% 100%, cover;
-}
-
 .herolast {
   background: #000000;
   padding: 5%;
-}
-
-.img-adj {
-  /* margin-top: 5%; */
 }
 
 .cb {
@@ -272,11 +268,12 @@ a:hover {
 margin: 0px !important;
 }
 .mtt {
-  margin-top: 3%;
+  margin-top: 3% !important;
 }
 
 .rotate {
   transform: rotate(90deg);
+  float: left;
 }
 
 .rotater {
@@ -293,7 +290,15 @@ background-size: contain;
 background-repeat: no-repeat;
 transform: rotate(180deg); */
 }
-
+.herolastone{
+  background-size:  contain !important;
+  background-image: url('images/74.png') !important;
+  background-repeat: no-repeat !important;
+  height: 100% !important;
+}
+.set-colend{
+  padding: 0 4% 0 4%;
+}
 .fillcir {
   background: #991e24;
   color: #fff;
@@ -351,8 +356,30 @@ font-size: 47px;
 #footer_block{
     display: block !important;
   }
-
+  .left-set{
+text-align: left; 
+margin: auto; 
+width: 70%;
+  }
+  .right-set{
+    text-align: right; 
+  }
 @media screen and (max-width: 992px) {
+  .adjimg {
+    margin: 0 -11% 0 2%;
+  }
+  .adjimgs {
+    margin: 0 -11% 0 2%;
+    float:none
+  }
+  .rotate{
+    float:none;
+  }
+  .left-set{
+    text-align: left; 
+margin: auto; 
+width: 80%;
+  }
   .imgset img {
       width: 100%;
       height: 100%;
@@ -370,7 +397,6 @@ font-size: 47px;
   }
  
   .rotater {
-      margin-right: 3%;
   }
   .headsmain {
       font-size: 35px !important;
@@ -393,10 +419,6 @@ margin-bottom: 10%;
   }
   #footer_block{
     padding-top:3%;
-  }
-  .herosix{
-    /* background-size: 160% 100%, cover;
-    padding-bottom: 70%;  } */
   }
   br{
     display: none;
@@ -428,7 +450,7 @@ font-size: 35px;
     padding: 5%;
   }
 }
-#backgroundVideo{
+#background {
   width: 100%;
 }
 
@@ -440,15 +462,10 @@ font-size: 35px;
     }
 }
 @media (max-width: 480px) {
-    .herosix{
-    background-image: none !important;
-    }
-     .herolastone{
-    background-size:  cover !important;
-    background-image: url('images/74.png') !important;
-    background-repeat: no-repeat !important;
-    height: 380px !important;     
-}
+  .flexxcol{
+    display:flex;
+    flex-direction: column-reverse;
+  }
 .herosix{
     padding-bottom: 0%;
 }
