@@ -51,9 +51,9 @@ function Home() {
             </div>
             <div className="row">
                <div className="col-sm  text-center ">
-                    <button  className="mintbtn m-4  " onClick={() => {
-                        window.location.href = "https://mint.zeroproject.com"
-                            }}>
+                    <button  className="mintbtn m-4" 
+// onClick={() => { window.location.href = "https://mint.zeroproject.io"}}
+				    >
                             Mint Now
                     </button>
                </div>
