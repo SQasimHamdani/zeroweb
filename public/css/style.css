@@ -148,8 +148,12 @@ a:hover {
 }
 .herolastone{
 background: url('images/74.png')bottom center no-repeat !important;
-background-size: contain !important;}
-
+background-size: contain !important;
+padding: 22%; 
+}
+.manhat {
+  padding: 3% 3%;
+}
 .herofour {
   height: fit-content;
   background: #6a5c93;
@@ -160,6 +164,10 @@ background-size: contain !important;}
   height: fit-content;
   background: #469ca8;
   padding: 5%;
+}
+.heroparity{
+  background-color: #7fde86 !important;
+  padding-bottom: 0px !important;
 }
 .herolast {
   background: #000000;
@@ -208,18 +216,15 @@ margin: 0px !important;
 .bgimgsecfour img{
 height: 400px;
 }
+.bgimgsecfour h1{
+  font-size: 50px !important;
+}
 
 .bgimgsecfour {
   /* background-image: url('images/sectionfourimg.png');
 background-size: contain;
 background-repeat: no-repeat;
 transform: rotate(180deg); */
-}
-.herolastone{
-  background-size:  contain !important;
-  background-image: url('images/74.png') !important;
-  background-repeat: no-repeat !important;
-  height: 100% !important;
 }
 .set-colend{
   padding: 0 4% 0 4%;
@@ -236,7 +241,9 @@ transform: rotate(180deg); */
   text-align: left !important;
   margin: 50px !important;
 }
-
+.manh_p{
+margin: 0 auto;
+}
 #bloc1,
 #bloc2 {
   display: inline-block;
@@ -277,6 +284,10 @@ font-size: 63px;
 }
 .herofive .headsmain, .herosix .headsmain   {
 font-size: 47px;
+}
+.manhat .headsmain{
+  font-size: 26px;
+  padding-top: 3%;
 }
 #footer_block{
     display: block !important;
@@ -322,6 +333,9 @@ width: 80%;
   }
  
   .rotater {
+  }
+  .bgimgsecfour h1{
+    font-size: 26px !important;
   }
   .headsmain {
       font-size: 35px !important;
@@ -386,13 +400,29 @@ font-size: 35px;
         width: 100%;
     }
 }
-@media (max-width: 480px) {
+@media (max-width: 575px) {
   .flexxcol{
     display:flex;
     flex-direction: column-reverse;
   }
+  .col_new{
+width: 50%;
+  }
+  .s-dp{
+    display:none;
+  }
 .herosix{
     padding-bottom: 0%;
+}
+.herolastone{
+  padding: 50%;
+}
+.heroparity{
+  text-align: center;
+}
+.bg-sort img{
+width: 170px;
+height: 170px;
 }
 }
 

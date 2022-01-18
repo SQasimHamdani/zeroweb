@@ -192,9 +192,92 @@ the prizes of the daily lotteries</p>
   </div>
            </div>
                    <div className="row">
-               <div className="col-sm-12 text-center imgset"> <img src="images/backgroundpng.png" height="200" className=""/> </div>
+               <div className="col-sm-12 text-center imgset"> <img src="images/backgroundpng_web_opt.png" height="300" className=""/> </div>
            </div>
        </div>
+
+ <div id="parityection" className="container-fluid herofive heroparity">
+           <div className="row">
+               <div className="col-sm-12 pb-2">
+                   <h1 className="headsmain "> RARITY</h1> 
+                   </div>
+           </div>
+           <div className="row text-center ">
+               <div className="col-sm-6 pb-2">
+                  <img src="images/drman.png" height="400px;" className="mt-2"/>
+                  </div>
+                <div className="col-sm-6 pb-2 text-left">
+                           <p className="para cb"> Each zero is comprised of head, face, body, 
+accessories and background traits. Each reflecting 
+their style and personalities. Though there are two 
+type of Zero each giving access to different type of 
+lotteries: </p>
+<p className="para cb pl-5">- DR MANAHTAN (Platinum skin): Gives access 
+to all lotteries an EXCLUSIVE ACCESS to special 
+lotteries with very high value bluechip NFT prizes 
+(BAYC, PUNK…) and Eth drop. 
+</p>
+<p className="para cb pl-5">
+- ZERO (all other skins): Gives access to all 
+lotteries excluding the special going to be eligible 
+for all lotteries including blue-chip NFTs
+</p>
+      
+</div>
+</div>
+</div>
+<div className="container-fluid herofive heroparity">
+<div className="row text-center manhat ">
+               <div className="col-sm-12 col-md-4 pb-2">
+                  <img src="images/213.png" height="210px;" className="mt-2"/>
+                  <h3 className="headsmain  mbm text-center cb"> DR MANHATAN</h3>
+                           <p className="para text-center"> Gives access to the  <br />
+special lotteries and all  <br />
+lotteries 
+                           </p>
+                  </div>
+                  <div className="col-sm-12 col-md-8 pb-2">
+                  <div className="row text-center">
+                  <div className="col-sm-3 col-md-3 pb-2 col_new">
+                  <img src="images/212.png"  className="mt-2"/>
+                  </div>
+                  <div className="col-sm-3 col-md-3 pb-2 col_new">
+                  <img src="images/212.png"  className="mt-2"/>
+                  </div>
+                  <div className="col-sm-3 col-md-3 pb-2 col_new">
+                  <img src="images/212.png"  className="mt-2"/>
+                  </div>
+                  <div className="col-sm-3 col-md-3 pb-2 col_new">
+                  <img src="images/212.png"  className="mt-2"/>
+                  </div>
+
+                  </div>
+
+                  <div className="row text-center ">
+                  <h3 className="col-sm-12 text-center cb pt-5"> ZERO</h3>
+
+                  <p className="para manh_p "> Gives access to all lotteries excluding the SPECIAL LOTTERIES</p>
+
+</div>
+</div>                 
+</div>
+</div>
+<div className=" container-fluid herofive heroparity">
+<div className="row text-center bg-sort">
+                  <div className="col-sm-4 col_new">
+                  <img src="images/drman.png" height="300;"  className="mt-2"/>
+                  </div>
+                  <div className="col-sm-4 col_new">
+                  <img src="images/51.png" height="300;" className="mt-2"/>
+                  </div>
+                  <div className="col-sm-4 s-dp ">
+                  <img src="images/48.png" height="300;" className="mt-2"/>
+                  </div>
+
+                  </div>
+
+</div>
+
 
        <div id="teamsection" className="container-fluid herofive">
            <div className="row text-center">
@@ -266,14 +349,14 @@ the prizes of the daily lotteries</p>
                                             Public sale will start 24hrs after, Jan 20th, 6PM EST </p>
                     <h3 className="headsmain  mbd-0 cb mtt "> What is the mint cost ?</h3>
                     <p className="para cb"> Presale (Whitelisted) : 0,04E <br />
-                                            Public sale : 0,069 </p>
+                                            Public sale : 0,07 </p>
                     <h3 className="headsmain  mbd-0 cb mtt "> Still have question ?</h3>
                     <p className="para cb">Head to our Discord to learn more and ask any questions.</p>
                 </div>
             </div>
             <div className="row text-right flexxcol">
-            <div className="col-sm-6">
-            <div className="herolastone"></div>
+            <div className="col-sm-6 herolastone">
+            <div className=""></div>
             </div>
                 <div className="col-sm-6 set-colend ">
                     <h3 className="headsmain  mbd-0 cb mtt pb-3 "> What’s the benefit of <br />
