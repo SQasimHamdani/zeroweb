@@ -28,7 +28,7 @@ function Home() {
                             <a href="https://twitter.com/zerozeronft" target={{target:"_blank"}}>
                             <img className="seicon" src="images/twitter.svg"/>
                             </a>
-                            <a href="">
+                            <a href="https://discord.gg/dDjBp8YF" target={{target:"_blank"}}>
                             <img className="seicon" src="images/discord.svg"/>
                             </a>
                             <a href="">
@@ -44,7 +44,7 @@ function Home() {
                 <div className="col-sm text-center imgset" > 
                     <video playsInline autoPlay muted loop id="backgroundVideo">
 
-                    	<source src="./Videos/video5k.mp4" type="video/mp4" />
+                    	<source src="./Videos/video5kren.mp4" type="video/mp4" />
 
                     </video>    
                 </div>
@@ -54,7 +54,7 @@ function Home() {
                     <button  className="mintbtn m-4" 
 // onClick={() => { window.location.href = "https://mint.zeroproject.io"}}
 				    >
-                            Mint Now
+                            Mint Soon
                     </button>
                </div>
            </div>
@@ -75,69 +75,79 @@ function Home() {
            <div className="row">
            <div className="col-sm-12">
            <h1 className="headsmain colorred text-center"> MINT PROCESS</h1>
-    <div className="main-timeline">
-                                <div className="timeline">
-                                <div className="icon"></div>
-                                <div className="date-content">
-                                    <div className="date-outer">
-                                        <span className="date">
-                                        <span className="year">20%</span>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div className="timeline-content">
-                                    <h5 className="title">Pay back ZERO</h5>
-                                </div>
-                            </div>
+   <div className="main_rpmap pt-4 pb-4">
+    <div className="row align-items-center how-it-works d-flex">
+      <div className="col-2 text-center bottom d-inline-flex justify-content-center align-items-center">
+        <div className="circle font-weight-bold">20%</div>
+      </div>
+      <div className="col-10 ">
+        <h3>Pay back zero</h3>
+      </div>
+    </div>
+    <div className="row timeline">
+      <div className="col-2">
+        <div className="corner top-right"></div>
+      </div>
+      <div className="col-8">
+        <hr/>
+      </div>
+      <div className="col-2">
+        <div className="corner left-bottom"></div>
+      </div>
+    </div>
+   
+    <div className="row align-items-center justify-content-end how-it-works d-flex">
+      <div className="col-10  text-right">
+        <h3>DeadFellaz #6157 & CryptoMories 9979</h3>
+      </div>
+      <div className="col-2 text-center full d-inline-flex justify-content-center align-items-center">
+        <div className="circle font-weight-bold">40%</div>
+      </div>
+    </div>
+  
+    <div className="row timeline">
+      <div className="col-2">
+        <div className="corner right-bottom"></div>
+      </div>
+      <div className="col-8">
+        <hr/>
+      </div>
+      <div className="col-2">
+        <div className="corner top-left"></div>
+      </div>
+    </div>
+  
+    <div className="row align-items-center how-it-works d-flex">
+      <div className="col-2 text-center top d-inline-flex justify-content-center align-items-center">
+        <div className="circle font-weight-bold">60%</div>
+      </div>
+      <div className="col-10 ">
+        <h3>Clone x #4883</h3>
+      </div>
+      </div>
+      <div className="row timeline">
+      <div className="col-2">
+        <div className="corner top-right"></div>
+      </div>
+      <div className="col-8">
+        <hr/>
+      </div>
+      <div className="col-2">
+        <div className="corner left-bottom"></div>
+      </div>
+    </div>
+   
+    <div className="row align-items-center justify-content-end how-it-works d-flex">
+      <div className="col-10  text-right">
+        <h3>BORED APE raffle</h3>
+      </div>
+      <div className="col-2 text-center full d-inline-flex justify-content-center align-items-center">
+        <div className="circle last_circle font-weight-bold">100%</div>
+      </div>
+    </div>
+ </div>
+      
     
-                            <div className="timeline">
-                                <div className="icon"></div>
-                                <div className="date-content">
-                                    <div className="date-outer">
-                                        <span className="date">
-                                        <span className="year">50%</span>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div className="timeline-content">
-                                    <h5 className="title">Multiple Cool Cats Raffle</h5>
-                                  
-                                </div>
-                            </div>
-                           
-                            <div className="timeline">
-                                <div className="icon"></div>
-                                <div className="date-content">
-                                    <div className="date-outer">
-                                        <span className="date">
-                                        <span className="year">70%</span>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div className="timeline-content">
-                                    <h5 className="title">Cool Cats, Clone X, World of Women
-                                    </h5>
-                                </div>
-                            </div>
-                         
-                            <div className="timeline">
-                                <div className="icon"></div>
-                                <div className="date-content">
-                                    <div className="date-outer">
-                                        <span className="date">
-                                        <span className="year">100%</span>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div className="timeline-content">
-                                    <h5 className="title">BORED APE Raffle
-                                    </h5>
-                                    
-                                </div>
-                            </div>
-                     
-    
-                        </div>
                         <div className="row pl-5 col-fil">
                <div className="col-sm-12">
                <h1 className="headsmain colorred pl-5 col-fil pb-3"> SO WHAT ABOUT AFTER MINT SOLD OUT ??? </h1> </div>
@@ -192,90 +202,18 @@ the prizes of the daily lotteries</p>
   </div>
            </div>
                    <div className="row">
-               <div className="col-sm-12 text-center imgset"> <img src="images/backgroundpng_web_opt.png" height="300" className=""/> </div>
+               <div className="col-sm-12 text-center imgset"> <img src="images/backgroundpng_webgroups.png" height="300" className=""/> </div>
            </div>
        </div>
 
  <div id="parityection" className="container-fluid herofive heroparity">
-           <div className="row">
+ <div className="row">
                <div className="col-sm-12 pb-2">
                    <h1 className="headsmain "> RARITY</h1> 
+                   <img src="images/paritysec.png" height="750" className="mt-2"/> 
+
                    </div>
            </div>
-           <div className="row text-center ">
-               <div className="col-sm-6 pb-2">
-                  <img src="images/drman.png" height="400px;" className="mt-2"/>
-                  </div>
-                <div className="col-sm-6 pb-2 text-left">
-                           <p className="para cb"> Each zero is comprised of head, face, body, 
-accessories and background traits. Each reflecting 
-their style and personalities. Though there are two 
-type of Zero each giving access to different type of 
-lotteries: </p>
-<p className="para cb pl-5">- DR MANAHTAN (Platinum skin): Gives access 
-to all lotteries an EXCLUSIVE ACCESS to special 
-lotteries with very high value bluechip NFT prizes 
-(BAYC, PUNK…) and Eth drop. 
-</p>
-<p className="para cb pl-5">
-- ZERO (all other skins): Gives access to all 
-lotteries excluding the special going to be eligible 
-for all lotteries including blue-chip NFTs
-</p>
-      
-</div>
-</div>
-</div>
-<div className="container-fluid herofive heroparity">
-<div className="row text-center manhat ">
-               <div className="col-sm-12 col-md-4 pb-2">
-                  <img src="images/213.png" height="210px;" className="mt-2"/>
-                  <h3 className="headsmain  mbm text-center cb"> DR MANHATAN</h3>
-                           <p className="para text-center"> Gives access to the  <br />
-special lotteries and all  <br />
-lotteries 
-                           </p>
-                  </div>
-                  <div className="col-sm-12 col-md-8 pb-2">
-                  <div className="row text-center">
-                  <div className="col-sm-3 col-md-3 pb-2 col_new">
-                  <img src="images/212.png"  className="mt-2"/>
-                  </div>
-                  <div className="col-sm-3 col-md-3 pb-2 col_new">
-                  <img src="images/212.png"  className="mt-2"/>
-                  </div>
-                  <div className="col-sm-3 col-md-3 pb-2 col_new">
-                  <img src="images/212.png"  className="mt-2"/>
-                  </div>
-                  <div className="col-sm-3 col-md-3 pb-2 col_new">
-                  <img src="images/212.png"  className="mt-2"/>
-                  </div>
-
-                  </div>
-
-                  <div className="row text-center ">
-                  <h3 className="col-sm-12 text-center cb pt-5"> ZERO</h3>
-
-                  <p className="para manh_p "> Gives access to all lotteries excluding the SPECIAL LOTTERIES</p>
-
-</div>
-</div>                 
-</div>
-</div>
-<div className=" container-fluid herofive heroparity">
-<div className="row text-center bg-sort">
-                  <div className="col-sm-4 col_new">
-                  <img src="images/drman.png" height="300;"  className="mt-2"/>
-                  </div>
-                  <div className="col-sm-4 col_new">
-                  <img src="images/51.png" height="300;" className="mt-2"/>
-                  </div>
-                  <div className="col-sm-4 s-dp ">
-                  <img src="images/48.png" height="300;" className="mt-2"/>
-                  </div>
-
-                  </div>
-
 </div>
 
 
@@ -379,18 +317,15 @@ lotteries
            <div className="row text-center" id="footer_block" >
                <div className="col-sm-12 pb-2">
                    <div className="main-block"> 
-                   <a href="">
-                    <i className="bi bi-twitter cbw"></i>
+                   <a href="https://twitter.com/zerozeronft" target={{target:"_blank"}}>
+                   <img className="seicn cbw" src="images/twitter_1.png"/>
                    </a>
+                   <a href="https://discord.gg/dDjBp8YF" target={{target:"_blank"}}>
+                   <img className="seicn cbw" src="images/discord_1.png"/>
+                            </a>
                    <a href="">
-                    <i className="bi bi-instagram cbw"></i>
-                   </a>
-                   <a href="">
-                    <i className="bi bi-twitter cbw"></i> 
-                   </a>
-                   <a href="">
-                    <i className="bi bi-facebook cbw"></i> 
-                   </a>
+                   <img className="seicn cbw" src="images/opensea-1.png"/>
+                    </a>
                    </div>
                    <p className="para pt-5 pb-3"> © COPYRIGHT 2022 ZERO PROJECT | ALL RIGHTS RESERVED ® </p>
                </div>
