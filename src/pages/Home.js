@@ -79,7 +79,7 @@ function Home() {
            <div className="row">
            <div className="col-sm-12 pb-2">
            <h1 className="headsmain colorred"> MINT PROGRESS GIVEAWAYS</h1>
-   <img src="images/roadmap_final.png"  className="mt-2"/> 
+   <img src="images/Roadmap_final.png"  className="mt-2"/> 
  
    </div>
    </div>
