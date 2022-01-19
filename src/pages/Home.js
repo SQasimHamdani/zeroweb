@@ -121,7 +121,7 @@ function Home() {
                <h1 className="headsmain mbd-0 cb mtt left-set"> HOW TO PLAY</h1>
                    <p className="para left-set pt-2"> Rules are simple: own at least one #Zero NFT </p>    
 <p className="para left-set pt-2"> For special lotteries we will add another selection criteria to spice it up a bit : The “Eligible Attributes”. </p>  
-<p className="para left-set pt-2"> The Eligible attributes are Zero attributes that have been randomly selected and announced the day prior each special lottery. By doing so, we want to increase the probability to win for Zero holders holding ‘eligible attributes’… The more Zero NFT the higher the chance to win the lottery (1 NTF WITH ELIGIBLE ATTRIBUTE = 1ENTRY) </p>    
+<p className="para left-set pt-2"> The Eligible attributes are Zero attributes that have been randomly selected and announced the day prior each special lottery. By doing so, we want to increase the probability to win for Zero holders that have ‘eligible attributes’… The more Zero NFT the higher the chance to win the lottery (1 NTF WITH ELIGIBLE ATTRIBUTE = 1ENTRY) </p>    
 
             </div>
            </div>
@@ -198,7 +198,7 @@ He’s the tech guru </p>
                        <div className="col-sm-12 setpading"> <img src="images/44.png" height="300" className="mt-5"/>
                            <h3 className="headsmain  mbd-0 text-center cb mtt "> SYED</h3>
                            <h3 className="headsmain mbm text-center cb ">Artists Group</h3>
-                           <p className="para text-center"> Syed is a Co-Founder of Galictic NFT Studio 
+                           <p className="para text-center"> Syed is the Co-Founder of Galictic NFT Studio 
                                <br /> along with Habib and Talal. Expert in 
                                <br /> Design and NFT Token Generation.  </p>
                        </div>
