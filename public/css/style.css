@@ -48,7 +48,7 @@ body {
   
   font-weight: 900;
   text-transform: uppercase;
-  font-size: 30px;  
+  font-size: 40px;  
   color: var(--text-color);
   
   background-color: var(--btn-color);
@@ -124,7 +124,10 @@ a,
 a:hover {
   text-decoration: none !important;
 }
-
+.logo_s{
+  width: 190px;
+  height: 55px;
+}
 .heroone {
   height: fit-content;
   background: #fff056;
@@ -132,7 +135,7 @@ a:hover {
 }
 
  .bgimgsectwo {
-  background: url('images/sectiontwoimg.png')bottom center no-repeat !important;
+  background: url('images/sectiontwoimg_1.png')bottom center no-repeat !important;
   background-size: contain !important;
 }
 
@@ -189,7 +192,9 @@ width: 65%;
   background: #000000;
   padding: 5%;
 }
-
+.setpading{
+  padding-top: 8%;
+}
 .cb {
   color: black !important;
 }
@@ -276,7 +281,12 @@ margin: 0 auto;
   margin-bottom: 10%;
   margin-right: 5%;
 }
-
+.adjust_para .para{
+  color: black;
+  font-size: 14px;
+  line-height: 22px;
+  margin-bottom: 2%;
+}
 .para {
   font-size: 25px;
   color: white;
@@ -413,8 +423,17 @@ margin: 5px;
          /* background: url("../Videos/video.mp4") repeat; */
         width: 100%;
     }
+    .setpading{
+      padding-top: 2%;
+    }
     .main_rpmap{
       width: 100%;
+    }
+    .adjust_para .para{
+      font-size: 10px;
+      line-height: 15px;
+      margin: 0 auto !important;
+    padding: 20px;
     }
     .main_rpmap h3{
 font-size: 18px;

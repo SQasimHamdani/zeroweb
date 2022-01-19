@@ -4,7 +4,7 @@ function Home() {
    <> 
     <div className="cotainer bg-nav" style={{paddingLeft: "10%",paddingRight: "10%"}}>
             <nav className="navbar navbar-expand-lg navbar-light ">
-                <a className="navbar-brand" href="#"><img src="images/logo.svg"/></a>
+                <a className="navbar-brand" href="#"><img className="logo_s" src="images/logo.png"/></a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -66,7 +66,11 @@ function Home() {
                 <div className="col-sm-12 col-md-12 col-lg-6 text-center bgimgsectwo"> </div>
                 <div className="col-sm-12 col-md-12 col-lg-6 text-center mbcol">
                     <h1 className="headsmain headset"> ZERO PROJECT  </h1>
-                    <p className="para paraset"> Zero is the first Metaverse project built like a transparent lottery. We designed a collection of 5555 unique NFTs— unique digital collectibles living on the Ethereum blockchain. Your zero doubles as your Club membership card, and grants access to members-only benefits, the first of which is access to EVERY GAMES to win EVERYDAY a Bluechip NFT s.a BAYC, PUNKS, COOL CATS, VEEFRIENDS and more. Mind blowing perks can be unlocked by the community through roadmap activation. We will be transparently give back 50% of the mint in assets and eth, then we will start building the most exciting roadmap of this space. Fasten your damn f*** seatbelts. Visit www.zeronft.com for more details ! </p>
+                    <p className="para paraset"> 
+                    Zero is the first Metaverse lottery project in the NFT space. We designed a collection of 5555 unique NFTs— unique digital collectibles living on the Ethereum blockchain. Your zero gives you access to members-only benefits, the first of which is access to the DAILY LOTTERIES to win NFTs including bluechip s.a BAYC,COOL CATS, DOODLES, VEEFRIENDS and many many more cool projects. Once mint sells out, we will be transparently using 50% of the mint revenue to purchase NFTs that will be put into play in our daily lotteries. Every purchase decision will be  subject to a community vote. Last but not least, we will live stream everyday the winner selection process
+ 
+<br /> Fasten your damn f*** seatbelts, Zero is gonna shake this space
+                    </p>
                 </div>
             </div>
         </div>
@@ -75,14 +79,16 @@ function Home() {
            <div className="row">
            <div className="col-sm-12 pb-2">
            <h1 className="headsmain colorred"> MINT PROGRESS GIVEAWAYS</h1>
-   <img src="images/roadmap_1.png"  className="mt-2"/> 
+   <img src="images/roadmap_final.png"  className="mt-2"/> 
  
    </div>
    </div>
     
                         <div className="row col-fil">
-               <div className="col-sm-12">
-               <h1 className="headsmain colorred col-fil pb-3"> SO WHAT ABOUT AFTER MINT SOLD OUT ??? </h1> </div>
+               <div className="col-sm-12 adjust_para">
+               <p className="para left-set"> We will purchase the Bored Ape along in a live video just after mint sells out. The BAYC giveaway will run on our #giveaways channel during x hours. Winner will be picked randomly by our discord bot. Every steps of this process will be recorded and live streamed in discord. </p>
+
+                </div>
                </div>
 
               </div>
@@ -113,24 +119,29 @@ function Home() {
                <div className="col-sm-12">
                <img src="images/622.png" className="adjimg rotater"/>
                <h1 className="headsmain mbd-0 cb mtt left-set"> HOW TO PLAY</h1>
-                   <p className="para left-set pt-2 pb-2"> Only by holding a #zero NFT grant you exclusive access. Though we want the 
-lottery to be fun, attractive and most of all gratifying, this is our P2E way, you play 
-to earn big!  </p>    
-<p className="para left-set pt-2 pb-2"> Daily lotteries will be held based on one or several #zero attributes… Meaning 
-that we will announce everyday (stealth announcement) in discord and/or twitter 
-the attributes that will be eligible for the lottery of the day. After announcement 
-we will give several hour to snapshot the holders that have the eligible attributes.  </p>    
-<p className="para left-set pt-2 pb-2"> By doing that we want to give the chance to any holder to to be selected for the 
-lottery.   </p>
-<p className="para left-set pt-2 pb-2"> Make wise moves, hold, sell, buy the NFT with the announced attributes ? it’s up to 
-you </p>
+                   <p className="para left-set pt-2"> Rules are simple: own at least one #Zero NFT </p>    
+<p className="para left-set"> However we added some spice to this rule. We want you guys to have fun playing this game. This is our P2E style
+Hey Zero what do you mean by <em>“fun”</em>?
+ </p>  
+<p className="para left-set"><b>Monday, March 29th: </b> Master Zero makes an announcement on discord: </p>    
+<p className="para left-set">  “March 30th lottery prize is Doodle #3421 !” </p>
+<p className="para left-set">  <em> …The day after, Master Zero Tweets this:</em> </p>
+<p className="para left-set"> “Blue hat,  24hours” …  </p>
+<p className="para left-set">
+In this example, you have to own at least one Zero NFT that has a blue hat to participate to this lottery. Giving that there are only 100 Zeros wearing a blue hat, you have at least 1% chance to win the lottery. Of course the more blue hat	 you own the higher your chance of winning the lottery (1 ELIGIBLE ATTRIBUTE = 1ENTRY)
+<br /> Make wise moves… hold, sell, buy? <br /> 
+Now, let the game begins <br />
+</p>
             </div>
            </div>
            <div className="row bgimgsecfour  ">
                <div className="col-sm-12 p-0"> <img src="images/wheelimg.png"  className="adjimgs"/> 
                <h1 className="headsmain mbd-0 cb mtt left-set right-set">WHAT CAN I WIN ?</h1>
-               <p className="para left-set right-set"> Here’s the list of NFT that will be put in the community pool and thus be <br /> 
-the prizes of the daily lotteries</p>
+               <p className="para left-set right-set"> 
+               Valuable NFT every day including bluechip NFTs such as coolcat, doodle, veefriends… <br />
+The community will vote and decide which NFT projects we will purchase after<br /> mint sells out in order to start our lottery NFT pool 
+
+               </p>
   </div>
            </div>
                    <div className="row">
@@ -160,10 +171,10 @@ the prizes of the daily lotteries</p>
                        <div className="col-sm-12 img-adj"> <img src="images/18.png" height="300" className="mt-2"/>
                            <h3 className="headsmain  mbd-0 text-center cb mtt "> CRYPTONIS</h3>
                            <h3 className="headsmain  mbm text-center cb"> Founder</h3>
-                           <p className="para text-center"> NFT investor, artist and creator. Early in
-                               <br /> the NFT space. Former consultant in
-                               <br /> digital strategy and founder of ecommerce
-                               <br /> Marketplace </p>
+                           <p className="para text-center"> Early NFT investor and BAYC holder, artist and creator. 
+Prior to Web3 and NFT, he was  consultant in digital strategy and is a  Startup founder (Ecommerce Marketplace)
+He’s our Master Zero
+                                </p>
                                <a href="https://twitter.com/cryptonis4" target={{target:"_blank"}}>
                    <img className="seicn cbw" src="images/twitter.svg"/>
                    </a>
@@ -173,10 +184,8 @@ the prizes of the daily lotteries</p>
                        <div className=" col-sm-12"> <img src="images/32.png" height="300" className="mt-5"/>
                            <h3 className="headsmain  mbd-0 text-center cb mtt "> THE NIZZAR</h3>
                            <h3 className="headsmain  mbm text-center cb "> Expert</h3>
-                           <p className="para text-center"> NFT investor, artist and creator. Early in
-                               <br /> the NFT space. Former consultant in
-                               <br /> digital strategy and founder of ecommerce
-                               <br /> Marketplace </p>
+                           <p className="para text-center"> Nizzar is an OG in the NFT space ! Early investor, early BAYC holder and currently managing a 10M$ Vault called’ UnlimitArt’, 
+He drew Zero project roadmap with Crytponis</p>
                                <a href="https://twitter.com/Thenizzar" target={{target:"_blank"}}>
                    <img className="seicn cbw" src="images/twitter.svg"/>
                    </a>
@@ -189,14 +198,13 @@ the prizes of the daily lotteries</p>
                            <h3 className="headsmain  mbd-0 text-center cb mtt ">LOUIS</h3>
                            <h3 className="headsmain  mbm text-center cb ">Developer</h3>
    
-                           <p className="para text-center"> NFT investor, artist and creator. Early in
-                               <br /> the NFT space. Former consultant in
-                               <br /> digital strategy and founder of ecommerce
-                               <br /> Marketplace </p>
+                           <p className="para text-center"> Master Solidity dev in France <br />
+Louis has worked on several DEFI projects <br /> and have been involved in several big Nft projects <br />
+He’s the tech guru </p>
                        </div>
                    </div>
                    <div className="row">
-                       <div className="col-sm-12"> <img src="images/44.png" height="300" className="mt-5"/>
+                       <div className="col-sm-12 setpading"> <img src="images/44.png" height="300" className="mt-5"/>
                            <h3 className="headsmain  mbd-0 text-center cb mtt "> SYED</h3>
                            <h3 className="headsmain mbm text-center cb ">Artists Group</h3>
                            <p className="para text-center"> Syed is a Co-Founder of Galictic NFT Studio 
@@ -237,17 +245,15 @@ the prizes of the daily lotteries</p>
                 <div className="col-sm-6 set-colend ">
                     <h3 className="headsmain  mbd-0 cb mtt pb-3 "> What’s the benefit of <br />
                         holding a Zero NFT ?</h3>
-                                            <p className="para cb pb-3"> Zero NFT grant exclusive access to 
-                        the daily lotteries where blue-chip 
-                        NFT will be dropped </p>
-                                            <h3 className="headsmain  mbd-0 cb mtt pb-3"> Will holders receive <br />
-                        free mint pass for the  <br />
-                        new collection ?</h3>
-                                            <p className="para cb pb-3"> Each holders will receive a free pass <br />
-                        for the the companion of Zero <br />
-                        👩 that will grant  <br />
-                        access to the fully immersive lottery  <br />
-                        in the meraverse</p>      
+                                            <p className="para cb pb-3"> 
+                                            Zero NFT gives you exclusive access to our daily lotteries to win NFTs including bluechip (s.a Cool cat, doodle, Veefriends and many more…)
+                                            </p>
+                                            <h3 className="headsmain  mbd-0 cb mtt pb-3"> 
+                                            What's the next phase ?
+                                             </h3>
+                                            <p className="para cb pb-3"> 
+                                            Sandbox land, Fully immersive lottery in the Metaverse, Mint pass for our upcoming collections... It's only the beginning and we are here to stay (Announcements will be made later on)
+                                            </p>      
                 </div>
             </div>
        </div>
