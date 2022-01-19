@@ -198,7 +198,7 @@ He’s the tech guru </p>
                        <div className="col-sm-12 setpading"> <img src="images/44.png" height="300" className="mt-5"/>
                            <h3 className="headsmain  mbd-0 text-center cb mtt "> SYED</h3>
                            <h3 className="headsmain mbm text-center cb ">Artists Group</h3>
-                           <p className="para text-center"> Syed is the Co-Founder of Galictic NFT Studio 
+                           <p className="para text-center"> Syed is The Co-Founder of Galictic NFT Studio 
                                <br /> along with Habib and Talal. Expert in 
                                <br /> Design and NFT Token Generation.  </p>
                        </div>
