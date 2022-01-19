@@ -60,8 +60,8 @@ function Home() {
            </div>
            <div className="row countdown">
            <div className="col-12">
-    <ul>
-      <li><span id="days"></span>days</li>
+    <ul> 
+      <li><span id="days"></span>days</li> 
       <li><span id="hours"></span>Hours</li>
       <li><span id="minutes"></span>Minutes</li>
       <li><span id="seconds"></span>Seconds</li>
