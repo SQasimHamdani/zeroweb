@@ -205,7 +205,7 @@ width: 65%;
   width: 50px;
 }
 .main-block {
-  background: #336487;
+  /* background: #336487; */
   padding: 2% 5%;
   width: fit-content;
   margin: 0 auto;
@@ -304,7 +304,7 @@ font-size: 63px;
 .sec-ad{
   margin-top: -9% !important;
 }
-.herofive .headsmain, .herosix .headsmain   {
+.texthero .headsmain, .herosix .headsmain   {
 font-size: 47px;
 }
 .manhat .headsmain{

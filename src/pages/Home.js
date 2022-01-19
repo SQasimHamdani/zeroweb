@@ -86,7 +86,7 @@ function Home() {
     
                         <div className="row col-fil">
                <div className="col-sm-12 adjust_para">
-               <p className="para left-set"> We will purchase the Bored Ape along in a live video just after mint sells out. The BAYC giveaway will run on our #giveaways channel during x hours. Winner will be picked randomly by our discord bot. Every steps of this process will be recorded and live streamed in discord. </p>
+               <p className="para left-set"> * We will purchase the Bored Ape in a live video just after mint sells out. The BAYC giveaway will run on our #giveaways channel during x hours. Winner will be picked randomly by our discord bot. Every steps of this process will be recorded and live streamed in discord. </p>
 
                 </div>
                </div>
@@ -156,7 +156,7 @@ The community will vote and decide which NFT projects we will purchase after<br 
                <div className="col-sm-12 pb-2">
                    <h1 className="headsmain "> THE TEAM</h1> </div>
            </div>
-           <div className="row text-center ">
+           <div className="row text-center texthero ">
                <div className="col-sm-6 pb-2">
                    <div className="row ">
                        <div className="col-sm-12 img-adj"> <img src="images/18.png" height="300" className="mt-2"/>
