@@ -101,7 +101,7 @@ function Home() {
                </div>
            <div className="row bgimgsecfour ">
                <div className="col-sm-12"> <img src="images/wheelimg.png" className="adjimg"/>
-               <h1 className="headsmain mbd-0 cb mtt left-set"> HOW TO PLAY</h1>
+               <h1 className="headsmain mbd-0 cb mtt left-set"> WHAT'S ZERO PROJECT ?</h1>
                    <p className="para left-set"> ZERO PROJECT is the first Metaverse #NFT lottery  <br /> with 5555 unique digital collectibles living on the Ethereum blockchain </p>
                    <p className="para left-set pt-1"> Each Zero NFT is a ticket to participate to our daily lotteries to win #NFTs <br /> including bluechip NFTs, and some juicy prizes... </p>
 
@@ -118,7 +118,7 @@ function Home() {
            <div className="row bgimgsecfour bg_play">
                <div className="col-sm-12">
                <img src="images/622.png" className="adjimg rotater"/>
-               <h1 className="headsmain mbd-0 cb mtt left-set"> HOW TO PLAY</h1>
+               <h1 className="headsmain mbd-0 cb mtt left-set"> HOW TO PLAY ?</h1>
                    <p className="para left-set pt-2"> Rules are simple: own at least one #Zero NFT </p>    
 <p className="para left-set pt-2"> For special lotteries we will add another selection criteria to spice it up a bit : The “Eligible Attributes”. </p>  
 <p className="para left-set pt-2"> The Eligible attributes are Zero attributes that have been randomly selected and announced the day prior each special lottery. By doing so, we want to increase the probability to win for Zero holders that have ‘eligible attributes’… The more Zero NFT the higher the chance to win the lottery (1 NTF WITH ELIGIBLE ATTRIBUTE = 1ENTRY) </p>    
