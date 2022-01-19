@@ -20,6 +20,46 @@ body {
 }
 
 /*  */
+/* counter START */
+:root {
+  --smaller: .75;
+}
+.countdown {
+  text-align: center;
+}
+li {
+  display: inline-block;
+  font-size: 1.5em;
+  list-style-type: none;
+  padding: 1em;
+  text-transform: uppercase;
+}
+
+li span {
+  display: block;
+  font-size: 4.5rem;
+}
+
+.emoji {
+  display: none;
+  padding: 1rem;
+}
+
+.emoji span {
+  font-size: 4rem;
+  padding: 0 .5rem;
+}
+
+@media all and (max-width: 768px) {
+  li {
+    font-size: calc(1.125rem * var(--smaller));
+  }
+  
+  li span {
+    font-size: calc(3.375rem * var(--smaller));
+  }
+}
+/* counter END */
 
 
 :root {
@@ -186,7 +226,7 @@ width: 65%;
   background-color: #110a39 !important;
   padding-bottom: 0px !important;
   height: fit-content;
-    padding: 5%;
+    /* padding: 5%; */
 }
 .herolast {
   background: #000000;
@@ -449,7 +489,7 @@ font-size: 18px;
     flex-direction: column-reverse;
   }
   .heroparity img{
-    height: 195px;
+    height: 175px;
     width: 100%;
       }
   .col_new{

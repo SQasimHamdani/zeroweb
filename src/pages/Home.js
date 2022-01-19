@@ -51,13 +51,26 @@ function Home() {
             </div>
             <div className="row">
                <div className="col-sm  text-center ">
-                    <button  className="mintbtn m-4" 
+                    <button  className="mintbtn m-2" 
 // onClick={() => { window.location.href = "https://mint.zeroproject.io"}}
 				    >
                             Mint Soon
                     </button>
                </div>
            </div>
+           <div className="row countdown">
+           <div className="col-12">
+    <ul>
+      <li><span id="days"></span>days</li>
+      <li><span id="hours"></span>Hours</li>
+      <li><span id="minutes"></span>Minutes</li>
+      <li><span id="seconds"></span>Seconds</li>
+    </ul>
+  </div>
+  <div id="content" class="emoji">
+    <span> LIVE NOW </span>
+  </div>
+  </div>
        </div>
 
         <div id="zerosection" className="container-fluid herotwo">
@@ -121,7 +134,7 @@ function Home() {
                <h1 className="headsmain mbd-0 cb mtt left-set"> HOW TO PLAY ?</h1>
                    <p className="para left-set pt-2"> Rules are simple: own at least one #Zero NFT </p>    
 <p className="para left-set pt-2"> For special lotteries we will add another selection criteria to spice it up a bit : The “Eligible Attributes”. </p>  
-<p className="para left-set pt-2"> The Eligible attributes are Zero attributes that have been randomly selected and announced the day prior each special lottery. By doing so, we want to increase the probability to win for Zero holders that have ‘eligible attributes’… The more Zero NFT the higher the chance to win the lottery (1 NTF WITH ELIGIBLE ATTRIBUTE = 1ENTRY) </p>    
+<p className="para left-set pt-2"> The Eligible attributes are Zero attributes that have been randomly selected and announced the day prior each special lottery. By doing so, we want to increase the probability to win for Zero holders that have ‘eligible attributes’… The more Zero NFT the higher the chance to win the lottery (1 NFT WITH ELIGIBLE ATTRIBUTE = 1ENTRY) </p>    
 
             </div>
            </div>
@@ -143,8 +156,8 @@ The community will vote and decide which NFT projects we will purchase after<br 
  <div id="parityection" className="container-fluid  heroparity">
  <div className="row">
                <div className="col-sm-12 pb-2">
-                   <h1 className="headsmain "> RARITY</h1> 
-                   <img src="images/paritysec_1.png"  className="mt-2"/> 
+                   <h1 className="headsmain pl-5 pt-5 pb-3"> RARITY</h1> 
+                   <img src="images/paritysec_01.png"  className="mt-2"/> 
 
                    </div>
            </div>
@@ -222,10 +235,15 @@ He’s the tech guru </p>
                     <p className="para cb"> Presale for Whitelisted people will begins Jan 19th 2022, 6PM EST <br/>
                                             Public sale will start 24hrs after, Jan 20th, 6PM EST </p>
                     <h3 className="headsmain  mbd-0 cb mtt "> What is the mint cost ?</h3>
-                    <p className="para cb"> Presale (Whitelisted) : 0,04E <br />
-                                            Public sale : 0,07 </p>
+                    <p className="para cb"> Presale (Whitelisted) : 0,04Ξ <br />
+                                            Public sale : 0,07Ξ </p>
                     <h3 className="headsmain  mbd-0 cb mtt "> Still have question ?</h3>
                     <p className="para cb">Head to our Discord to learn more and ask any questions.</p>
+                    
+                    <h3 className="headsmain  mbd-0 cb mtt "> What is the mint revenues allocation ?</h3>
+                    <p className="para cb">50% of mint  will be used to purchase NFTs for the lottery wallet.  <br />
+20% will be redistributed to the team <br />
+30% will be used to build and develop the Roadmap v2</p>
                 </div>
             </div>
             <div className="row text-right flexxcol">
