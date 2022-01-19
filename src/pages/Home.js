@@ -144,7 +144,7 @@ The community will vote and decide which NFT projects we will purchase after<br 
  <div className="row">
                <div className="col-sm-12 pb-2">
                    <h1 className="headsmain "> RARITY</h1> 
-                   <img src="images/paritysec.png"  className="mt-2"/> 
+                   <img src="images/paritysec_1.png"  className="mt-2"/> 
 
                    </div>
            </div>
