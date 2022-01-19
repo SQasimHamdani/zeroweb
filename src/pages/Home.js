@@ -73,89 +73,21 @@ function Home() {
               
        <div id="roadmapsection" className="container-fluid herothree headsets">
            <div className="row">
-           <div className="col-sm-12">
-           <h1 className="headsmain colorred text-center"> MINT PROCESS</h1>
-   <div className="main_rpmap pt-4 pb-4">
-    <div className="row align-items-center how-it-works d-flex">
-      <div className="col-2 text-center bottom d-inline-flex justify-content-center align-items-center">
-        <div className="circle font-weight-bold">20%</div>
-      </div>
-      <div className="col-10 ">
-        <h3>Pay back zero</h3>
-      </div>
-    </div>
-    <div className="row timeline">
-      <div className="col-2">
-        <div className="corner top-right"></div>
-      </div>
-      <div className="col-8">
-        <hr/>
-      </div>
-      <div className="col-2">
-        <div className="corner left-bottom"></div>
-      </div>
-    </div>
-   
-    <div className="row align-items-center justify-content-end how-it-works d-flex">
-      <div className="col-10  text-right">
-        <h3>DeadFellaz #6157 & CryptoMories 9979</h3>
-      </div>
-      <div className="col-2 text-center full d-inline-flex justify-content-center align-items-center">
-        <div className="circle font-weight-bold">40%</div>
-      </div>
-    </div>
-  
-    <div className="row timeline">
-      <div className="col-2">
-        <div className="corner right-bottom"></div>
-      </div>
-      <div className="col-8">
-        <hr/>
-      </div>
-      <div className="col-2">
-        <div className="corner top-left"></div>
-      </div>
-    </div>
-  
-    <div className="row align-items-center how-it-works d-flex">
-      <div className="col-2 text-center top d-inline-flex justify-content-center align-items-center">
-        <div className="circle font-weight-bold">60%</div>
-      </div>
-      <div className="col-10 ">
-        <h3>Clone x #4883</h3>
-      </div>
-      </div>
-      <div className="row timeline">
-      <div className="col-2">
-        <div className="corner top-right"></div>
-      </div>
-      <div className="col-8">
-        <hr/>
-      </div>
-      <div className="col-2">
-        <div className="corner left-bottom"></div>
-      </div>
-    </div>
-   
-    <div className="row align-items-center justify-content-end how-it-works d-flex">
-      <div className="col-10  text-right">
-        <h3>BORED APE raffle</h3>
-      </div>
-      <div className="col-2 text-center full d-inline-flex justify-content-center align-items-center">
-        <div className="circle last_circle font-weight-bold">100%</div>
-      </div>
-    </div>
- </div>
-      
+           <div className="col-sm-12 pb-2">
+           <h1 className="headsmain colorred"> Mint Progress Giveaways</h1>
+   <img src="images/roadmap_1.png"  className="mt-2"/> 
+ 
+   </div>
+   </div>
     
-                        <div className="row pl-5 col-fil">
+                        <div className="row col-fil">
                <div className="col-sm-12">
-               <h1 className="headsmain colorred pl-5 col-fil pb-3"> SO WHAT ABOUT AFTER MINT SOLD OUT ??? </h1> </div>
+               <h1 className="headsmain colorred col-fil pb-3"> SO WHAT ABOUT AFTER MINT SOLD OUT ??? </h1> </div>
                </div>
 
               </div>
-              </div>
-       </div>
+            
+       
        <div className="container-fluid herofour">
            <div className="row pl-5 col-fil">
                    <div className="col-sm-12">
@@ -170,7 +102,7 @@ function Home() {
                </div>
            </div>
            <div className="row bgimgsecfour  ">
-               <div className="col-sm-12 p-0"> <img src="css/images/sectionfourtwo.png"  className="rotate"/> 
+               <div className="col-sm-12 p-0"> <img src="css/images/sectionfourtwoo.png"  className="rotate"/> 
                <h1 className="headsmain mbd-0 cb mtt left-set right-set">WHO CAN PLAY ?</h1>
                <p className="para left-set right-set"> Only #zero NFT holders will be eligible for the lottery, meaning that you need to 
 hold at least one #zero NFT to be eligible for the lottery. Of course, the more 
@@ -179,7 +111,7 @@ hold at least one #zero NFT to be eligible for the lottery. Of course, the more
            </div>
            <div className="row bgimgsecfour ">
                <div className="col-sm-12">
-               <img src="images/62.png" className="adjimg rotater"/>
+               <img src="images/622.png" className="adjimg rotater"/>
                <h1 className="headsmain mbd-0 cb mtt left-set"> HOW TO PLAY</h1>
                    <p className="para left-set pt-2 pb-2"> Only by holding a #zero NFT grant you exclusive access. Though we want the 
 lottery to be fun, attractive and most of all gratifying, this is our P2E way, you play 
@@ -206,7 +138,7 @@ the prizes of the daily lotteries</p>
            </div>
        </div>
 
- <div id="parityection" className="container-fluid herofive heroparity">
+ <div id="parityection" className="container-fluid  heroparity">
  <div className="row">
                <div className="col-sm-12 pb-2">
                    <h1 className="headsmain "> RARITY</h1> 
@@ -232,6 +164,9 @@ the prizes of the daily lotteries</p>
                                <br /> the NFT space. Former consultant in
                                <br /> digital strategy and founder of ecommerce
                                <br /> Marketplace </p>
+                               <a href="https://twitter.com/zerozeronft" target={{target:"_blank"}}>
+                   <img className="seicn cbw" src="images/twitter.svg"/>
+                   </a>
                        </div>
                    </div>
                    <div className="row">
@@ -242,6 +177,9 @@ the prizes of the daily lotteries</p>
                                <br /> the NFT space. Former consultant in
                                <br /> digital strategy and founder of ecommerce
                                <br /> Marketplace </p>
+                               <a href="https://twitter.com/zerozeronft" target={{target:"_blank"}}>
+                   <img className="seicn cbw" src="images/twitter.svg"/>
+                   </a>
                        </div>
                    </div>
                </div>
@@ -318,13 +256,13 @@ the prizes of the daily lotteries</p>
                <div className="col-sm-12 pb-2">
                    <div className="main-block"> 
                    <a href="https://twitter.com/zerozeronft" target={{target:"_blank"}}>
-                   <img className="seicn cbw" src="images/twitter_1.png"/>
+                   <img className="seicn cbw" src="images/twitter.svg"/>
                    </a>
                    <a href="https://discord.gg/dDjBp8YF" target={{target:"_blank"}}>
-                   <img className="seicn cbw" src="images/discord_1.png"/>
+                   <img className="seicn cbw" src="images/discord.svg"/>
                             </a>
                    <a href="">
-                   <img className="seicn cbw" src="images/opensea-1.png"/>
+                   <img className="seicn cbw" src="images/opensea.svg"/>
                     </a>
                    </div>
                    <p className="para pt-5 pb-3"> © COPYRIGHT 2022 ZERO PROJECT | ALL RIGHTS RESERVED ® </p>

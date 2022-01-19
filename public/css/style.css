@@ -48,7 +48,7 @@ body {
   
   font-weight: 900;
   text-transform: uppercase;
-  font-size: 22px;  
+  font-size: 30px;  
   color: var(--text-color);
   
   background-color: var(--btn-color);
@@ -137,8 +137,13 @@ a:hover {
 }
 
 .herothree {
-  height: fit-content;
   background: #e3ebf4;
+    padding-bottom: 0px !important;
+    height: fit-content;
+    padding: 5%;
+}
+.herothree img{
+  width: 100%;
 }
 
 .bgimgsecthree {
@@ -177,6 +182,8 @@ width: 65%;
 .heroparity{
   background-color: #110a39 !important;
   padding-bottom: 0px !important;
+  height: fit-content;
+    padding: 5%;
 }
 .herolast {
   background: #000000;
@@ -189,8 +196,9 @@ width: 65%;
 
 .cbw {
   margin-left: 19px;
+  filter: invert(100%) sepia(0%);
+  width: 50px;
 }
-
 .main-block {
   background: #336487;
   padding: 2% 5%;
