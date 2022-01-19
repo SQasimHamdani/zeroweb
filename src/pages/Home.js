@@ -210,7 +210,7 @@ the prizes of the daily lotteries</p>
  <div className="row">
                <div className="col-sm-12 pb-2">
                    <h1 className="headsmain "> RARITY</h1> 
-                   <img src="images/paritysec.png" height="750" className="mt-2"/> 
+                   <img src="images/paritysec.png"  className="mt-2"/> 
 
                    </div>
            </div>
