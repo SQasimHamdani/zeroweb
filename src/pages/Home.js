@@ -43,19 +43,13 @@ function Home() {
         setMintNumber(mintNumber + 1);
   };
   async function mint() {
-    if(salestate && typeof window.ethereum !== 'undefined') {
+    if(typeof window.ethereum !== 'undefined') {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
       const contract = new ethers.Contract(ZERO_ADDRESS, abi.abi, signer);
-    //   if (String(await contract.balanceOf(signer.address)) + mintNumber > 5) {
-    //       setError("Balance too high");
-    //       return;
-    //   } else if (!whitelist.includes(String(signer.address).toLowerCase())) {
-    //     setError("Balance too high");
-    //     return;
-    // };
+      let nb = String("0.07" * mintNumber)
       try {
-        const transaction = await contract.connect(signer).regularMint(mintNumber, {value : (ethers.utils.parseEther("0.07") * mintNumber)});
+        const transaction = await contract.connect(signer).regularMint(mintNumber, {value : (ethers.utils.parseEther(nb))});
         await transaction.wait();
         fetchData();
       }
