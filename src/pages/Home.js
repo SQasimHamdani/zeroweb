@@ -13,15 +13,14 @@ const ZERO_ADDRESS = "0xfA93a74be60487D81272F370845d5D35F1DC4562";
 function Home() {
     const [error, setError] = useState('');
   const [supply, setSupply] = useState({})
-  const [mintNumber, setMintNumber] = useState('')
+  const [mintNumber, setMintNumber] = useState(0)
   const [root, setRoot] = useState()
-  const salestate = "preSale";
+  const salestate = 0;
 
 
   useEffect(() => {
     fetchData();
   }, [])
-
   async function fetchData() {
     if(typeof window.ethereum !== 'undefined') {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -36,43 +35,26 @@ function Home() {
       }
     }
   }
-
+  function decreaseMintNumber() {
+    if (mintNumber > 0)
+        setMintNumber(mintNumber -1);
+  };
+  function increaseMintNumber() {
+    if (mintNumber < 5)
+        setMintNumber(mintNumber + 1);
+  };
   async function mint() {
-    if(typeof window.ethereum !== 'undefined') {
+    if(salestate && typeof window.ethereum !== 'undefined') {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
       const contract = new ethers.Contract(ZERO_ADDRESS, abi.abi, signer);
+    //   if (String(await contract.balanceOf(signer.address)) + mintNumber > 5) {
+    //       setError("Balance too high");
+    //       return;
+    //   }
       try {
-        const transaction = await contract.connect(signer).regularMint(1, {value : ethers.utils.parseEther("0.07")});
+        const transaction = await contract.connect(signer).regularMint(mintNumber, {value : (ethers.utils.parseEther("0.07") * mintNumber)});
         await transaction.wait();
-        fetchData();
-      }
-      catch(err) {
-        setError(err.message);
-      }
-    }
-  }
-
-  async function preMint() {
-    if (mintNumber > 5) {
-      setError("5 premint max");
-      return ;
-    }
-    if(typeof window.ethereum !== 'undefined') {
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
-      const signer = provider.getSigner();
-      const contract = new ethers.Contract(ZERO_ADDRESS, abi.abi, signer);
-      try {
-          let tree = await new MerkleTree(merkleData);
-        // console.log(typeof(tree.getRoot()))
-        // console.log(tree);
-        // console.log("\n\n-------------------------------------\n Up it is the merkletree (good one) down it is the good proof\n----------------------------------\n\n")
-        // console.log(tree.getHexProof(keccak256(signer.address)));
-        // let strarray = [String, String, String];
-        let strarray = tree.getHexProof(keccak256(signer.address));
-        console.log(strarray);
-        const tx = await contract.connect(signer).preMint(tree.getHexProof(keccak256(signer.address)), 1, {value : ethers.utils.parseEther("0.04")});
-        await tx.wait();
         fetchData();
       }
       catch(err) {
@@ -131,9 +113,12 @@ function Home() {
             </div>
             <div className="row">
                <div className="col-sm  text-center ">
-               <p className="count">{supply.totalSupply} / 5555 {supply.percent}</p>
+               <p className="count" /*in red*/ >{supply.totalSupply} / 5555 {supply.percent}</p>
                <p>{error && <p>{error}</p>}</p>
-                    <button className="mintbtn m-2"onClick={preMint}>BUY zero</button>
+               <button className="mintbtn m-2"onClick={increaseMintNumber}>+</button>
+                    <button className="mintbtn m-2"onClick={mint}>Mint {mintNumber}</button>
+                    <button className="mintbtn m-2"onClick={decreaseMintNumber}>-</button>
+               <p className="count" /*in red*/ >{error}</p>
                </div>
            </div>
            <div className="row countdown">
@@ -369,3 +354,27 @@ He’s the tech guru </p>
 }
 
 export default Home;
+
+const whitelist = [
+    "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+    "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+    "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+    "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+    "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+    "0x1EC75BaBD4CDe5Fe58D7268bb3F2C34B534F8d81",
+    "0x0bD045002056031154153cafF31336DFA3EBD844",
+    "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+    "0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f",
+    "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+    "0xBcd4042DE499D14e55001CcbB24a551F3b954096",
+    "0x71bE63f3384f5fb98995898A86B02Fb2426c5788",
+    "0xFABB0ac9d68B0B445fB7357272Ff202C5651694a",
+    "0x1CBd3b2770909D4e10f157cABC84C7264073C9Ec",
+    "0xdF3e18d64BC6A983f673Ab319CCaE4f1a57C7097",
+    "0xcd3B766CCDd6AE721141F452C550Ca635964ce71",
+    "0x2546BcD3c84621e976D8185a91A922aE77ECEc30",
+    "0xbDA5747bFD65F08deb54cb465eB87D40e51B197E",
+    "0xdD2FD4581271e230360230F9337D5c0430Bf44C0",
+    "0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199",
+    "0xfdFA064aD2A299f11681F23e0545D39E0dabDb7b"]
