@@ -102,7 +102,7 @@ function Home() {
            <div className="row bgimgsecfour ">
                <div className="col-sm-12"> <img src="images/wheelimg.png" className="adjimg"/>
                <h1 className="headsmain mbd-0 cb mtt left-set"> HOW TO PLAY</h1>
-                   <p className="para left-set"> ZERO PROJECT is the first Metaverse #NFT lottery with 5555 unique <br /> digital collectibles living on the Ethereum blockchain </p>
+                   <p className="para left-set"> ZERO PROJECT is the first Metaverse #NFT lottery  <br /> with 5555 unique digital collectibles living on the Ethereum blockchain </p>
                    <p className="para left-set pt-1"> Each Zero NFT is a ticket to participate to our daily lotteries to win #NFTs <br /> including bluechip NFTs, and some juicy prizes... </p>
 
                </div>
@@ -115,23 +115,14 @@ function Home() {
 
   </div>
            </div>
-           <div className="row bgimgsecfour ">
+           <div className="row bgimgsecfour bg_play">
                <div className="col-sm-12">
                <img src="images/622.png" className="adjimg rotater"/>
                <h1 className="headsmain mbd-0 cb mtt left-set"> HOW TO PLAY</h1>
                    <p className="para left-set pt-2"> Rules are simple: own at least one #Zero NFT </p>    
-<p className="para left-set"> However we added some spice to this rule. We want you guys to have fun playing this game. This is our P2E style
-Hey Zero what do you mean by <em>“fun”</em>?
- </p>  
-<p className="para left-set"><b>Monday, March 29th: </b> Master Zero makes an announcement on discord: </p>    
-<p className="para left-set">  “March 30th lottery prize is Doodle #3421 !” </p>
-<p className="para left-set">  <em> …The day after, Master Zero Tweets this:</em> </p>
-<p className="para left-set"> “Blue hat,  24hours” …  </p>
-<p className="para left-set">
-In this example, you have to own at least one Zero NFT that has a blue hat to participate to this lottery. Giving that there are only 100 Zeros wearing a blue hat, you have at least 1% chance to win the lottery. Of course the more blue hat	 you own the higher your chance of winning the lottery (1 ELIGIBLE ATTRIBUTE = 1ENTRY)
-<br /> Make wise moves… hold, sell, buy? <br /> 
-Now, let the game begins <br />
-</p>
+<p className="para left-set pt-2"> For special lotteries we will add another selection criteria to spice it up a bit : The “Eligible Attributes”. </p>  
+<p className="para left-set pt-2"> The Eligible attributes are Zero attributes that have been randomly selected and announced the day prior each special lottery. By doing so, we want to increase the probability to win for Zero holders holding ‘eligible attributes’… The more Zero NFT the higher the chance to win the lottery (1 NTF WITH ELIGIBLE ATTRIBUTE = 1ENTRY) </p>    
+
             </div>
            </div>
            <div className="row bgimgsecfour  ">
@@ -198,7 +189,7 @@ He drew Zero project roadmap with Crytponis</p>
                            <h3 className="headsmain  mbd-0 text-center cb mtt ">LOUIS</h3>
                            <h3 className="headsmain  mbm text-center cb ">Developer</h3>
    
-                           <p className="para text-center"> Master Solidity dev in France <br />
+                           <p className="para text-center"> Master Solidity Developer in France <br />
 Louis has worked on several DEFI projects <br /> and have been involved in several big Nft projects <br />
 He’s the tech guru </p>
                        </div>
@@ -208,9 +199,8 @@ He’s the tech guru </p>
                            <h3 className="headsmain  mbd-0 text-center cb mtt "> SYED</h3>
                            <h3 className="headsmain mbm text-center cb ">Artists Group</h3>
                            <p className="para text-center"> Syed is a Co-Founder of Galictic NFT Studio 
-                               <br /> along with Habib and Talal. Expertise in 
-                               <br /> Designing and Generating Awesome 
-                               <br /> NFT Tokens </p>
+                               <br /> along with Habib and Talal. Expert in 
+                               <br /> Design and NFT Token Generation.  </p>
                        </div>
                    </div>
                </div>

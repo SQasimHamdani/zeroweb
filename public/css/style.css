@@ -355,7 +355,7 @@ width: 80%;
   }
   
   .bgimgsecfour img{
-    height: 275px;
+    height: 250px;
   }
  
   .rotater {
@@ -422,6 +422,9 @@ margin: 5px;
     #backgroundVideo {
          /* background: url("../Videos/video.mp4") repeat; */
         width: 100%;
+    }
+    .bg_play h1{
+display: grid;
     }
     .setpading{
       padding-top: 2%;
