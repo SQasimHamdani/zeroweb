@@ -1,5 +1,85 @@
 
+import { useState, useEffect } from 'react';
+import { ethers } from 'ethers';
+import abi from '../PZero.json';
+import { MerkleTree } from "merkletreejs";
+import keccak256 from "keccak256";
+import '../index.css';
+import { merkleData } from '../merkle_data';
+const nl = require("../merkle_data");
+// const hex = require("hexify");
+
+const ZERO_ADDRESS = "0xfA93a74be60487D81272F370845d5D35F1DC4562";
 function Home() {
+    const [error, setError] = useState('');
+  const [supply, setSupply] = useState({})
+  const [mintNumber, setMintNumber] = useState('')
+  const [root, setRoot] = useState()
+  const salestate = "preSale";
+
+
+  useEffect(() => {
+    fetchData();
+  }, [])
+
+  async function fetchData() {
+    if(typeof window.ethereum !== 'undefined') {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const contract = new ethers.Contract(ZERO_ADDRESS, abi.abi, provider);
+      try {
+        const totalSupply = await contract.totalSupply();
+        const object = {"totalSupply": String(totalSupply), "percent" : String(String((totalSupply / 555 * 2)).slice(0, 4)) + '%'}
+        setSupply(object);
+      }
+      catch(err) {
+        setError(err.message);
+      }
+    }
+  }
+
+  async function mint() {
+    if(typeof window.ethereum !== 'undefined') {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
+      const contract = new ethers.Contract(ZERO_ADDRESS, abi.abi, signer);
+      try {
+        const transaction = await contract.connect(signer).regularMint(1, {value : ethers.utils.parseEther("0.07")});
+        await transaction.wait();
+        fetchData();
+      }
+      catch(err) {
+        setError(err.message);
+      }
+    }
+  }
+
+  async function preMint() {
+    if (mintNumber > 5) {
+      setError("5 premint max");
+      return ;
+    }
+    if(typeof window.ethereum !== 'undefined') {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
+      const contract = new ethers.Contract(ZERO_ADDRESS, abi.abi, signer);
+      try {
+          let tree = await new MerkleTree(merkleData);
+        // console.log(typeof(tree.getRoot()))
+        // console.log(tree);
+        // console.log("\n\n-------------------------------------\n Up it is the merkletree (good one) down it is the good proof\n----------------------------------\n\n")
+        // console.log(tree.getHexProof(keccak256(signer.address)));
+        // let strarray = [String, String, String];
+        let strarray = tree.getHexProof(keccak256(signer.address));
+        console.log(strarray);
+        const tx = await contract.connect(signer).preMint(tree.getHexProof(keccak256(signer.address)), 1, {value : ethers.utils.parseEther("0.04")});
+        await tx.wait();
+        fetchData();
+      }
+      catch(err) {
+        setError(err.message);
+      }
+    }
+  }
   return (
    <> 
     <div className="cotainer bg-nav" style={{paddingLeft: "10%",paddingRight: "10%"}}>
@@ -51,11 +131,9 @@ function Home() {
             </div>
             <div className="row">
                <div className="col-sm  text-center ">
-                    <button  className="mintbtn m-2" 
-// onClick={() => { window.location.href = "https://mint.zeroproject.io"}}
-				    >
-                            Mint Soon
-                    </button>
+               <p className="count">{supply.totalSupply} / 5555 {supply.percent}</p>
+               <p>{error && <p>{error}</p>}</p>
+                    <button className="mintbtn m-2"onClick={preMint}>BUY zero</button>
                </div>
            </div>
            <div className="row countdown">
