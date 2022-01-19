@@ -58,19 +58,7 @@ function Home() {
                     </button>
                </div>
            </div>
-           <div className="row countdown">
-           <div className="col-12">
-    <ul> 
-      <li><span id="days"></span>days</li> 
-      <li><span id="hours"></span>Hours</li>
-      <li><span id="minutes"></span>Minutes</li>
-      <li><span id="seconds"></span>Seconds</li>
-    </ul>
-  </div>
-  <div id="content" class="emoji">
-    <span> LIVE NOW </span>
-  </div>
-  </div>
+           
        </div>
 
         <div id="zerosection" className="container-fluid herotwo">
