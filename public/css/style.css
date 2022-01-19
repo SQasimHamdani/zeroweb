@@ -51,6 +51,9 @@ li span {
 }
 
 @media all and (max-width: 768px) {
+  .countdown ul{
+    padding-inline-start: 0px;
+  }
   li {
     font-size: calc(1.125rem * var(--smaller));
   }
