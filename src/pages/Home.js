@@ -8,7 +8,7 @@ import '../index.css';
 import { merkleData } from '../merkle_data';
 const nl = require("../merkle_data");
 
-const ZERO_ADDRESS = "0xfA93a74be60487D81272F370845d5D35F1DC4562";
+const ZERO_ADDRESS = "0x094a44a140ef59b8ebf9e7fa92234649dc44cd2f";
 function Home() {
     const [error, setError] = useState('');
   const [supply, setSupply] = useState({})
@@ -47,7 +47,7 @@ function Home() {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
       const contract = new ethers.Contract(ZERO_ADDRESS, abi.abi, signer);
-      let nb = String("0.07" * mintNumber)
+      let nb = String("0.04" * mintNumber)
       try {
         const transaction = await contract.connect(signer).regularMint(mintNumber, {value : (ethers.utils.parseEther(nb))});
         await transaction.wait();
@@ -114,7 +114,6 @@ function Home() {
                <button className="mintbtn m-2"onClick={increaseMintNumber}>+</button>
                     <button className="mintbtn m-2"onClick={mint}>Mint {mintNumber}</button>
                     <button className="mintbtn m-2"onClick={decreaseMintNumber}>-</button>
-                    <button className="mintbtn m-2"onClick={fetchData}>Connect</button>
                <p className="count" /*in red*/ >{error}</p>
                </div>
            </div>
