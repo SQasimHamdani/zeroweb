@@ -74,7 +74,7 @@ function Home() {
        <div id="roadmapsection" className="container-fluid herothree headsets">
            <div className="row">
            <div className="col-sm-12 pb-2">
-           <h1 className="headsmain colorred"> Mint Progress Giveaways</h1>
+           <h1 className="headsmain colorred"> MINT PROGRESS GIVEAWAYS</h1>
    <img src="images/roadmap_1.png"  className="mt-2"/> 
  
    </div>
@@ -96,17 +96,17 @@ function Home() {
            <div className="row bgimgsecfour ">
                <div className="col-sm-12"> <img src="images/wheelimg.png" className="adjimg"/>
                <h1 className="headsmain mbd-0 cb mtt left-set"> HOW TO PLAY</h1>
-                   <p className="para left-set"> ZERO is a the first metaverse lottery. Everyday, a lottery will be held for
-                       <br /> holder to win hell of lot of NFTs bluechip NFTs & (mainly - 1E) , Eth and
-                       <br /> some juicy prizes (shhh.. surprise) </p>
+                   <p className="para left-set"> ZERO PROJECT is the first Metaverse #NFT lottery with 5555 unique <br /> digital collectibles living on the Ethereum blockchain </p>
+                   <p className="para left-set pt-1"> Each Zero NFT is a ticket to participate to our daily lotteries to win #NFTs <br /> including bluechip NFTs, and some juicy prizes... </p>
+
                </div>
            </div>
            <div className="row bgimgsecfour  ">
                <div className="col-sm-12 p-0"> <img src="css/images/sectionfourtwoo.png"  className="rotate"/> 
                <h1 className="headsmain mbd-0 cb mtt left-set right-set">WHO CAN PLAY ?</h1>
-               <p className="para left-set right-set"> Only #zero NFT holders will be eligible for the lottery, meaning that you need to 
-hold at least one #zero NFT to be eligible for the lottery. Of course, the more 
-#zero you own, the more entries you have. See it like loto tickets</p>
+               <p className="para left-set right-set"> Only #Zero NFT holders.</p>
+               <p className="para left-set right-set"> Of course, the more #Zero you own, the more entries you have.<br /> See it like Lottery tickets…</p>
+
   </div>
            </div>
            <div className="row bgimgsecfour ">
@@ -164,7 +164,7 @@ the prizes of the daily lotteries</p>
                                <br /> the NFT space. Former consultant in
                                <br /> digital strategy and founder of ecommerce
                                <br /> Marketplace </p>
-                               <a href="https://twitter.com/zerozeronft" target={{target:"_blank"}}>
+                               <a href="https://twitter.com/cryptonis4" target={{target:"_blank"}}>
                    <img className="seicn cbw" src="images/twitter.svg"/>
                    </a>
                        </div>
@@ -177,7 +177,7 @@ the prizes of the daily lotteries</p>
                                <br /> the NFT space. Former consultant in
                                <br /> digital strategy and founder of ecommerce
                                <br /> Marketplace </p>
-                               <a href="https://twitter.com/zerozeronft" target={{target:"_blank"}}>
+                               <a href="https://twitter.com/Thenizzar" target={{target:"_blank"}}>
                    <img className="seicn cbw" src="images/twitter.svg"/>
                    </a>
                        </div>
@@ -199,7 +199,7 @@ the prizes of the daily lotteries</p>
                        <div className="col-sm-12"> <img src="images/44.png" height="300" className="mt-5"/>
                            <h3 className="headsmain  mbd-0 text-center cb mtt "> SYED</h3>
                            <h3 className="headsmain mbm text-center cb ">Artists Group</h3>
-                           <p className="para text-center"> Syed is a Co-Founder of Gallictic NFT Studio 
+                           <p className="para text-center"> Syed is a Co-Founder of Galictic NFT Studio 
                                <br /> along with Habib and Talal. Expertise in 
                                <br /> Designing and Generating Awesome 
                                <br /> NFT Tokens </p>
