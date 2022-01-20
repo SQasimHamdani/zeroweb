@@ -173,48 +173,7 @@ function Home() {
                <div className="col-sm  text-center ">
                           
 
-                   { parseInt(supply.totalSupply) < 5555 ? (
-                                <div>
-                                  <p className="mintedcounts" /*in red*/ >{supply.totalSupply} / 5555 </p>
-                                  
-                                  {/* <div className="progress mint_bar  ">
-                                        <div className="progress-bar progress-bar active " role="progressbar"
-                                                                        aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style={{
-                                            width: '{supply.percent}'
-                                                                        }
-                                            }>
-                                            {supply.percent}
-                                        </div>
-                                    </div> */}
-                                    <button className="mintbtn m-2" onClick={decreaseMintNumber}>-</button>
-                                    <button className="mintbtn m-2" disabled={claimingNft ? 1 : 0} onClick={mint}>{claimingNft ? "BUSY" : "MINT"} {mintNumber}</button>
-                                
-                                    <button className="mintbtn m-2" onClick={increaseMintNumber}>+</button>
-                                </div>
-                            ) : (
-                                <div>
-                                    <button className=" m-2 btn btn-success">Sold Out!</button>
-                                    {/* { parseInt(supply.totalSupply) > 5555 ? (
-                                        <button className=" m-2 btn btn-success">Sold Out!</button>
-                                    ) : (
-                                        <div>
-                                            <button className="mintbtn m-2" onClick={decreaseMintNumber}>-</button>
-                                            <button className="mintbtn m-2" disabled={claimingNft ? 1 : 0} onClick={mint}>{claimingNft ? "BUSY" : "MINT"} {mintNumber}</button>
-                                        
-                                                          <button className="mintbtn m-2" onClick={increaseMintNumber}>+</button>
-                                                  <br />
-                                                  
-                                            {metamaskIsInstalled !== true ? (
-                                                <button className=" m-2 btn btn-danger">Install Metamask!</button>
-                                            ) : (
-                                            <button className=" m-2 btn btn-info">Make Sure you are Ether Mainnet</button>
-                                            )}
-                                                  
-                                        </div>
-                                    )
-                                }              */}
-                            </div>   
-                            )}
+                  
 
                           
                </div>
