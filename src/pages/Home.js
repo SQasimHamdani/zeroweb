@@ -248,7 +248,7 @@ He’s our Master Zero
                    <div className="row">
                        <div className=" col-sm-12"> <img src="images/32.png" height="300" className="mt-5"/>
                            <h3 className="headsmain  mbd-0 text-center cb mtt "> THE NIZZAR</h3>
-                           <h3 className="headsmain  mbm text-center cb "> Expert</h3>
+                           <h3 className="headsmain  mbm text-center cb "> Consigliere</h3>
                            <p className="para text-center"> Nizzar is an OG in the NFT space ! Early investor, early BAYC holder and currently managing a 10M$ Vault called’ UnlimitArt’, 
 He drew Zero project roadmap with Crytponis</p>
                                <a href="https://twitter.com/Thenizzar" target={{target:"_blank"}}>
