@@ -26,7 +26,7 @@ function Home() {
       const contract = new ethers.Contract(ZERO_ADDRESS, abi.abi, provider);
       try {
         const totalSupply = await contract.totalSupply();
-        const object = {"totalSupply": String(totalSupply), "percent" : String(String((totalSupply / 555 * 2)).slice(0, 4)) + '%'}
+        const object = {"totalSupply": String(totalSupply), "percent" : String(String((totalSupply / 5555 * 100)).slice(0, 3)) + '%'}
         setSupply(object);
       }
       catch(err) {
@@ -109,27 +109,26 @@ function Home() {
             </div>
             <div className="row">
                <div className="col-sm  text-center ">
-               <p className="count" /*in red*/ >{supply.totalSupply} / 5555 {supply.percent}</p>
+                          <p className="mintedcounts" /*in red*/ >{supply.totalSupply} / 5555 </p>
+        
+               <div className="progress mint_bar  ">
+                <div className="progress-bar progress-bar-striped active " role="progressbar"
+                                                aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style={{
+                    width: '{supply.percent}'
+                                                }
+                    }>
+                    {supply.percent}
+                </div>
+                </div>
+                          
                <p>{error && <p>{error}</p>}</p>
-               <button className="mintbtn m-2"onClick={increaseMintNumber}>+</button>
-                    <button className="mintbtn m-2"onClick={mint}>Mint {mintNumber}</button>
                     <button className="mintbtn m-2"onClick={decreaseMintNumber}>-</button>
+                    <button className="mintbtn m-2"onClick={mint}>Mint {mintNumber}</button>
+               <button className="mintbtn m-2"onClick={increaseMintNumber}>+</button>
                <p className="count" /*in red*/ >{error}</p>
                </div>
            </div>
-           <div className="row countdown">
-           <div className="col-12">
-    <ul> 
-      <li><span id="days"></span>days</li> 
-      <li><span id="hours"></span>Hours</li>
-      <li><span id="minutes"></span>Minutes</li>
-      <li><span id="seconds"></span>Seconds</li>
-    </ul>
-  </div>
-  <div id="content" class="emoji">
-    <span> LIVE NOW </span>
-  </div>
-  </div>
+           
        </div>
 
         <div id="zerosection" className="container-fluid herotwo">

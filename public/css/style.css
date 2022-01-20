@@ -19,50 +19,6 @@ body {
   background-color: #fff;
 }
 
-/*  */
-/* counter START */
-:root {
-  --smaller: .75;
-}
-.countdown {
-  text-align: center;
-}
-li {
-  display: inline-block;
-  font-size: 1.5em;
-  list-style-type: none;
-  padding: 1em;
-  text-transform: uppercase;
-}
-
-li span {
-  display: block;
-  font-size: 4.5rem;
-}
-
-.emoji {
-  display: none;
-  padding: 1rem;
-}
-
-.emoji span {
-  font-size: 4rem;
-  padding: 0 .5rem;
-}
-
-@media all and (max-width: 768px) {
-  .countdown ul{
-    padding-inline-start: 0px;
-  }
-  li {
-    font-size: calc(1.125rem * var(--smaller));
-  }
-  
-  li span {
-    font-size: calc(3.375rem * var(--smaller));
-  }
-}
-/* counter END */
 
 
 :root {
@@ -72,7 +28,34 @@ li span {
   --bg-color: #141218;
   --white-color: #fff;
 }
+.mintedcounts{
+   font-size: 18px; 
+   margin-top: 10px !important;
+   margin-bottom: 10px !important;
+   padding: 10px;
+       color: var(--text-color);
+    background-color: hsl(94deg 54% 51%);
+    border-radius: 10px;
+    width: fit-content;
+    margin: 0 auto;
 
+}
+.mint_bar{
+    width: 80%;
+ margin: 0 auto;
+}
+.mintedcountsbar{
+    font-size: 18px; 
+   margin-top: 10px !important;
+   margin-bottom: 10px !important;
+   padding: 10px;
+       color: var(--text-color);
+    background-color: hsl(94deg 54% 51%);
+    border-radius: 10px;
+    width: 60%;
+    margin: 0 auto;
+ 
+}
 .adjimg{
   float: right;
   margin: -7% -1% 0 0;
