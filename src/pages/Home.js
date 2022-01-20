@@ -41,14 +41,19 @@ function Home() {
   async function increaseMintNumber() {
     if (mintNumber < 5)
         setMintNumber(mintNumber + 1);
-  };
+    };
+    
+    
   async function mint() {
     if(typeof window.ethereum !== 'undefined') {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
       const contract = new ethers.Contract(ZERO_ADDRESS, abi.abi, signer);
       let nb = String("0.04" * mintNumber)
-      try {
+        try {
+          window.ethereum.request({
+        method: 'eth_requestAccounts'
+    })
         const transaction = await contract.connect(signer).regularMint(mintNumber, {value : (ethers.utils.parseEther(nb))});
         await transaction.wait();
         fetchData();
