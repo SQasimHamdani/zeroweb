@@ -20,8 +20,6 @@ body {
 }
 
 
-
-
 :root {
   --text-color: rgb(255, 255, 255);
   --shadow-color: #dc3545;
@@ -29,7 +27,34 @@ body {
   --bg-color: #141218;
   --white-color: #fff;
 }
+.mintedcounts{
+   font-size: 18px; 
+   margin-top: 10px !important;
+   margin-bottom: 10px !important;
+   padding: 10px;
+       color: var(--text-color);
+    background-color: hsl(94deg 54% 51%);
+    border-radius: 10px;
+    width: fit-content;
+    margin: 0 auto;
 
+}
+.mint_bar{
+    width: 80%;
+ margin: 0 auto;
+}
+.mintedcountsbar{
+    font-size: 18px; 
+   margin-top: 10px !important;
+   margin-bottom: 10px !important;
+   padding: 10px;
+       color: var(--text-color);
+    background-color: hsl(94deg 54% 51%);
+    border-radius: 10px;
+    width: 60%;
+    margin: 0 auto;
+ 
+}
 .adjimg{
   float: right;
   margin: -7% -1% 0 0;
