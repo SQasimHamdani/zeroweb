@@ -25,15 +25,15 @@ function Home() {
 
     useEffect(() => {
       fetchData();
-      if (metamaskIsInstalled){
-            window.ethereum.on("accountsChanged", () => {
-                window.location.reload();
-            });
+    //   if (metamaskIsInstalled){
+    //         window.ethereum.on("accountsChanged", () => {
+    //             window.location.reload();
+    //         });
             
-            window.ethereum.on("chainChanged", () => {
-                window.location.reload();
-            });
-        }
+    //         window.ethereum.on("chainChanged", () => {
+    //             window.location.reload();
+    //         });
+    //     }
       
   }, [])
   async function fetchData() {
