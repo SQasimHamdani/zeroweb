@@ -126,11 +126,9 @@ function Home() {
                 </div>
                 </div>
                           
-               <p>{error && <p>{error}</p>}</p>
                     <button className="mintbtn m-2"onClick={decreaseMintNumber}>-</button>
                     <button className="mintbtn m-2"onClick={mint}>Mint {mintNumber}</button>
-               <button className="mintbtn m-2"onClick={increaseMintNumber}>+</button>
-               <p className="count" /*in red*/ >{error}</p>
+                    <button className="mintbtn m-2"onClick={increaseMintNumber}>+</button>
                </div>
            </div>
            
