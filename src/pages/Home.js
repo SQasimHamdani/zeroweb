@@ -12,7 +12,7 @@ const ZERO_ADDRESS = "0x094a44a140ef59b8ebf9e7fa92234649dc44cd2f";
 function Home() {
     const [error, setError] = useState('');
   const [supply, setSupply] = useState({})
-  const [mintNumber, setMintNumber] = useState(0)
+  const [mintNumber, setMintNumber] = useState(1)
   const [root, setRoot] = useState()
   const salestate = 0;
 
