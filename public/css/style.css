@@ -40,8 +40,13 @@ body {
 
 }
 .mint_bar{
-    width: 80%;
- margin: 0 auto;
+    width: 70%;
+ margin: 20px auto;
+ height: 30px;
+}
+.progress-bar{
+    background-color: #000000;
+
 }
 .mintedcountsbar{
     font-size: 18px; 

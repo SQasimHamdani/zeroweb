@@ -9,19 +9,35 @@ import { merkleData } from '../merkle_data';
 const nl = require("../merkle_data");
 
 const ZERO_ADDRESS = "0x094a44a140ef59b8ebf9e7fa92234649dc44cd2f";
+// const ZERO_ADDRESS = "0xfA93a74be60487D81272F370845d5D35F1DC4562";
 function Home() {
     const [error, setError] = useState('');
   const [supply, setSupply] = useState({})
   const [mintNumber, setMintNumber] = useState(1)
   const [root, setRoot] = useState()
-  const salestate = 0;
+    const salestate = 0;
+    
+  const [claimingNft, setClaimingNft] = useState(false);
+    const [feedback, setFeedback] = useState(``);
+    const { ethereum } = window;
+    const metamaskIsInstalled = (ethereum && ethereum.isMetaMask);
 
 
-  useEffect(() => {
-    fetchData();
+    useEffect(() => {
+      fetchData();
+      if (metamaskIsInstalled){
+            window.ethereum.on("accountsChanged", () => {
+                window.location.reload();
+            });
+            
+            window.ethereum.on("chainChanged", () => {
+                window.location.reload();
+            });
+        }
+      
   }, [])
   async function fetchData() {
-    if(typeof window.ethereum !== 'undefined') {
+    if(typeof window.ethereum !== 'undefined' && window.ethereum !== "") {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const contract = new ethers.Contract(ZERO_ADDRESS, abi.abi, provider);
       try {
@@ -35,7 +51,7 @@ function Home() {
     }
   }
   async function decreaseMintNumber() {
-    if (mintNumber > 0)
+    if (mintNumber > 1)
         setMintNumber(mintNumber -1);
   };
   async function increaseMintNumber() {
@@ -48,19 +64,60 @@ function Home() {
     if(typeof window.ethereum !== 'undefined') {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
-      const contract = new ethers.Contract(ZERO_ADDRESS, abi.abi, signer);
-      let nb = String("0.04" * mintNumber)
+        const contract = new ethers.Contract(ZERO_ADDRESS, abi.abi, signer);
+
+
+        let nb = String("0.04" * mintNumber)
+        // setClaimingNft(true);
+        
         try {
-          window.ethereum.request({
-        method: 'eth_requestAccounts'
-    })
-        const transaction = await contract.connect(signer).regularMint(mintNumber, {value : (ethers.utils.parseEther(nb))});
-        await transaction.wait();
-        fetchData();
-      }
-      catch(err) {
-        setError(err.message);
-      }
+            let accounts = window.ethereum.request({
+                method: 'eth_requestAccounts'
+            })
+            console.log(1)
+            const networkId = await ethereum.request({
+                method: "net_version",
+            });
+
+            if (1 == parseInt(networkId) && metamaskIsInstalled === true){
+            
+            
+
+                const transaction = await contract.connect(signer)
+                .regularMint(mintNumber, { value: (ethers.utils.parseEther(nb)) })
+                
+                .once("error", (err) => {
+                    console.log(err);
+                    setFeedback("Sorry, something went wrong please try again later.");
+                    setClaimingNft(false);
+                })
+                    
+                .then((receipt) => {
+                    console.log(receipt);
+                    setFeedback(
+                        `WOW, the Zero is yours! go visit Opensea.io to view it.`
+                        );
+                        setClaimingNft(false);
+                        fetchData();
+                    });
+                setClaimingNft(true);
+                await transaction.wait();
+                console.log(2)
+                fetchData();
+            }
+            
+        }
+        catch (err) {
+            let errorr = err.message
+            console.log(error)
+
+            if ( errorr.includes("getAddress")) {
+                console.log(4)
+            }
+            setError(err.message);
+            setClaimingNft(false);
+        }
+        
     }
   }
   return (
@@ -114,26 +171,54 @@ function Home() {
             </div>
             <div className="row">
                <div className="col-sm  text-center ">
-                          <p className="mintedcounts" /*in red*/ >{supply.totalSupply} / 5555 </p>
-        
-               <div className="progress mint_bar  ">
-                <div className="progress-bar progress-bar-striped active " role="progressbar"
-                                                aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style={{
-                    width: '{supply.percent}'
-                                                }
-                    }>
-                    {supply.percent}
-                </div>
-                </div>
                           
-                    <button className="mintbtn m-2"onClick={decreaseMintNumber}>-</button>
-                    <button className="mintbtn m-2"onClick={mint}>Mint {mintNumber}</button>
-                    <button className="mintbtn m-2"onClick={increaseMintNumber}>+</button>
+
+                   { parseInt(supply.totalSupply) < 5555 ? (
+                                <div>
+                                  <p className="mintedcounts" /*in red*/ >{supply.totalSupply} / 5555 </p>
+                                  
+                                  <div className="progress mint_bar  ">
+                                        <div className="progress-bar progress-bar active " role="progressbar"
+                                                                        aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style={{
+                                            width: '{supply.percent}'
+                                                                        }
+                                            }>
+                                            {supply.percent}
+                                        </div>
+                                    </div>
+                                    <button className="mintbtn m-2" onClick={decreaseMintNumber}>-</button>
+                                    <button className="mintbtn m-2" disabled={claimingNft ? 1 : 0} onClick={mint}>{claimingNft ? "BUSY" : "MINT"} {mintNumber}</button>
+                                
+                                    <button className="mintbtn m-2" onClick={increaseMintNumber}>+</button>
+                                </div>
+                            ) : (
+                                <div>
+                                    { parseInt(supply.totalSupply) > 5555 ? (
+                                        <button className=" m-2 btn btn-success">Sold Out!</button>
+                                    ) : (
+                                        <div>
+                                            <button className="mintbtn m-2" onClick={decreaseMintNumber}>-</button>
+                                            <button className="mintbtn m-2" disabled={claimingNft ? 1 : 0} onClick={mint}>{claimingNft ? "BUSY" : "MINT"} {mintNumber}</button>
+                                        
+                                                          <button className="mintbtn m-2" onClick={increaseMintNumber}>+</button>
+                                                  <br />
+                                                  
+                                            {metamaskIsInstalled !== true ? (
+                                                <button className=" m-2 btn btn-danger">Install Metamask!</button>
+                                            ) : (
+                                            <button className=" m-2 btn btn-info">Make Sure you are Ether Mainnet</button>
+                                            )}
+                                                  
+                                        </div>
+                                    )
+                                }             
+                            </div>   
+                            )}
+
+                          
                </div>
            </div>
-           
        </div>
-
         <div id="zerosection" className="container-fluid herotwo">
             <div className="row">
                     
