@@ -238,7 +238,7 @@ function Home() {
        <div id="roadmapsection" className="container-fluid herothree headsets">
            <div className="row">
            <div className="col-sm-12 pb-2">
-           <h1 className="headsmain colorred"> MINT PROGRESS GIVEAWAY</h1>
+           <h1 className="headsmain colorred"> MINT PROGRESS GIVEAWAYS</h1>
    <img src="images/Roadmap_final.png"  className="mt-2"/> 
  
    </div>
@@ -257,7 +257,7 @@ function Home() {
        <div className="container-fluid herofour">
            <div className="row pl-5 col-fil">
                    <div className="col-sm-12">
-               <h1 className="headsmain mbd-0 pl-5 col-fil"> LET THE LOTTERY BEGINS</h1> </div>
+               <h1 className="headsmain mbd-0 pl-5 col-fil"> LET THE LOTTERY BEGIN</h1> </div>
                </div>
            <div className="row bgimgsecfour ">
                <div className="col-sm-12"> <img src="images/wheelimg.png" className="adjimg"/>
