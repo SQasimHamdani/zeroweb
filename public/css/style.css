@@ -70,6 +70,7 @@ body {
   float: left;
 }
 .mintbtn {
+    margin-left: 220px;
   position:relative;
   padding: 10px 20px;  
   border: none;
@@ -86,10 +87,26 @@ body {
   z-index: 0;  
   overflow: hidden;   
 }
+.amountbtn {
+  position:relative;
+  padding: 5px 10px;  
+  border: none;
+  background: none;
+  
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 20px;  
+  color: var(--text-color);
+  
+  background-color: var(--btn-color);
+  border-radius: 20px; 
+  z-index: 0;  
+  overflow: hidden;   
+}
 
 .mintbtn:hover {
   outline-color: transparent;
-  box-shadow: var(--shadow-color) 0px 4px 10px;
+  box-shadow: #aca234 0px 4px 10px;
 }
 
 /*  */

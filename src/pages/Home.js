@@ -178,22 +178,23 @@ function Home() {
                                   <p className="mintedcounts" /*in red*/ >{supply.totalSupply} / 5555 </p>
                                   
                                   <div className="progress mint_bar  ">
-                                        <div className="progress-bar progress-bar active " role="progressbar"
-                                                                        aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style={{
+                                        <div className="progress-bar active " role="progressbar"
+                                                                        aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style={{
                                             width: '{supply.percent}'
                                                                         }
                                             }>
                                             {supply.percent}
                                         </div>
                                     </div>
-                                    <button className="mintbtn m-2" onClick={decreaseMintNumber}>-</button>
+                                    <button className="mintbtn m-2 ml-5" onClick={decreaseMintNumber}>-</button>
                                     <button className="mintbtn m-2" disabled={claimingNft ? 1 : 0} onClick={mint}>{claimingNft ? "BUSY" : "MINT"} {mintNumber}</button>
                                 
-                                    <button className="mintbtn m-2" onClick={increaseMintNumber}>+</button>
+                                  <button disabled className="amountbtn m-2">0,04Ξ</button>
+                                  <button className="mintbtn m-2" onClick={increaseMintNumber}>+</button>
                                 </div>
                             ) : (
                                 <div>
-                                    { parseInt(supply.totalSupply) > 5555 ? (
+                                    { parseInt(supply.totalSupply) >= 5555 ? (
                                         <button className=" m-2 btn btn-success">Sold Out!</button>
                                     ) : (
                                         <div>
@@ -204,7 +205,7 @@ function Home() {
                                                   <br />
                                                   
                                             {metamaskIsInstalled !== true ? (
-                                                <button className=" m-2 btn btn-danger">Install Metamask!</button>
+                                                <button className=" m-2 btn btn-danger">Connect Metamask!</button>
                                             ) : (
                                             <button className=" m-2 btn btn-info">Make Sure you are Ether Mainnet</button>
                                             )}
@@ -237,7 +238,7 @@ function Home() {
        <div id="roadmapsection" className="container-fluid herothree headsets">
            <div className="row">
            <div className="col-sm-12 pb-2">
-           <h1 className="headsmain colorred"> MINT PROGRESS GIVEAWAYS</h1>
+           <h1 className="headsmain colorred"> MINT PROGRESS GIVEAWAY</h1>
    <img src="images/Roadmap_final.png"  className="mt-2"/> 
  
    </div>
