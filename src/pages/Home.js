@@ -151,7 +151,7 @@ function Home() {
                             <a href="https://discord.gg/dDjBp8YF" target={{target:"_blank"}}>
                             <img className="seicon" src="images/discord.svg"/>
                             </a>
-                            <a href="">
+                            <a href="https://opensea.io/collection/zero-project" target={{target:"_blank"}}>
                             <img className="seicon" src="images/opensea.svg"/>
                             </a>
                     </span>
@@ -189,8 +189,8 @@ function Home() {
                                     <button className="mintbtn m-2 ml-5" onClick={decreaseMintNumber}>-</button>
                                     <button className="mintbtn m-2" disabled={claimingNft ? 1 : 0} onClick={mint}>{claimingNft ? "BUSY" : "MINT"} {mintNumber}</button>
                                 
-                                  <button disabled className="amountbtn m-2">0,04Ξ</button>
                                   <button className="mintbtn m-2" onClick={increaseMintNumber}>+</button>
+                                  <button disabled className="amountbtn m-2">0,04Ξ</button>
                                 </div>
                             ) : (
                                 <div>
@@ -422,7 +422,7 @@ He’s the tech guru </p>
                    <a href="https://discord.gg/dDjBp8YF" target={{target:"_blank"}}>
                    <img className="seicn cbw" src="images/discord.svg"/>
                             </a>
-                   <a href="">
+                   <a href="https://opensea.io/collection/zero-project" target={{target:"_blank"}}>
                    <img className="seicn cbw" src="images/opensea.svg"/>
                     </a>
                    </div>
