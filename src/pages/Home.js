@@ -55,7 +55,7 @@ function Home() {
         setMintNumber(mintNumber -1);
   };
   async function increaseMintNumber() {
-    if (mintNumber < 5)
+    if (mintNumber < 20)
         setMintNumber(mintNumber + 1);
     };
     
