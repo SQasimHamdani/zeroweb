@@ -48,6 +48,17 @@ body {
     background-color: #000000;
 
 }
+
+.mint_under_button{
+width: fit-content;
+margin: 0 auto;
+}
+.mint_under_button p{
+border-radius: 5px;
+padding: 8px 15px; 
+font-weight: 300;
+margin: 0px auto 20px;
+}
 .mintedcountsbar{
     font-size: 18px; 
    margin-top: 10px !important;
@@ -89,13 +100,14 @@ body {
 }
 .amountbtn {
   position:relative;
-  padding: 5px 10px;  
+  padding: 0px 10px;  
   border: none;
-  background: none;
+  color: black !important;
+  background-color: transparent !important;
   
   font-weight: 900;
   text-transform: uppercase;
-  font-size: 20px;  
+  font-size: 24px;  
   color: var(--text-color);
   
   background-color: var(--btn-color);
@@ -370,6 +382,12 @@ width: 70%;
     text-align: right; 
   }
 @media screen and (max-width: 992px) {
+   .mintbtn  {
+        margin-left: 0PX  !important;
+    }
+    .mint_under_button{
+        width: 70%;
+    }
   .heroparity img{
     height: 300px;
     width: 100%;

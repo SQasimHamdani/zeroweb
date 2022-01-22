@@ -65,16 +65,17 @@ function Home() {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
         const contract = new ethers.Contract(ZERO_ADDRESS, abi.abi, signer);
+        // console.log("contract",contract)
 
-
-        let nb = String("0.04" * mintNumber)
+        let total_price = String("0.04" * mintNumber)
         // setClaimingNft(true);
         
         try {
             let accounts = window.ethereum.request({
                 method: 'eth_requestAccounts'
             })
-            console.log(1)
+            // console.log(1)
+
             const networkId = await ethereum.request({
                 method: "net_version",
             });
@@ -84,37 +85,51 @@ function Home() {
             
 
                 const transaction = await contract.connect(signer)
-                .regularMint(mintNumber, { value: (ethers.utils.parseEther(nb)) })
-                
-                .once("error", (err) => {
-                    console.log(err);
-                    setFeedback("Sorry, something went wrong please try again later.");
-                    setClaimingNft(false);
-                })
+                .regularMint(mintNumber, { value: (ethers.utils.parseEther(total_price)) })
+                // console.log("transaction",transaction)
+                // .once("error", (err) => {
+                //     console.log(err);
+                //     setFeedback("Sorry, something went wrong please try again later.");
+                //     setClaimingNft(false);
+                // })
                     
-                .then((receipt) => {
-                    console.log(receipt);
-                    setFeedback(
-                        `WOW, the Zero is yours! go visit Opensea.io to view it.`
-                        );
-                        setClaimingNft(false);
-                        fetchData();
-                    });
-                setClaimingNft(true);
-                await transaction.wait();
-                console.log(2)
+                // .then((receipt) => {
+                //     console.log(receipt);
+                //     setFeedback(
+                //         `WOW, the Zero is yours! go visit Opensea.io to view it.`
+                //         );
+                //         setClaimingNft(false);
+                //         fetchData();
+                //     });
+
+                // setClaimingNft(true);
+                 await transaction.wait();
+                // console.log(2)
                 fetchData();
             }
             
         }
         catch (err) {
-            let errorr = err.message
-            console.log(error)
+            // 1.
+            // insufficient funds for intrinsic transaction cost 
+            // (error = { "code": -32000, "message": "err: insufficient funds for gas * price + value: address 0x0bD045002056031154153cafF31336DFA3EBD844 have 90703250000000000 want 120000000000000000 (supplied gas 15013141)" }, method = "estimateGas", transaction = { "from": "0x0bD045002056031154153cafF31336DFA3EBD844", "to": "0x094A44a140Ef59b8Ebf9e7FA92234649Dc44Cd2F", "value": { "type": "BigNumber", "hex": "0x01aa535d3d0c0000" }, "data": "0xf4ddba920000000000000000000000000000000000000000000000000000000000000003", "accessList": null }, code = INSUFFICIENT_FUNDS, version = providers / 5.5.2)
+            // let errorr = err.message
 
-            if ( errorr.includes("getAddress")) {
-                console.log(4)
+            // console.log("error-catch", err.message)
+            // console.log("error-catch", err.error.code)
+            // console.log("error-catch", err.code)
+
+            if ( err?.code === 4001) {
+                // console.log("User Declined Payment")
+                setError("User Declined Payment");
             }
-            setError(err.message);
+
+            if ( err?.error?.code === -32000) {
+                // console.log("You have Insufficient Balance")
+                setError("You have Insufficient Balance");
+            }
+
+            // setError(err.message);
             setClaimingNft(false);
         }
         
@@ -175,28 +190,37 @@ function Home() {
 
                    { parseInt(supply.totalSupply) < 5555 ? (
                                 <div>
-                                  <p className="mintedcounts" /*in red*/ >{supply.totalSupply} / 5555 </p>
-                                  
-                                  <div className="progress mint_bar  ">
-                                        <div className="progress-bar active " role="progressbar"
-                                                                        aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style={{
-                                            width: '{supply.percent}'
-                                                                        }
-                                            }>
-                                            {supply.percent}
+                                    <p className="mintedcounts" /*in red*/ >{supply.totalSupply} / 5555 </p>
+                                    
+                                    <div className="progress mint_bar  ">
+                                            <div className="progress-bar active " role="progressbar"
+                                                                            aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style={{
+                                                width: '{supply.percent}'
+                                                                            }
+                                                }>
+                                                {supply.percent}
+                                            </div>
+                                  </div>
+                                  <div className="buttons_mint_div">
+                                        <button className="mintbtn m-2" onClick={decreaseMintNumber}>-</button>
+                                        <button className="mintbtn m-2" disabled={claimingNft ? 1 : 0} onClick={mint}>{claimingNft ? "BUSY" : "MINT"} {mintNumber}</button>
+                                    
+                                        <button className="mintbtn m-2" onClick={increaseMintNumber}>+</button>
                                         </div>
+                                        <button disabled className="amountbtn mb-3">0,04Ξ</button>
+
+                                        { error && 
+                                        <div className='text-center mint_under_button'>
+                                                <p className="bg-danger text-light">{error}</p>
+                                            </div>
+                                        }
+                                        <div className='text-center mint_under_button'>
+                                                <p className="bg-dark text-light" >Max Mint Quantity = 20</p>
+                                        </div>
+                                    
+                                    
                                     </div>
-                                    <button className="mintbtn m-2 ml-5" onClick={decreaseMintNumber}>-</button>
-                                    <button className="mintbtn m-2" disabled={claimingNft ? 1 : 0} onClick={mint}>{claimingNft ? "BUSY" : "MINT"} {mintNumber}</button>
-                                
-                                  <button className="mintbtn m-2" onClick={increaseMintNumber}>+</button>
-                                  <button disabled className="amountbtn m-2">0,04Ξ</button>
-                                  <div className='text-center'>
-                                        <p className="bg-dark p-1 text-light"  style={{ width: "20%", margin:"20px auto" }} /*in red*/ >Max Mint Quantity = 20 </p>
-                                    </div>
-                                  {/* {error} */}
-                                </div>
-                            ) : (
+                                ) : (
                                 <div>
                                     { parseInt(supply.totalSupply) >= 5555 ? (
                                         <button className=" m-2 btn btn-success">Sold Out!</button>
