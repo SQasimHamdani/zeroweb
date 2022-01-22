@@ -191,6 +191,10 @@ function Home() {
                                 
                                   <button className="mintbtn m-2" onClick={increaseMintNumber}>+</button>
                                   <button disabled className="amountbtn m-2">0,04Ξ</button>
+                                  <div className='text-center'>
+                                        <p className="bg-dark p-1 text-light"  style={{ width: "20%", margin:"20px auto" }} /*in red*/ >Max Mint Quantity = 20 </p>
+                                    </div>
+                                  {/* {error} */}
                                 </div>
                             ) : (
                                 <div>
