@@ -221,7 +221,7 @@ padding: 22%;
 .manhat {
   padding: 3% 3%;
 }
-.heroparity img{
+.heroparity img, .reg_lottery img{
   width: 100%;
 }
 .main_rpmap{
@@ -246,6 +246,12 @@ width: 65%;
   padding-bottom: 0px !important;
   height: fit-content;
     /* padding: 5%; */
+}
+.reg_lottery{
+  background-color: #fdf27a !important;
+}
+.exclusive_lottery{
+padding: 0px !important;
 }
 .herolast {
   background: #000000;
@@ -508,7 +514,17 @@ font-size: 18px;
 
     }
 }
+.tabmob{
+display: none;
+}
 @media (max-width: 575px) {
+  .deskpc{
+display: none;
+  }
+  .tabmob{
+    display: block !important;
+    width: 100%; 
+  }
   .flexxcol{
     display:flex;
     flex-direction: column-reverse;

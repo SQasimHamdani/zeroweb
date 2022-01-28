@@ -255,9 +255,9 @@ function Home() {
                 <div className="col-sm-12 col-md-12 col-lg-6 text-center mbcol">
                     <h1 className="headsmain headset"> ZERO PROJECT  </h1>
                     <p className="para paraset"> 
-                    Zero is the first Metaverse lottery project in the NFT space. We designed a collection of 5555 unique NFTs— unique digital collectibles living on the Ethereum blockchain. Your zero gives you access to members-only benefits, the first of which is access to the DAILY LOTTERIES to win NFTs including bluechip s.a BAYC,COOL CATS, DOODLES, VEEFRIENDS and many many more cool projects. Once mint sells out, we will be transparently using 50% of the mint revenue to purchase NFTs that will be put into play in our daily lotteries. Every purchase decision will be  subject to a community vote. Last but not least, we will live stream everyday the winner selection process
+                    Zero is the first Metaverse lottery project in the NFT space. We designed a collection of 5555 unique NFTs— unique digital collectibles living on the Ethereum blockchain. Your zero gives you access to members-only benefits, the first of which is access to the DAILY LOTTERIES to win NFTs including bluechip s.a BAYC,COOL CATS, DOODLES, VEEFRIENDS and many many more cool projects. Once mint sells out, we will be transparently using 50% of the mint revenue to purchase NFTs that will be put into play in our daily lotteries. Every purchase decision will be  subject to a community vote. Last but not least, we will live stream everyday the winner selection process.
  
-<br /> Fasten your damn f*** seatbelts, Zero is gonna shake this space
+<br /> Fasten your damn f*** seatbelts... <br /> Zero is gonna shake this space.
                     </p>
                 </div>
             </div>
@@ -274,7 +274,7 @@ function Home() {
     
                         <div className="row col-fil">
                <div className="col-sm-12 adjust_para">
-               <p className="para left-set"> * We will purchase the Bored Ape in a live video just after mint sells out. The BAYC giveaway will run on our #giveaways channel during x hours. Winner will be picked randomly by our discord bot. Every steps of this process will be recorded and live streamed in discord. </p>
+               <p className="para left-set"> * We will purchase the Bored Ape in a live video just after mint sells out. The BAYC giveaway will run on our #giveaways channel during x hours. Winner will be picked randomly by our discord bot. Every step of this process will be recorded and live streamed in discord. </p>
 
                 </div>
                </div>
@@ -291,7 +291,7 @@ function Home() {
                <div className="col-sm-12"> <img src="images/wheelimg.png" className="adjimg"/>
                <h1 className="headsmain mbd-0 cb mtt left-set"> WHAT'S ZERO PROJECT ?</h1>
                    <p className="para left-set"> ZERO PROJECT is the first Metaverse #NFT lottery  <br /> with 5555 unique digital collectibles living on the Ethereum blockchain </p>
-                   <p className="para left-set pt-1"> Each Zero NFT is a ticket to participate to our daily lotteries to win #NFTs <br /> including bluechip NFTs, and some juicy prizes... </p>
+                   <p className="para left-set pt-1"> Each Zero NFT is a ticket to participate to in daily lotteries to win #NFTs <br /> including bluechip NFTs, and some juicy prizes... </p>
 
                </div>
            </div>
@@ -299,7 +299,7 @@ function Home() {
                <div className="col-sm-12 p-0"> <img src="css/images/sectionfourtwoo.png"  className="rotate"/> 
                <h1 className="headsmain mbd-0 cb mtt left-set right-set">WHO CAN PLAY ?</h1>
                <p className="para left-set right-set"> Only #Zero NFT holders.</p>
-               <p className="para left-set right-set"> Of course, the more #Zero you own, the more entries you have.<br /> See it like Lottery tickets…</p>
+               <p className="para left-set right-set"> Of course, the more #Zero (NFTs) you own, the more entries you have.<br /> Much like Lottery Tickets…</p>
 
   </div>
            </div>
@@ -328,6 +328,41 @@ The community will vote and decide which NFT projects we will purchase after<br 
            </div>
        </div>
 
+ <div id="regular_lottery" className="container-fluid  reg_lottery">
+ <div className="row">
+               <div className="col-sm-12 pb-2">
+                   <img src="images/regularlottery.png"  className="mt-5 deskpc"/>  
+                   <img src="images/regularlottery_mobile.png"  className="mt-2 tabmob"/> 
+                   </div>
+           </div>
+</div>
+
+<div id="special_lottery" className="container-fluid  reg_lottery">
+ <div className="row">
+               <div className="col-sm-12 pb-2">
+                   <img src="images/speciallottery.png"  className="mt-2 deskpc"/> 
+                   <img src="images/special-mobile.png"  className="mt-2 tabmob"/> 
+                   </div>
+           </div>
+</div>
+<div id="exclusive_lottery" className="container-fluid   reg_lottery exclusive_lottery">
+ <div className="row">
+               <div className="col-sm-12 pb-2">
+                   <img src="images/exclusivelottery.png"  className="mt-2 deskpc"/> 
+                   <img src="images/exclusivelottery_mob.png"  className="mt-2 tabmob"/> 
+
+                   </div>
+           </div>
+</div>
+
+<div id="end_lottery" className="container-fluid reg_lottery">
+ <div className="row">
+               <div className="col-sm-12 pb-2">
+                   <img src="images/lottery_end.png"  className="mt-2"/> 
+
+                   </div>
+           </div>
+</div>
  <div id="parityection" className="container-fluid  heroparity">
  <div className="row">
                <div className="col-sm-12 pb-2">
@@ -415,7 +450,7 @@ He’s the tech guru </p>
                     <h3 className="headsmain  mbd-0 cb mtt "> Still have question ?</h3>
                     <p className="para cb">Head to our Discord to learn more and ask any questions.</p>
                     
-                    <h3 className="headsmain  mbd-0 cb mtt "> What is the mint revenues allocation ?</h3>
+                    <h3 className="headsmain  mbd-0 cb mtt ">Where will the revenue be allocated ?</h3>
                     <p className="para cb">50% of mint  will be used to purchase NFTs for the lottery wallet.  <br />
 20% will be redistributed to the team <br />
 30% will be used to build and develop the Roadmap v2</p>
