@@ -395,7 +395,7 @@ width: 70%;
         width: 70%;
     }
   .heroparity img{
-    height: 300px;
+    /* height: 300px; */
     width: 100%;
       }
   .adjimg {
@@ -530,7 +530,7 @@ display: none;
     flex-direction: column-reverse;
   }
   .heroparity img{
-    height: 175px;
+    /* height: 175px; */
     width: 100%;
       }
   .col_new{
