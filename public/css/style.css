@@ -521,6 +521,9 @@ display: none;
   .deskpc{
 display: none;
   }
+  .rarity_col{
+    padding-bottom: 50px !important;
+  }
   .tabmob{
     display: block !important;
     width: 100%; 

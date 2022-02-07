@@ -254,9 +254,14 @@ function Home() {
                 <div className="col-sm-12 col-md-12 col-lg-6 text-center mbcol">
                     <h1 className="headsmain headset"> ZERO PROJECT  </h1>
                     <p className="para paraset"> 
-                    ZERO is the first Metaverse Lottery project in the NFT space. We designed a collection of 5555 unique NFTs— unique digital collectibles living on the Ethereum blockchain. Your ZERO gives you access to members-only benefits, the first of which is access to the DAILY LOTTERIES to win NFTs including bluechip s.a BAYC,COOL CATS, DOODLES, VEEFRIENDS and many many more cool projects. Once mint sells out, we will be transparently using 50% of the mint revenue to purchase NFTs that will be put into play in our daily lotteries. Every purchase decision will be  subject to a community vote. Last but not least, we will live stream everyday the winner selection process.
- 
-<br /> Fasten your damn f*** seatbelts... <br /> ZERO is gonna shake this space.
+                    Zero is the first Metaverse lottery project in the NFT space. We designed a collection of 5555 unique NFTs— 
+unique digital collectibles living on the Ethereum blockchain. Your zero gives you access to members-only benefits, 
+the first of which is access to the DAILY LOTTERIES to win NFTs including bluechips e.g. BAYC,COOL CATS, DOODLES, 
+VEEFRIENDS and many many more valuable projects. Once mint sells out, we will be transparently using 50% of the mint 
+revenue to purchase NFTs that will be put into play in our daily lotteries. Every purchase decision will be subject 
+to a community vote. Last but not least, we will live stream the winner selection process every day.
+
+<br /> Fasten your seatbelts, Zero Project is gonna shake this space!
                     </p>
                 </div>
             </div>
@@ -289,16 +294,16 @@ function Home() {
            <div className="row bgimgsecfour ">
                <div className="col-sm-12"> <img src="images/wheelimg.png" className="adjimg"/>
                <h1 className="headsmain mbd-0 cb mtt left-set"> WHAT'S ZERO PROJECT ?</h1>
-                   <p className="para left-set"> ZERO PROJECT is the first Metaverse #NFT lottery  <br /> with 5555 unique digital collectibles living on the Ethereum blockchain </p>
-                   <p className="para left-set pt-1"> Each Zero NFT is a ticket to participate to in daily lotteries to win #NFTs <br /> including bluechip NFTs, and some juicy prizes... </p>
+                   <p className="para left-set"> ZERO PROJECT is the first Metaverse NFT lottery  <br /> with 5555 unique digital collectibles living on the Ethereum blockchain. </p>
+                   <p className="para left-set pt-1"> Each Zero NFT is a ticket to participate to our daily lotteries to win NFTs <br />(including bluechip NFTs) and some juicy prizes... </p>
 
                </div>
            </div>
            <div className="row bgimgsecfour  ">
                <div className="col-sm-12 p-0"> <img src="css/images/sectionfourtwoo.png"  className="rotate"/> 
                <h1 className="headsmain mbd-0 cb mtt left-set right-set">WHO CAN PLAY ?</h1>
-               <p className="para left-set right-set"> Only #Zero NFT holders.</p>
-               <p className="para left-set right-set"> Of course, the more #Zero (NFTs) you own, the more entries you have.<br /> Much like Lottery Tickets…</p>
+               <p className="para left-set right-set">Only ZERO NFT holders.</p>
+               <p className="para left-set right-set"> Of course, the more ZERO you own, the more entries you have.<br /> Holding a ZERO is like getting a free lottery ticket every day.</p>
 
   </div>
            </div>
@@ -306,9 +311,9 @@ function Home() {
                <div className="col-sm-12">
                <img src="images/622.png" className="adjimg rotater"/>
                <h1 className="headsmain mbd-0 cb mtt left-set"> HOW TO PLAY ?</h1>
-                   <p className="para left-set pt-2"> Rules are simple: own at least one #Zero NFT </p>    
-<p className="para left-set pt-2"> For special lotteries we will add another selection criteria to spice it up a bit : The “Eligible Attributes”. </p>  
-<p className="para left-set pt-2"> The Eligible attributes are Zero attributes that have been randomly selected and announced the day prior each special lottery. By doing so, we want to increase the probability to win for Zero holders that have ‘eligible attributes’… The more Zero NFT the higher the chance to win the lottery (1 NFT WITH ELIGIBLE ATTRIBUTE = 1ENTRY) </p>    
+                   <p className="para left-set pt-2"> Rules are simple: own at least one ZERO NFT</p>    
+<p className="para left-set pt-2"> For special lotteries, we will add another selection criteria to spice it up a bit : The “Eligible Attributes”.</p>  
+<p className="para left-set pt-2"> The Eligible Attributes are ZERO traits that have been randomly selected and announced the day prior to each special lottery. These special lotteries increase the probability to win for Zero holders that have one of the ‘eligible attributes’… The more ZERO NFT you hold, the higher the chance to win the lottery (1 NFT WITH AN ELIGIBLE ATTRIBUTE = 1ENTRY)</p>    
 
             </div>
            </div>
@@ -316,8 +321,8 @@ function Home() {
                <div className="col-sm-12 p-0"> <img src="images/wheelimg.png"  className="adjimgs"/> 
                <h1 className="headsmain mbd-0 cb mtt left-set right-set">WHAT CAN I WIN ?</h1>
                <p className="para left-set right-set"> 
-               Valuable NFT every day including bluechip NFTs such as coolcat, doodle, veefriends… <br />
-The community will vote and decide which NFT projects we will purchase after<br /> mint sells out in order to start our lottery NFT pool 
+               You have a chance to win a valuable NFT every day.<br />
+               The community will vote and decide which NFT projects we will purchase after<br /> mint sells out in order to start our lottery NFT pool
 
                </p>
   </div>
@@ -331,7 +336,7 @@ The community will vote and decide which NFT projects we will purchase after<br 
  <div className="row">
                <div className="col-sm-12 pb-2">
                    <img src="images/regularlottery.png"  className="mt-5 deskpc"/>  
-                   <img src="images/regularlottery_mobile.png"  className="mt-2 tabmob"/> 
+                   <embed src="images/specialmob.svg" className="mt-2 tabmob" />
                    </div>
            </div>
 </div>
@@ -340,7 +345,7 @@ The community will vote and decide which NFT projects we will purchase after<br 
  <div className="row">
                <div className="col-sm-12 pb-2">
                    <img src="images/speciallottery.png"  className="mt-2 deskpc"/> 
-                   <img src="images/special-mobile.png"  className="mt-2 tabmob"/> 
+                   <embed src="images/specialmob.svg" className="mt-2 tabmob" />          
                    </div>
            </div>
 </div>
@@ -348,7 +353,7 @@ The community will vote and decide which NFT projects we will purchase after<br 
  <div className="row">
                <div className="col-sm-12 pb-2">
                    <img src="images/exclusivelottery.png"  className="mt-2 deskpc"/> 
-                   <img src="images/exclusivelottery_mob.png"  className="mt-2 tabmob"/> 
+                   <embed src="images/exclusivemob.svg" className="mt-2 tabmob" />
 
                    </div>
            </div>
@@ -364,7 +369,7 @@ The community will vote and decide which NFT projects we will purchase after<br 
 </div>
  <div id="parityection" className="container-fluid  heroparity">
  <div className="row">
-               <div className="col-sm-12 pb-2">
+               <div className="col-sm-12 pb-2 rarity_col">
                    <h1 className="headsmain pl-5 pt-5 pb-3"> RARITY</h1> 
                    <img src="images/paritysec_01.png"  className="mt-2"/> 
 
