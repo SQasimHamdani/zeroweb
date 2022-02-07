@@ -336,7 +336,7 @@ to a community vote. Last but not least, we will live stream the winner selectio
  <div className="row">
                <div className="col-sm-12 pb-2">
                    <img src="images/regularlottery.png"  className="mt-5 deskpc"/>  
-                   <embed src="images/specialmob.svg" className="mt-2 tabmob" />
+                   <embed src="images/regularmob.svg" className="mt-2 tabmob" />
                    </div>
            </div>
 </div>
