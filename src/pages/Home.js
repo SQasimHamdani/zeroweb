@@ -336,8 +336,9 @@ to a community vote. Last but not least, we will live stream the winner selectio
  <div className="row">
                <div className="col-sm-12 pb-2">
                    <img src="images/regularlottery.png"  className="mt-5 deskpc"/>  
-                   <img src="images/special-mobile.png"  className="mt-5 tabmob"/>  
-                   <img src="images/specialmob.svg"  className="mt-5 tabmob"/>  
+                   <img src="images/zerohead.png"  className="mt-2 tabmob"/> 
+                   <img src="images/regular-mobile.png"  className="mt-2 tabmob"/> 
+       
 
                    </div>
            </div>
@@ -347,16 +348,15 @@ to a community vote. Last but not least, we will live stream the winner selectio
  <div className="row">
                <div className="col-sm-12 pb-2">
                    <img src="images/speciallottery.png"  className="mt-2 deskpc"/> 
-                   <embed src="images/specialmob.svg" className="mt-2 tabmob" />          
+                   <img src="images/special-mobile.png"  className="mt-2 tabmob"/> 
                    </div>
            </div>
 </div>
 <div id="exclusive_lottery" className="container-fluid   reg_lottery exclusive_lottery">
  <div className="row">
                <div className="col-sm-12 pb-2">
-                   <img src="images/exclusivelottery.png"  className="mt-2 deskpc"/> 
-                   <embed src="images/exclusivemob.svg" className="mt-2 tabmob" />
-
+                   <img src="images/exclusivelottery.png"  className="mt-2 deskpc"/>
+                   <img src="images/exclusivelottery_mob.png"  className="mt-2 tabmob"/> 
                    </div>
            </div>
 </div>
