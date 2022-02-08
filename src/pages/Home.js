@@ -205,6 +205,9 @@ function Home() {
                                         <button className="mintbtn m-2" disabled={claimingNft ? 1 : 0} onClick={mint}>{claimingNft ? "BUSY" : "MINT"} {mintNumber}</button>
                                     
                                         <button className="mintbtn m-2" onClick={increaseMintNumber}>+</button>
+                                        <span class="d-block">0.04E (0.07E after 20%mint progress)  </span>
+               <span class="d-block">Max Mint 20</span>
+                        
                                         </div>
                                         <button disabled className="amountbtn mb-3">0,04Ξ</button>
 
@@ -230,13 +233,15 @@ function Home() {
                                         
                                                           <button className="mintbtn m-2" onClick={increaseMintNumber}>+</button>
                                                   <br />
+                                                  <span class="d-block">0.04E (0.07E after 20%mint progress)  </span>
+               <span class="d-block">Max Mint 20</span>
+                        
                                                   
                                             {metamaskIsInstalled !== true ? (
                                                 <button className=" m-2 btn btn-danger">Connect Metamask!</button>
                                             ) : (
                                             <button className=" m-2 btn btn-info">Make Sure you are Ether Mainnet</button>
-                                            )}
-                                                  
+                                            )}        
                                         </div>
                                     )
                                 }             
@@ -245,7 +250,77 @@ function Home() {
 
                           
                </div>
+               
            </div>
+           <div className="row">
+               <div className="col-sm  text-center ">
+                          
+
+                   { parseInt(supply.totalSupply) < 5555 ? (
+                                <div>
+                                    <p className="mintedcounts" /*in red*/ >{supply.totalSupply} / 5555 </p>
+                                    
+                                    <div className="progress mint_bar  ">
+                                            <div className="progress-bar active " role="progressbar"
+                                                aria-valuenow="00" aria-valuemin="0" aria-valuemax="100"
+                                                style={{ width: supply.percent }}
+                                      >
+                                                {supply.percent}
+                                            </div>
+                                  </div>
+                                  <div className="buttons_mint_div">
+                                        <button className="mintbtn m-2" onClick={decreaseMintNumber}>-</button>
+                                        <button className="mintbtn m-2" disabled={claimingNft ? 1 : 0} onClick={mint}>{claimingNft ? "BUSY" : "MINT"} {mintNumber}</button>
+                                    
+                                        <button className="mintbtn m-2" onClick={increaseMintNumber}>+</button>
+                                        <span class="d-block">0.04E (0.07E after 20%mint progress)  </span>
+               <span class="d-block">Max Mint 20</span>
+                        
+                                        </div>
+                                        <button disabled className="amountbtn mb-3">0,04Ξ</button>
+
+                                        { error && 
+                                        <div className='text-center mint_under_button'>
+                                                <p className="bg-danger text-light">{error}</p>
+                                            </div>
+                                        }
+                                        <div className='text-center mint_under_button'>
+                                                <p className="bg-dark text-light" >Max Mint Quantity = 20</p>
+                                        </div>
+                                    
+                                    
+                                    </div>
+                                ) : (
+                                <div>
+                                    { parseInt(supply.totalSupply) >= 5555 ? (
+                                        <button className=" m-2 btn btn-success">Sold Out!</button>
+                                    ) : (
+                                        <div>
+                                            <button className="mintbtn m-2" onClick={decreaseMintNumber}>-</button>
+                                            <button className="mintbtn m-2" disabled={claimingNft ? 1 : 0} onClick={mint}>{claimingNft ? "BUSY" : "MINT"} {mintNumber}</button>
+                                        
+                                                          <button className="mintbtn m-2" onClick={increaseMintNumber}>+</button>
+                                                  <br />
+                                                  <span class="d-block">0.04E </span>
+               <span class="d-block">Max Mint 5</span>
+                        
+                                                  
+                                            {metamaskIsInstalled !== true ? (
+                                                <button className=" m-2 btn btn-danger">Connect Metamask!</button>
+                                            ) : (
+                                            <button className=" m-2 btn btn-info">Make Sure you are Ether Mainnet</button>
+                                            )}        
+                                        </div>
+                                    )
+                                }             
+                            </div>   
+                            )}
+
+                          
+               </div>
+               
+           </div>
+
        </div>
         <div id="zerosection" className="container-fluid herotwo">
             <div className="row">
