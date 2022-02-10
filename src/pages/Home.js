@@ -2,20 +2,18 @@
 import { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 import abi from '../PZero.json';
-import { MerkleTree } from "merkletreejs";
-import keccak256 from "keccak256";
 import '../index.css';
-import { merkleData } from '../merkle_data';
-const nl = require("../merkle_data");
+import { getProofs} from '../helpers/merkletree'
+
 
 const ZERO_ADDRESS = "0x094a44a140ef59b8ebf9e7fa92234649dc44cd2f";
-// const ZERO_ADDRESS = "0xfA93a74be60487D81272F370845d5D35F1DC4562";
+// const ZERO_ADDRESS = "0x915D9d7ff23aeeE4D4aEb6a96b18c5c97807c2D3";
 function Home() {
     const [error, setError] = useState('');
   const [supply, setSupply] = useState({})
   const [mintNumber, setMintNumber] = useState(1)
-  const [root, setRoot] = useState()
-    const salestate = 0;
+  const [tokenPrice, setTokenPrice] = useState({});
+  const [strTokenPrice, setStrTokenPrice] = useState('');
     
   const [claimingNft, setClaimingNft] = useState(false);
     const [feedback, setFeedback] = useState(``);
@@ -41,11 +39,19 @@ function Home() {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const contract = new ethers.Contract(ZERO_ADDRESS, abi.abi, provider);
       try {
-        const totalSupply = await contract.totalSupply();
+          const tempPrice = String(await contract.tokenPrice());
+          if (tempPrice){
+            setTokenPrice(tempPrice);
+            setStrTokenPrice(ethers.utils.formatEther(tempPrice) + 'Ξ');
+          }
+        const totalSupply = String(await contract.totalSupply());
+        // console.log(totalSupply);
+        // console.log(ethers.utils.formatEther(tempPrice))
         const object = {"totalSupply": String(totalSupply), "percent" : String(String((totalSupply / 5555 * 100)).slice(0, 4)+'%')}
         setSupply(object);
       }
       catch(err) {
+          console.log('Fetch problem' + err.message + ' StrTokenprice= ' + strTokenPrice)
         setError(err.message);
       }
     }
@@ -67,57 +73,75 @@ function Home() {
         const contract = new ethers.Contract(ZERO_ADDRESS, abi.abi, signer);
         // console.log("contract",contract)
 
-        let total_price = String("0.04" * mintNumber)
+        let total_price = String(tokenPrice * mintNumber);
+        console.log(total_price);
         // setClaimingNft(true);
         
         try {
-            let accounts = window.ethereum.request({
+            let accounts = await window.ethereum.request({
                 method: 'eth_requestAccounts'
             })
-            // console.log(1)
-
             const networkId = await ethereum.request({
                 method: "net_version",
             });
-
             if (1 == parseInt(networkId) && metamaskIsInstalled === true){
-            
-            
-
+                // console.log('Accounts' + [accounts]);
                 const transaction = await contract.connect(signer)
-                .regularMint(mintNumber, { value: (ethers.utils.parseEther(total_price)) })
-                // console.log("transaction",transaction)
-                // .once("error", (err) => {
-                //     console.log(err);
-                //     setFeedback("Sorry, something went wrong please try again later.");
-                //     setClaimingNft(false);
-                // })
-                    
-                // .then((receipt) => {
-                //     console.log(receipt);
-                //     setFeedback(
-                //         `WOW, the Zero is yours! go visit Opensea.io to view it.`
-                //         );
-                //         setClaimingNft(false);
-                //         fetchData();
-                //     });
-
-                // setClaimingNft(true);
-                 await transaction.wait();
-                // console.log(2)
+                .regularMint(mintNumber, { value: total_price })
+                await transaction.wait();
                 fetchData();
             }
             
         }
         catch (err) {
-            // 1.
-            // insufficient funds for intrinsic transaction cost 
-            // (error = { "code": -32000, "message": "err: insufficient funds for gas * price + value: address 0x0bD045002056031154153cafF31336DFA3EBD844 have 90703250000000000 want 120000000000000000 (supplied gas 15013141)" }, method = "estimateGas", transaction = { "from": "0x0bD045002056031154153cafF31336DFA3EBD844", "to": "0x094A44a140Ef59b8Ebf9e7FA92234649Dc44Cd2F", "value": { "type": "BigNumber", "hex": "0x01aa535d3d0c0000" }, "data": "0xf4ddba920000000000000000000000000000000000000000000000000000000000000003", "accessList": null }, code = INSUFFICIENT_FUNDS, version = providers / 5.5.2)
-            // let errorr = err.message
+            
+            if ( err?.code === 4001) {
+                // console.log("User Declined Payment")
+                setError("User Declined Payment");
+            }
+            
+            if ( err?.error?.code === -32000) {
+                // console.log("You have Insufficient Balance")
+                setError("You have Insufficient Balance");
+            }
+            
+            // setError(err.message);
+            setClaimingNft(false);
+        }
+        
+    }
+}
+async function preMint() {
+    if(typeof window.ethereum !== 'undefined') {
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const signer = provider.getSigner();
+        const contract = new ethers.Contract(ZERO_ADDRESS, abi.abi, signer);
+        // console.log("contract",contract)
+        
 
-            // console.log("error-catch", err.message)
-            // console.log("error-catch", err.error.code)
-            // console.log("error-catch", err.code)
+        let total_price = String(ethers.utils.parseEther('0.04') * mintNumber)
+        console.log(total_price)
+        // setClaimingNft(true);
+        
+        try {
+            let accounts = await window.ethereum.request({
+                method: 'eth_requestAccounts'
+            })
+            const networkId = await ethereum.request({
+                method: "net_version",
+            });
+            if (1 == parseInt(networkId) && metamaskIsInstalled === true){
+                
+                const buyerproof = getProofs([accounts]);
+                console.log(buyerproof);
+                const transaction = await contract.connect(signer)
+                .preMint(buyerproof,  mintNumber, { value: total_price })
+                await transaction.wait();
+                fetchData();
+            }
+            
+        }
+        catch (err) {
 
             if ( err?.code === 4001) {
                 // console.log("User Declined Payment")
@@ -127,6 +151,10 @@ function Home() {
             if ( err?.error?.code === -32000) {
                 // console.log("You have Insufficient Balance")
                 setError("You have Insufficient Balance");
+            }
+            if ( err?.error?.code === -32603) {
+                // console.log("You have Insufficient Balance")
+                setError("Not whitelisted");
             }
 
             // setError(err.message);
@@ -203,10 +231,11 @@ function Home() {
                                   <div className="buttons_mint_div">
                                         <button className="mintbtn m-2" onClick={decreaseMintNumber}>-</button>
                                         <button className="mintbtn m-2" disabled={claimingNft ? 1 : 0} onClick={mint}>{claimingNft ? "BUSY" : "MINT"} {mintNumber}</button>
+                                        <button className="mintbtn m-2" disabled={claimingNft ? 1 : 0} onClick={preMint}>{claimingNft ? "BUSY" : "WHITELIST MINT"} {mintNumber}</button>
                                     
                                         <button className="mintbtn m-2" onClick={increaseMintNumber}>+</button>
                                         </div>
-                                        <button disabled className="amountbtn mb-3">0,04Ξ</button>
+                                        <button disabled className="amountbtn mb-3">{strTokenPrice}</button>
 
                                         { error && 
                                         <div className='text-center mint_under_button'>
@@ -220,13 +249,14 @@ function Home() {
                                     
                                     </div>
                                 ) : (
-                                <div>
+                                    <div>
                                     { parseInt(supply.totalSupply) >= 5555 ? (
                                         <button className=" m-2 btn btn-success">Sold Out!</button>
-                                    ) : (
-                                        <div>
+                                        ) : (
+                                            <div>
                                             <button className="mintbtn m-2" onClick={decreaseMintNumber}>-</button>
                                             <button className="mintbtn m-2" disabled={claimingNft ? 1 : 0} onClick={mint}>{claimingNft ? "BUSY" : "MINT"} {mintNumber}</button>
+                                            <button className="mintbtn m-2" disabled={claimingNft ? 1 : 0} onClick={preMint}>{claimingNft ? "BUSY" : "WHITELIST MINT"} {mintNumber}</button>
                                         
                                                           <button className="mintbtn m-2" onClick={increaseMintNumber}>+</button>
                                                   <br />
@@ -234,7 +264,7 @@ function Home() {
                                             {metamaskIsInstalled !== true ? (
                                                 <button className=" m-2 btn btn-danger">Connect Metamask!</button>
                                             ) : (
-                                            <button className=" m-2 btn btn-info">Make Sure you are Ether Mainnet</button>
+                                            <button className=" m-2 btn btn-info">Make Sure you are on Ethereum  Mainnet</button>
                                             )}
                                                   
                                         </div>
