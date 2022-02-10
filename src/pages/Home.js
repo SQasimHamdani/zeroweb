@@ -6,26 +6,42 @@ import { MerkleTree } from "merkletreejs";
 import keccak256 from "keccak256";
 import '../index.css';
 import { merkleData } from '../merkle_data';
-const nl = require("../merkle_data");
+import { NONE } from 'phaser';
+// const nl = require("../merkle_data");
 
 const ZERO_ADDRESS = "0x094a44a140ef59b8ebf9e7fa92234649dc44cd2f";
 // const ZERO_ADDRESS = "0xfA93a74be60487D81272F370845d5D35F1DC4562";
 function Home() {
     const [error, setError] = useState('');
-  const [supply, setSupply] = useState({})
-  const [mintNumber, setMintNumber] = useState(1)
-  const [root, setRoot] = useState()
+    
+    // const [mintPrice, setmintPrice] = useState(0.04);
+
+    const [supply, setSupply] = useState({})
+    const [mintNumber, setMintNumber] = useState(1)
+    const [WLmintNumber, setWLMintNumber] = useState(1)
+    const [networkId, setnetworkId] = useState(-1)
+    const [root, setRoot] = useState()
     const salestate = 0;
     
-  const [claimingNft, setClaimingNft] = useState(false);
+    const [claimingNft, setClaimingNft] = useState(false);
     const [feedback, setFeedback] = useState(``);
     const { ethereum } = window;
-    const metamaskIsInstalled = (ethereum && ethereum.isMetaMask);
+    const [metamaskIsInstalled, setmetamaskIsInstalled] = useState(NONE);
 
 
     useEffect(() => {
-      fetchData();
-      if (metamaskIsInstalled){
+        fetchData();
+        
+      
+        
+      
+  }, [])
+  async function fetchData() {
+    if(typeof window.ethereum !== 'undefined' && window.ethereum !== "") {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const contract = new ethers.Contract(ZERO_ADDRESS, abi.abi, provider);
+        try {
+          if (metamaskIsInstalled){
             window.ethereum.on("accountsChanged", () => {
                 window.location.reload();
             });
@@ -34,16 +50,11 @@ function Home() {
                 window.location.reload();
             });
         }
-      
-  }, [])
-  async function fetchData() {
-    if(typeof window.ethereum !== 'undefined' && window.ethereum !== "") {
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
-      const contract = new ethers.Contract(ZERO_ADDRESS, abi.abi, provider);
-      try {
         const totalSupply = await contract.totalSupply();
         const object = {"totalSupply": String(totalSupply), "percent" : String(String((totalSupply / 5555 * 100)).slice(0, 4)+'%')}
-        setSupply(object);
+          setSupply(object);
+          
+          
       }
       catch(err) {
         setError(err.message);
@@ -58,67 +69,112 @@ function Home() {
     if (mintNumber < 20)
         setMintNumber(mintNumber + 1);
     };
+
+  async function WLdecreaseMintNumber() {
+    if (WLmintNumber > 1)
+        setWLMintNumber(WLmintNumber -1);
+  };
+  async function WLincreaseMintNumber() {
+    if (WLmintNumber < 5)
+        setWLMintNumber(WLmintNumber + 1);
+    };
     
+    async function mintMethod(id) {
+        // console.log('id',id)
+        let total_price = String('0.07' * mintNumber);
+        
+        try {
+            // console.log('setmetamaskIsInstalled before',metamaskIsInstalled)
+            var metamaskIsInstalled = ethereum && ethereum.isMetaMask
+            setmetamaskIsInstalled(metamaskIsInstalled);
+            if (typeof metamaskIsInstalled === 'undefined') {
+                // console.log('setmetamaskIsInstalled',metamaskIsInstalled)
+                setmetamaskIsInstalled(false);
+                return
+            }
+        } catch (error) {
+            // console.log('setmetamaskIsInstalled catch ->',false)
+            setmetamaskIsInstalled(false);
+            return
+        }
+        var networkId2 = await ethereum.request({
+            method: "net_version",
+        });
+        setnetworkId(networkId2);
+        
+        if (id == 1) {
+            { parseInt(supply.totalSupply) < 1111 ? (
+                total_price = String('0.04' * mintNumber)
+                ) : (
+                total_price = String('0.07' * mintNumber)
+            )}
+            mint(total_price,networkId2)
+        }
+        else {
+            total_price = String('0.04' * WLmintNumber)
+            mint(total_price,networkId2)
+        }
+    };
+
     
-  async function mint() {
+  async function mint(total_price,networkId2=NONE) {
     if(typeof window.ethereum !== 'undefined') {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
         const contract = new ethers.Contract(ZERO_ADDRESS, abi.abi, signer);
         // console.log("contract",contract)
-
-        let total_price = String("0.04" * mintNumber)
-        // setClaimingNft(true);
+        
+        console.log("total price",total_price)
         
         try {
             let accounts = window.ethereum.request({
                 method: 'eth_requestAccounts'
             })
-            // console.log(1)
-
-            const networkId = await ethereum.request({
-                method: "net_version",
-            });
-
-            if (1 == parseInt(networkId) && metamaskIsInstalled === true){
             
+            setClaimingNft(true);
+            // if (networkId2==NONE){
+            //     networkId2 = await ethereum.request({
+            //             method: "net_version",
+            //     });
+            //     // const networkId2 = 1;
+            //     setnetworkId(networkId2);
+            //     sleep(2000).then(() => {
+            //             mint(total_price,networkId2)
+            //         });
+            // }
+
+            // if (-1 == parseInt(networkId)) {
+            //     setnetworkId(networkId);
+            // }
+
+            // console.log('networkId2', networkId2)
+            // if (-1 == parseInt(networkId)) {
+            //     // console.log('networkId', networkId) 
+            //     // console.log("parseInt(networkId)",parseInt(networkId))
+            //         sleep(2000).then(() => {
+            //             mint(total_price,networkId2)
+            //         });
+            //     }
+            
+            var metamaskIsInstalled = ethereum && ethereum.isMetaMask
+            setmetamaskIsInstalled(metamaskIsInstalled);
             
 
-                const transaction = await contract.connect(signer)
-                .regularMint(mintNumber, { value: (ethers.utils.parseEther(total_price)) })
-                // console.log("transaction",transaction)
-                // .once("error", (err) => {
-                //     console.log(err);
-                //     setFeedback("Sorry, something went wrong please try again later.");
-                //     setClaimingNft(false);
-                // })
-                    
-                // .then((receipt) => {
-                //     console.log(receipt);
-                //     setFeedback(
-                //         `WOW, the Zero is yours! go visit Opensea.io to view it.`
-                //         );
-                //         setClaimingNft(false);
-                //         fetchData();
-                //     });
-
+            if (1 == parseInt(networkId2) && metamaskIsInstalled === true) {
+                // console.log('minting under process')
+                
+                const transaction = await contract.connect(signer).regularMint(mintNumber, { value: (ethers.utils.parseEther(total_price)) })
+                
+                await transaction.wait();
                 // setClaimingNft(true);
-                 await transaction.wait();
                 // console.log(2)
                 fetchData();
             }
+            setClaimingNft(false);
             
         }
         catch (err) {
-            // 1.
-            // insufficient funds for intrinsic transaction cost 
-            // (error = { "code": -32000, "message": "err: insufficient funds for gas * price + value: address 0x0bD045002056031154153cafF31336DFA3EBD844 have 90703250000000000 want 120000000000000000 (supplied gas 15013141)" }, method = "estimateGas", transaction = { "from": "0x0bD045002056031154153cafF31336DFA3EBD844", "to": "0x094A44a140Ef59b8Ebf9e7FA92234649Dc44Cd2F", "value": { "type": "BigNumber", "hex": "0x01aa535d3d0c0000" }, "data": "0xf4ddba920000000000000000000000000000000000000000000000000000000000000003", "accessList": null }, code = INSUFFICIENT_FUNDS, version = providers / 5.5.2)
-            // let errorr = err.message
-
-            // console.log("error-catch", err.message)
-            // console.log("error-catch", err.error.code)
-            // console.log("error-catch", err.code)
-
+            // console.log('error',err)
             if ( err?.code === 4001) {
                 // console.log("User Declined Payment")
                 setError("User Declined Payment");
@@ -184,143 +240,113 @@ function Home() {
                     </video>    
                 </div>
             </div>
-            <div className="row">
-               <div className="col-sm  text-center ">
-                          
+                { parseInt(supply.totalSupply) < 5555 ? (
+                    <div>
+                        <div className="row">
+                            <div className="col-sm  text-center ">
+                                <p className="mintedcounts" /*in red*/ >{supply.totalSupply} / 5555 </p>
+                                
+                                <div className="progress mint_bar  ">
+                                    <div className="progress-bar active " role="progressbar"
+                                        aria-valuenow="00" aria-valuemin="0" aria-valuemax="100"
+                                        style={{ width: supply.percent }}
+                                    >
+                                        {supply.percent}
+                                    </div>
+                                </div>
+                                <div className="buttons_mint_div">
+                                    <button className="mintbtn m-2" onClick={decreaseMintNumber}>-</button>
+                                    <button className="mintbtn m-2" disabled={claimingNft ? 1 : 0} onClick={() => mintMethod(1)}>{claimingNft ? "BUSY" : "MINT"} {mintNumber}</button>
+                                
+                                    <button className="mintbtn m-2" onClick={increaseMintNumber}>+</button>
+                                    <span className="d-block"><strong>0.04Ξ</strong> (0.07Ξ after 20%mint progress)  </span>
+                                    <span className="d-block">Max Mint 20</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div className="row">
+                            <div className="col-sm  text-center ">
+                                <br></br>
+                            </div>
+                        </div>
+                        
+                        <div className="row">
+                            <div className="col-sm  text-center ">
+                                <div className="buttons_mint_div">
+                                    <button className="mintbtn m-2" onClick={WLdecreaseMintNumber}>-</button>
+                                    <button className="mintbtn m-2" disabled={claimingNft ? 1 : 0} onClick={() => mintMethod(2)}>{claimingNft ? "BUSY" : "WL MINT"} {WLmintNumber}</button>
+                                
+                                    <button className="mintbtn m-2" onClick={WLincreaseMintNumber}>+</button>
+                                    <span className="d-block"><strong>0.04Ξ</strong></span>
+                                    <span className="d-block">Max Mint 5</span>
+                    
+                                </div>
+                            </div>
+                        </div>
 
-                   { parseInt(supply.totalSupply) < 5555 ? (
-                                <div>
-                                    <p className="mintedcounts" /*in red*/ >{supply.totalSupply} / 5555 </p>
+                        { error && 
+                            <div className='text-center mint_under_button'>
+                                <p className="bg-danger text-light">{error}</p>
+                            </div>
+                        }
+                    </div>
+                ) : (
+                    <div>
+                        <div className="row">
+                            <div className="col-sm  text-center ">
+                                { parseInt(supply.totalSupply) >= 5555 ? (
+                                    <button className=" m-2 btn btn-success">Sold Out!</button>
+                                    ) : (
                                     
-                                    <div className="progress mint_bar  ">
-                                            <div className="progress-bar active " role="progressbar"
-                                                aria-valuenow="00" aria-valuemin="0" aria-valuemax="100"
-                                                style={{ width: supply.percent }}
-                                      >
-                                                {supply.percent}
-                                            </div>
-                                  </div>
-                                  <div className="buttons_mint_div">
+                                    <div>
                                         <button className="mintbtn m-2" onClick={decreaseMintNumber}>-</button>
-                                        <button className="mintbtn m-2" disabled={claimingNft ? 1 : 0} onClick={mint}>{claimingNft ? "BUSY" : "MINT"} {mintNumber}</button>
+                                        <button className="mintbtn m-2" disabled={claimingNft ? 1 : 0} onClick={() => mintMethod(1)}>{claimingNft ? "BUSY" : "MINT"} {mintNumber}</button>
                                     
                                         <button className="mintbtn m-2" onClick={increaseMintNumber}>+</button>
-                                        <span class="d-block">0.04E (0.07E after 20%mint progress)  </span>
-               <span class="d-block">Max Mint 20</span>
-                        
-                                        </div>
-                                        <button disabled className="amountbtn mb-3">0,04Ξ</button>
+                                        <br />
+                                        <span className="d-block"><strong>0.04Ξ</strong> (0.07Ξ after 20%mint progress)  </span>
+                                        <span className="d-block">Max Mint 20</span>
 
-                                        { error && 
-                                        <div className='text-center mint_under_button'>
-                                                <p className="bg-danger text-light">{error}</p>
+                                        <div className="row">
+                                            <div className="col-sm  text-center ">
+                                                <br></br>
                                             </div>
-                                        }
-                                        <div className='text-center mint_under_button'>
-                                                <p className="bg-dark text-light" >Max Mint Quantity = 20</p>
                                         </div>
+                                        <div className="row">
+                                            <div className="col-sm  text-center ">
+                                                <div className="buttons_mint_div">
+                                                    <button className="mintbtn m-2" onClick={WLdecreaseMintNumber}>-</button>
+                                                    <button className="mintbtn m-2" disabled={claimingNft ? 1 : 0} onClick={() => mintMethod(2)}>{claimingNft ? "BUSY" : "WL MINT"} {WLmintNumber}</button>
+                                                
+                                                    <button className="mintbtn m-2" onClick={WLincreaseMintNumber}>+</button>
+                                                    <span className="d-block"><strong>0.04Ξ</strong></span>
+                                                    <span className="d-block">Max Mint 5</span>
                                     
-                                    
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
+                                )}      
+                            </div>      
+                        </div>   
+                    </div>   
+                )}
+                <div className="row">
+                    <div className="col-sm  text-center ">
+                        {metamaskIsInstalled === false ? (
+                            <button className=" m-2 btn btn-danger">Connect Metamask!</button>
+                        ) : (
+                                <div>
+                                {( -1 == parseInt(networkId) || 1 == parseInt(networkId) ) ? (
+                                        <></>
                                 ) : (
-                                <div>
-                                    { parseInt(supply.totalSupply) >= 5555 ? (
-                                        <button className=" m-2 btn btn-success">Sold Out!</button>
-                                    ) : (
-                                        <div>
-                                            <button className="mintbtn m-2" onClick={decreaseMintNumber}>-</button>
-                                            <button className="mintbtn m-2" disabled={claimingNft ? 1 : 0} onClick={mint}>{claimingNft ? "BUSY" : "MINT"} {mintNumber}</button>
-                                        
-                                                          <button className="mintbtn m-2" onClick={increaseMintNumber}>+</button>
-                                                  <br />
-                                                  <span class="d-block">0.04E (0.07E after 20%mint progress)  </span>
-               <span class="d-block">Max Mint 20</span>
-                        
-                                                  
-                                            {metamaskIsInstalled !== true ? (
-                                                <button className=" m-2 btn btn-danger">Connect Metamask!</button>
-                                            ) : (
-                                            <button className=" m-2 btn btn-info">Make Sure you are Ether Mainnet</button>
-                                            )}        
-                                        </div>
-                                    )
-                                }             
-                            </div>   
-                            )}
-
-                          
-               </div>
-               
-           </div>
-           <div className="row">
-               <div className="col-sm  text-center ">
-                          
-
-                   { parseInt(supply.totalSupply) < 5555 ? (
-                                <div>
-                                    <p className="mintedcounts" /*in red*/ >{supply.totalSupply} / 5555 </p>
-                                    
-                                    <div className="progress mint_bar  ">
-                                            <div className="progress-bar active " role="progressbar"
-                                                aria-valuenow="00" aria-valuemin="0" aria-valuemax="100"
-                                                style={{ width: supply.percent }}
-                                      >
-                                                {supply.percent}
-                                            </div>
-                                  </div>
-                                  <div className="buttons_mint_div">
-                                        <button className="mintbtn m-2" onClick={decreaseMintNumber}>-</button>
-                                        <button className="mintbtn m-2" disabled={claimingNft ? 1 : 0} onClick={mint}>{claimingNft ? "BUSY" : "MINT"} {mintNumber}</button>
-                                    
-                                        <button className="mintbtn m-2" onClick={increaseMintNumber}>+</button>
-                                        <span class="d-block">0.04E (0.07E after 20%mint progress)  </span>
-               <span class="d-block">Max Mint 20</span>
-                        
-                                        </div>
-                                        <button disabled className="amountbtn mb-3">0,04Ξ</button>
-
-                                        { error && 
-                                        <div className='text-center mint_under_button'>
-                                                <p className="bg-danger text-light">{error}</p>
-                                            </div>
-                                        }
-                                        <div className='text-center mint_under_button'>
-                                                <p className="bg-dark text-light" >Max Mint Quantity = 20</p>
-                                        </div>
-                                    
-                                    
-                                    </div>
-                                ) : (
-                                <div>
-                                    { parseInt(supply.totalSupply) >= 5555 ? (
-                                        <button className=" m-2 btn btn-success">Sold Out!</button>
-                                    ) : (
-                                        <div>
-                                            <button className="mintbtn m-2" onClick={decreaseMintNumber}>-</button>
-                                            <button className="mintbtn m-2" disabled={claimingNft ? 1 : 0} onClick={mint}>{claimingNft ? "BUSY" : "MINT"} {mintNumber}</button>
-                                        
-                                                          <button className="mintbtn m-2" onClick={increaseMintNumber}>+</button>
-                                                  <br />
-                                                  <span class="d-block">0.04E </span>
-               <span class="d-block">Max Mint 5</span>
-                        
-                                                  
-                                            {metamaskIsInstalled !== true ? (
-                                                <button className=" m-2 btn btn-danger">Connect Metamask!</button>
-                                            ) : (
-                                            <button className=" m-2 btn btn-info">Make Sure you are Ether Mainnet</button>
-                                            )}        
-                                        </div>
-                                    )
-                                }             
-                            </div>   
-                            )}
-
-                          
-               </div>
-               
-           </div>
-
+                                    <button className=" m-2 btn btn-info">Make Sure you are Ether Mainnet</button>
+                                )}
+                            </div>
+                        )}     
+                    </div>
+                </div>
        </div>
         <div id="zerosection" className="container-fluid herotwo">
             <div className="row">
