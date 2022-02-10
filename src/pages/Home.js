@@ -17,25 +17,35 @@ function Home() {
     const [mintNumber, setMintNumber] = useState(1)
     const [WLmintNumber, setWLMintNumber] = useState(1)
     const [networkId, setnetworkId] = useState(-1)
+
+    const [root, setRoot] = useState()
+    const salestate = 0;
+
     const [tokenPrice, setTokenPrice] = useState({});
-  const [strTokenPrice, setStrTokenPrice] = useState('');
+    const [strTokenPrice, setStrTokenPrice] = useState('');
+
     
     const [claimingNft, setClaimingNft] = useState(false);
     const [feedback, setFeedback] = useState(``);
     const { ethereum } = window;
-    const [metamaskIsInstalled, setmetamaskIsInstalled] = useState(NONE);
+    const [metamaskIsInstalled, setmetamaskIsInstalled] = useState("undefined");
 
 
     useEffect(() => {
         fetchData();
-
-      
   }, [])
   async function fetchData() {
     if(typeof window.ethereum !== 'undefined' && window.ethereum !== "") {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const contract = new ethers.Contract(ZERO_ADDRESS, abi.abi, provider);
         try {
+
+//            tempPrice = String(await contract.tokenPrice());
+//              if (tempPrice){
+//                setTokenPrice(tempPrice);
+//                setStrTokenPrice(ethers.utils.formatEther(tempPrice) + 'Ξ');
+//              }
+
           if (metamaskIsInstalled){
             window.ethereum.on("accountsChanged", () => {
                 window.location.reload();
@@ -45,11 +55,6 @@ function Home() {
                 window.location.reload();
             });
         }
-        const tempPrice = String(await contract.tokenPrice());
-          if (tempPrice){
-            setTokenPrice(tempPrice);
-            setStrTokenPrice(ethers.utils.formatEther(tempPrice) + 'Ξ');
-          }
         const totalSupply = String(await contract.totalSupply());
         // console.log(totalSupply);
         // console.log(ethers.utils.formatEther(tempPrice))
@@ -57,7 +62,8 @@ function Home() {
         setSupply(object);
       }
       catch(err) {
-          console.log('Fetch problem' + err.message + ' StrTokenprice= ' + strTokenPrice)
+
+//          console.log('Fetch problem' + err.message + ' StrTokenprice= ' + strTokenPrice)
         setError(err.message);
       }
     }
@@ -109,16 +115,15 @@ function Home() {
                 ) : (
                 total_price = String('0.07' * mintNumber)
             )}
-            mint(total_price,networkId2)
+            mint(total_price,networkId2,"mint")
         }
         else {
             total_price = String('0.04' * WLmintNumber)
-            mint(total_price,networkId2)
+            mint(total_price,networkId2,"premint")
         }
     };
 
-
-  async function mint(total_price,networkId2=NONE) {
+  async function mint(total_price,networkId2='undefined',mintType='undefined') {
     if(typeof window.ethereum !== 'undefined') {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
@@ -133,29 +138,6 @@ function Home() {
             })
 
             setClaimingNft(true);
-            // if (networkId2==NONE){
-            //     networkId2 = await ethereum.request({
-            //             method: "net_version",
-            //     });
-            //     // const networkId2 = 1;
-            //     setnetworkId(networkId2);
-            //     sleep(2000).then(() => {
-            //             mint(total_price,networkId2)
-            //         });
-            // }
-
-            // if (-1 == parseInt(networkId)) {
-            //     setnetworkId(networkId);
-            // }
-
-            // console.log('networkId2', networkId2)
-            // if (-1 == parseInt(networkId)) {
-            //     // console.log('networkId', networkId)
-            //     // console.log("parseInt(networkId)",parseInt(networkId))
-            //         sleep(2000).then(() => {
-            //             mint(total_price,networkId2)
-            //         });
-            //     }
 
             var metamaskIsInstalled = ethereum && ethereum.isMetaMask
             setmetamaskIsInstalled(metamaskIsInstalled);
@@ -164,73 +146,27 @@ function Home() {
                 method: "net_version",
             });
             if (1 == parseInt(networkId) && metamaskIsInstalled === true){
-                // console.log('Accounts' + [accounts]);
-                const transaction = await contract.connect(signer)
-                .regularMint(mintNumber, { value: total_price })
+                if (mintType=='mint'){
+                    console.log("minting method")
+                    const transaction = await contract.connect(signer)
+                        .regularMint(mintNumber, { value: (ethers.utils.parseEther(total_price)) })
+                    await transaction.wait();
+                    fetchData();
+                }
+                else if (mintType=='premint'){
+                console.log("premint method")
+                    const buyerproof = getProofs([accounts]);
+                        console.log(buyerproof);
+                        const transaction = await contract.connect(signer)
+                        .preMint(buyerproof,  WLmintNumber, { value: (ethers.utils.parseEther(total_price)) })
+
                 await transaction.wait();
                 fetchData();
+                }
             }
-
         }
         catch (err) {
-
-            if ( err?.code === 4001) {
-                // console.log("User Declined Payment")
-                setError("User Declined Payment");
-            }
-
-            if ( err?.error?.code === -32000) {
-                // console.log("You have Insufficient Balance")
-                setError("You have Insufficient Balance");
-            }
-
-            // setError(err.message);
-            setClaimingNft(false);
-        }
-
-    }
-}
-async function preMint() {
-    if(typeof window.ethereum !== 'undefined') {
-        const provider = new ethers.providers.Web3Provider(window.ethereum);
-        const signer = provider.getSigner();
-        const contract = new ethers.Contract(ZERO_ADDRESS, abi.abi, signer);
-        // console.log("contract",contract)
-
-
-            if (1 == parseInt(networkId2) && metamaskIsInstalled === true) {
-                // console.log('minting under process')
-
-                const transaction = await contract.connect(signer).regularMint(mintNumber, { value: (ethers.utils.parseEther(total_price)) })
-
-                await transaction.wait();
-                // setClaimingNft(true);
-                // console.log(2)
-        let total_price = String(ethers.utils.parseEther('0.04') * mintNumber)
-        console.log(total_price)
-        // setClaimingNft(true);
-
-        try {
-            let accounts = await window.ethereum.request({
-                method: 'eth_requestAccounts'
-            })
-            const networkId = await ethereum.request({
-                method: "net_version",
-            });
-            if (1 == parseInt(networkId) && metamaskIsInstalled === true){
-
-                const buyerproof = getProofs([accounts]);
-                console.log(buyerproof);
-                const transaction = await contract.connect(signer)
-                .preMint(buyerproof,  mintNumber, { value: total_price })
-                await transaction.wait();
-                fetchData();
-            }
-            setClaimingNft(false);
-
-        }
-        catch (err) {
-            // console.log('error',err)
+        console.log("Error", err)
 
             if ( err?.code === 4001) {
                 // console.log("User Declined Payment")
@@ -246,12 +182,13 @@ async function preMint() {
                 setError("Not whitelisted");
             }
 
+
             // setError(err.message);
             setClaimingNft(false);
         }
-        
+
     }
-  }
+}
   return (
    <> 
     <div className="cotainer bg-nav" style={{paddingLeft: "10%",paddingRight: "10%"}}>

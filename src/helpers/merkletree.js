@@ -5,7 +5,7 @@ const { MerkleTree } = require("merkletreejs");
 const {whitelist} = require('./whitelist');
 const keccak256 = require('keccak256');
 
-// const {Buffer} = require('buffer');
+ const {Buffer} = require('buffer');
 
 export function getProofs  (address) {
     console.log(0);
@@ -18,7 +18,7 @@ export function getProofs  (address) {
     }
     try {
         tree = new MerkleTree(leaves , keccak256 , {sortPairs: true});
-        // console.log(tree);
+         console.log(tree);
     }
     catch(err){
         console.log(err)
