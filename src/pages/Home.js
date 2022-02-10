@@ -6,8 +6,8 @@ import '../index.css';
 import { getProofs} from '../helpers/merkletree'
 
 
-const ZERO_ADDRESS = "0x094a44a140ef59b8ebf9e7fa92234649dc44cd2f";
-// const ZERO_ADDRESS = "0x915D9d7ff23aeeE4D4aEb6a96b18c5c97807c2D3";
+// const ZERO_ADDRESS = "0x094a44a140ef59b8ebf9e7fa92234649dc44cd2f";
+const ZERO_ADDRESS = "0x915D9d7ff23aeeE4D4aEb6a96b18c5c97807c2D3";
 function Home() {
     const [error, setError] = useState('');
 
@@ -177,11 +177,11 @@ function Home() {
                 // console.log("You have Insufficient Balance")
                 setError("You have Insufficient Balance");
             }
+
             if ( err?.error?.code === -32603) {
                 // console.log("You have Insufficient Balance")
-                setError("Not whitelisted");
+                setError("Exceeded Max Token Purchase");
             }
-
 
             // setError(err.message);
             setClaimingNft(false);
