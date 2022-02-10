@@ -6,8 +6,8 @@ import '../index.css';
 import { getProofs} from '../helpers/merkletree'
 
 
-// const ZERO_ADDRESS = "0x094a44a140ef59b8ebf9e7fa92234649dc44cd2f";
-const ZERO_ADDRESS = "0x915D9d7ff23aeeE4D4aEb6a96b18c5c97807c2D3";
+const ZERO_ADDRESS = "0x094a44a140ef59b8ebf9e7fa92234649dc44cd2f";
+// const ZERO_ADDRESS = "0x915D9d7ff23aeeE4D4aEb6a96b18c5c97807c2D3";
 function Home() {
     const [error, setError] = useState('');
 
@@ -18,15 +18,16 @@ function Home() {
     const [WLmintNumber, setWLMintNumber] = useState(1)
     const [networkId, setnetworkId] = useState(-1)
 
-    const [root, setRoot] = useState()
-    const salestate = 0;
 
     const [tokenPrice, setTokenPrice] = useState({});
-    const [strTokenPrice, setStrTokenPrice] = useState('');
+    const [strTokenPrice, setStrTokenPrice] = useState('0.07Ξ');
+    const [strTokenPriceExtra, setStrTokenPriceExtra] = useState(' (0.07Ξ after 20%mint progress)');
+
+    const [WLtokenPrice, WLsetTokenPrice] = useState({});
+    const [WLstrTokenPrice, WLsetStrTokenPrice] = useState('0.04Ξ');
 
     
     const [claimingNft, setClaimingNft] = useState(false);
-    const [feedback, setFeedback] = useState(``);
     const { ethereum } = window;
     const [metamaskIsInstalled, setmetamaskIsInstalled] = useState("undefined");
 
@@ -40,14 +41,23 @@ function Home() {
       const contract = new ethers.Contract(ZERO_ADDRESS, abi.abi, provider);
         try {
 
-//            tempPrice = String(await contract.tokenPrice());
-//              if (tempPrice){
-//                setTokenPrice(tempPrice);
-//                setStrTokenPrice(ethers.utils.formatEther(tempPrice) + 'Ξ');
-//              }
+            let tempPrice = String(await contract.tokenPrice());
+            tempPrice = ethers.utils.formatEther(tempPrice)
+            if (tempPrice){
+                if (tempPrice == 0.04) {
+                    setTokenPrice(tempPrice)
+                    setStrTokenPrice( tempPrice + 'Ξ');
+                }
+                else {
+                    setTokenPrice(tempPrice)
+                    setStrTokenPriceExtra("");
+                    setStrTokenPrice( tempPrice + 'Ξ');
+                }
+            }
+            // console.log("tempPrice",tempPrice)
 
-          if (metamaskIsInstalled){
-            window.ethereum.on("accountsChanged", () => {
+            if (metamaskIsInstalled){
+                window.ethereum.on("accountsChanged", () => {
                 window.location.reload();
             });
 
@@ -87,8 +97,8 @@ function Home() {
     };
 
     async function mintMethod(id) {
-        // console.log('id',id)
-        let total_price = String('0.07' * mintNumber);
+        console.log('tokenPrice',tokenPrice[0])
+        let total_price = String(tokenPrice * mintNumber);
 
         try {
             // console.log('setmetamaskIsInstalled before',metamaskIsInstalled)
@@ -110,11 +120,6 @@ function Home() {
         setnetworkId(networkId2);
 
         if (id == 1) {
-            { parseInt(supply.totalSupply) < 1111 ? (
-                total_price = String('0.04' * mintNumber)
-                ) : (
-                total_price = String('0.07' * mintNumber)
-            )}
             mint(total_price,networkId2,"mint")
         }
         else {
@@ -146,6 +151,7 @@ function Home() {
                 method: "net_version",
             });
             if (1 == parseInt(networkId) && metamaskIsInstalled === true){
+            // if ( metamaskIsInstalled === true){
                 if (mintType=='mint'){
                     console.log("minting method")
                     const transaction = await contract.connect(signer)
@@ -154,9 +160,9 @@ function Home() {
                     fetchData();
                 }
                 else if (mintType=='premint'){
-                console.log("premint method")
+                    console.log("premint method")
                     const buyerproof = getProofs([accounts]);
-                        console.log(buyerproof);
+                        // console.log(buyerproof);
                         const transaction = await contract.connect(signer)
                         .preMint(buyerproof,  WLmintNumber, { value: (ethers.utils.parseEther(total_price)) })
 
@@ -164,9 +170,10 @@ function Home() {
                 fetchData();
                 }
             }
+            setClaimingNft(false);
         }
         catch (err) {
-        console.log("Error", err)
+            // console.log("Error", err)
 
             if ( err?.code === 4001) {
                 // console.log("User Declined Payment")
@@ -178,9 +185,13 @@ function Home() {
                 setError("You have Insufficient Balance");
             }
 
-            if ( err?.error?.code === -32603) {
-                // console.log("You have Insufficient Balance")
-                setError("Exceeded Max Token Purchase");
+            if ( err?.error?.code === -32603 ) {
+                if (err?.error?.message === "execution reverted: Not on whitelist") {
+                    setError("Address Not Whitelisted");
+                }
+                else{
+                    setError("Exceeded Max Token Purchase");
+                }
             }
 
             // setError(err.message);
@@ -257,7 +268,7 @@ function Home() {
                                     <button className="mintbtn m-2" disabled={claimingNft ? 1 : 0} onClick={() => mintMethod(1)}>{claimingNft ? "BUSY" : "MINT"} {mintNumber}</button>
 
                                     <button className="mintbtn m-2" onClick={increaseMintNumber}>+</button>
-                                    <span className="d-block"><strong>0.04Ξ</strong> (0.07Ξ after 20%mint progress)  </span>
+                                      <span className="d-block"><strong>{strTokenPrice}</strong>{strTokenPriceExtra}</span>
                                     <span className="d-block">Max Mint 20</span>
                                 </div>
                             </div>
@@ -276,7 +287,7 @@ function Home() {
                                     <button className="mintbtn m-2" disabled={claimingNft ? 1 : 0} onClick={() => mintMethod(2)}>{claimingNft ? "BUSY" : "WL MINT"} {WLmintNumber}</button>
 
                                     <button className="mintbtn m-2" onClick={WLincreaseMintNumber}>+</button>
-                                    <span className="d-block"><strong>0.04Ξ</strong></span>
+                                      <span className="d-block"><strong>{WLstrTokenPrice}</strong></span>
                                     <span className="d-block">Max Mint 5</span>
 
                                 </div>
