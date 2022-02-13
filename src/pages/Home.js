@@ -1,14 +1,18 @@
 
 import { useState, useEffect } from 'react';
+
+import React, { useRef , Fragment} from "react";
+import ReactDom from "react-dom";
+import '../index.css';
+
 import { ethers } from 'ethers';
 import abi from '../PZero.json';
-import '../index.css';
 import { getProofs} from '../helpers/merkletree'
 
 
 const ZERO_ADDRESS = "0x094a44a140ef59b8ebf9e7fa92234649dc44cd2f";
-// const ZERO_ADDRESS = "0x915D9d7ff23aeeE4D4aEb6a96b18c5c97807c2D3";
-function Home() {
+// const ZERO_ADDRESS = "0xfA93a74be60487D81272F370845d5D35F1DC4562";
+function Home() {   
     const [error, setError] = useState('');
 
     // const [mintPrice, setmintPrice] = useState(0.04);
@@ -31,10 +35,50 @@ function Home() {
     const { ethereum } = window;
     const [metamaskIsInstalled, setmetamaskIsInstalled] = useState("undefined");
 
+    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
         fetchData();
-  }, [])
+    }, [])
+
+    const openModal = () => {
+    setShowModal(true);
+    };
+
+    const Modal = ({ setShowModal }) => {
+        // close the modal when clicking outside the modal.
+        const modalRef = useRef();
+        const closeModal = (e) => {
+            if (e.target === modalRef.current) {
+            setShowModal(false);
+            }
+        };
+        //render the modal JSX in the portal div.
+        return ReactDom.createPortal(
+            <div className="container" ref={modalRef} onClick={closeModal}>
+                <div className="modal row text-center">
+                    <Fragment>
+                        <div className='col-sm-12'>
+                            <h2>Connect Wallets</h2>
+                        </div>
+                        <div className='col-sm-12 text-center'>
+                            <button className='btn btn-info'>Metamask</button>
+                        </div>
+                        <div className='col-sm-12'>
+                            <button className='btn btn-info'>WalletConnect</button>
+                        </div>
+                        <div className='col-sm-12'>
+                            <button className='btn btn-info'>CoinBase</button>
+                        </div>
+                    </Fragment>
+                    <button className='closemdlbtn' onClick={() => setShowModal(false)}>X</button>
+                </div>
+            </div>,
+            document.getElementById("portal")
+        );
+    };
+    
+
   async function fetchData() {
     if(typeof window.ethereum !== 'undefined' && window.ethereum !== "") {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -105,12 +149,14 @@ function Home() {
             var metamaskIsInstalled = ethereum && ethereum.isMetaMask
             setmetamaskIsInstalled(metamaskIsInstalled);
             if (typeof metamaskIsInstalled === 'undefined') {
-                // console.log('setmetamaskIsInstalled',metamaskIsInstalled)
+                console.log('setmetamaskIsInstalled',metamaskIsInstalled)
+                openModal();
                 setmetamaskIsInstalled(false);
                 return
             }
         } catch (error) {
             // console.log('setmetamaskIsInstalled catch ->',false)
+            openModal();
             setmetamaskIsInstalled(false);
             return
         }
@@ -133,7 +179,9 @@ function Home() {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
         const contract = new ethers.Contract(ZERO_ADDRESS, abi.abi, signer);
-        // console.log("contract",contract)
+        
+        // const a = await contract.tokenURI(464)
+        // console.log("contract", a)
 
         console.log("total price",total_price)
         
@@ -141,7 +189,7 @@ function Home() {
             let accounts = await window.ethereum.request({
                 method: 'eth_requestAccounts'
             })
-
+            
             setClaimingNft(true);
 
             var metamaskIsInstalled = ethereum && ethereum.isMetaMask
@@ -183,6 +231,11 @@ function Home() {
             if ( err?.error?.code === -32000) {
                 // console.log("You have Insufficient Balance")
                 setError("You have Insufficient Balance");
+            }
+
+            if ( err?.code === -32002) {
+                // console.log("Transaction In Process")
+                setError("Transaction In Process - Open Metamask");
             }
 
             if ( err?.error?.code === -32603 ) {
@@ -251,10 +304,9 @@ function Home() {
             </div>
                 { parseInt(supply.totalSupply) < 5555 ? (
                     <div>
-                        <div className="row">
+                          <div className="row">
                             <div className="col-sm  text-center ">
                                 <p className="mintedcounts" /*in red*/ >{supply.totalSupply} / 5555 </p>
-
                                 <div className="progress mint_bar  ">
                                     <div className="progress-bar active " role="progressbar"
                                         aria-valuenow="00" aria-valuemin="0" aria-valuemax="100"
@@ -355,191 +407,191 @@ function Home() {
                             </div>
                         )}
                     </div>
-                </div>
-       </div>
+                  </div>
+                  {/* <div id="portal"></div>
+                  {showModal ? <Modal setShowModal={setShowModal} /> : null} */}
+        </div>
         <div id="zerosection" className="container-fluid herotwo">
             <div className="row">
-                    
                 <div className="col-sm-12 col-md-12 col-lg-6 text-center bgimgsectwo"> </div>
                 <div className="col-sm-12 col-md-12 col-lg-6 text-center mbcol">
                     <h1 className="headsmain headset"> ZERO PROJECT  </h1>
                     <p className="para paraset"> 
-                    Zero is the first Metaverse lottery project in the NFT space. We designed a collection of 5555 unique NFTs— 
-unique digital collectibles living on the Ethereum blockchain. Your zero gives you access to members-only benefits, 
-the first of which is access to the DAILY LOTTERIES to win NFTs including bluechips e.g. BAYC,COOL CATS, DOODLES, 
-VEEFRIENDS and many many more valuable projects. Once mint sells out, we will be transparently using 50% of the mint 
-revenue to purchase NFTs that will be put into play in our daily lotteries. Every purchase decision will be subject 
-to a community vote. Last but not least, we will live stream the winner selection process every day.
+                        Zero is the first Metaverse lottery project in the NFT space. We designed a collection of 5555 unique NFTs— 
+                        unique digital collectibles living on the Ethereum blockchain. Your zero gives you access to members-only benefits, 
+                        the first of which is access to the DAILY LOTTERIES to win NFTs including bluechips e.g. BAYC,COOL CATS, DOODLES, 
+                        VEEFRIENDS and many many more valuable projects. Once mint sells out, we will be transparently using 50% of the mint 
+                        revenue to purchase NFTs that will be put into play in our daily lotteries. Every purchase decision will be subject 
+                        to a community vote. Last but not least, we will live stream the winner selection process every day.
 
-<br /> Fasten your seatbelts, Zero Project is gonna shake this space!
+                        <br /> Fasten your seatbelts, Zero Project is gonna shake this space!
                     </p>
                 </div>
             </div>
         </div>
               
-       <div id="roadmapsection" className="container-fluid herothree headsets">
-           <div className="row">
-           <div className="col-sm-12 pb-2">
-           <h1 className="headsmain colorred"> MINT PROGRESS GIVEAWAYS</h1>
-   <img src="images/Roadmap_final.png"  className="mt-2"/> 
- 
-   </div>
-   </div>
-    
-                        <div className="row col-fil">
-               <div className="col-sm-12 adjust_para">
-               <p className="para left-set"> * We will purchase the Bored Ape in a live video just after mint sells out. The BAYC giveaway will run on our #giveaways channel during x hours. Winner will be picked randomly by our discord bot. Every step of this process will be recorded and live streamed in discord. </p>
-
+        <div id="roadmapsection" className="container-fluid herothree headsets">
+            <div className="row">
+                <div className="col-sm-12 pb-2">
+                    <h1 className="headsmain colorred"> MINT PROGRESS GIVEAWAYS</h1>
+                        <img src="images/Roadmap_final.png"  className="mt-2"/> 
                 </div>
-               </div>
-
-              </div>
+            </div>
+            <div className="row col-fil">
+                <div className="col-sm-12 adjust_para">
+                    <p className="para left-set"> * We will purchase the Bored Ape in a live video just after mint sells out. The BAYC giveaway will run on our #giveaways channel during x hours. Winner will be picked randomly by our discord bot. Every step of this process will be recorded and live streamed in discord. </p>
+                </div>
+            </div>
+        </div>
             
        
        <div className="container-fluid herofour">
-           <div className="row pl-5 col-fil">
-                   <div className="col-sm-12">
-               <h1 className="headsmain mbd-0 pl-5 col-fil"> LET THE LOTTERY BEGIN</h1> </div>
-               </div>
+            <div className="row pl-5 col-fil">
+                <div className="col-sm-12">
+                    <h1 className="headsmain mbd-0 pl-5 col-fil"> LET THE LOTTERY BEGIN</h1>
+                </div>
+            </div>
            <div className="row bgimgsecfour ">
                <div className="col-sm-12"> <img src="images/wheelimg.png" className="adjimg"/>
-               <h1 className="headsmain mbd-0 cb mtt left-set"> WHAT'S ZERO PROJECT ?</h1>
-                   <p className="para left-set"> ZERO PROJECT is the first Metaverse NFT lottery  <br /> with 5555 unique digital collectibles living on the Ethereum blockchain. </p>
-                   <p className="para left-set pt-1"> Each Zero NFT is a ticket to participate to our daily lotteries to win NFTs <br />(including bluechip NFTs) and some juicy prizes... </p>
+                    <h1 className="headsmain mbd-0 cb mtt left-set"> WHAT'S ZERO PROJECT ?</h1>
+                        <p className="para left-set"> ZERO PROJECT is the first Metaverse NFT lottery  <br /> with 5555 unique digital collectibles living on the Ethereum blockchain. </p>
+                        <p className="para left-set pt-1"> Each Zero NFT is a ticket to participate to our daily lotteries to win NFTs <br />(including bluechip NFTs) and some juicy prizes... </p>
 
                </div>
            </div>
-           <div className="row bgimgsecfour  ">
+            <div className="row bgimgsecfour  ">
                <div className="col-sm-12 p-0"> <img src="css/images/sectionfourtwoo.png"  className="rotate"/> 
-               <h1 className="headsmain mbd-0 cb mtt left-set right-set">WHO CAN PLAY ?</h1>
-               <p className="para left-set right-set">Only ZERO NFT holders.</p>
-               <p className="para left-set right-set"> Of course, the more ZERO you own, the more entries you have.<br /> Holding a ZERO is like getting a free lottery ticket every day.</p>
+                    <h1 className="headsmain mbd-0 cb mtt left-set right-set">WHO CAN PLAY ?</h1>
+                    <p className="para left-set right-set">Only ZERO NFT holders.</p>
+                    <p className="para left-set right-set"> Of course, the more ZERO you own, the more entries you have.<br /> Holding a ZERO is like getting a free lottery ticket every day.</p>
 
-  </div>
-           </div>
-           <div className="row bgimgsecfour bg_play">
-               <div className="col-sm-12">
-               <img src="images/622.png" className="adjimg rotater"/>
-               <h1 className="headsmain mbd-0 cb mtt left-set"> HOW TO PLAY ?</h1>
-                   <p className="para left-set pt-2"> Rules are simple: own at least one ZERO NFT</p>    
-<p className="para left-set pt-2"> For special lotteries, we will add another selection criteria to spice it up a bit : The “Eligible Attributes”.</p>  
-<p className="para left-set pt-2"> The Eligible Attributes are ZERO traits that have been randomly selected and announced the day prior to each special lottery. These special lotteries increase the probability to win for Zero holders that have one of the ‘eligible attributes’… The more ZERO NFT you hold, the higher the chance to win the lottery (1 NFT WITH AN ELIGIBLE ATTRIBUTE = 1ENTRY)</p>    
-
+                </div>
             </div>
+            <div className="row bgimgsecfour bg_play">
+               <div className="col-sm-12">
+                    <img src="images/622.png" className="adjimg rotater"/>
+                    <h1 className="headsmain mbd-0 cb mtt left-set"> HOW TO PLAY ?</h1>
+                            <p className="para left-set pt-2"> Rules are simple: own at least one ZERO NFT</p>    
+                            <p className="para left-set pt-2"> For special lotteries, we will add another selection criteria to spice it up a bit : The “Eligible Attributes”.</p>  
+                            <p className="para left-set pt-2"> The Eligible Attributes are ZERO traits that have been randomly selected and announced the day prior to each special lottery. These special lotteries increase the probability to win for Zero holders that have one of the ‘eligible attributes’… The more ZERO NFT you hold, the higher the chance to win the lottery (1 NFT WITH AN ELIGIBLE ATTRIBUTE = 1ENTRY)</p>    
+
+                </div>
            </div>
-           <div className="row bgimgsecfour  ">
+            <div className="row bgimgsecfour  ">
                <div className="col-sm-12 p-0"> <img src="images/wheelimg.png"  className="adjimgs"/> 
                <h1 className="headsmain mbd-0 cb mtt left-set right-set">WHAT CAN I WIN ?</h1>
                <p className="para left-set right-set"> 
-               You have a chance to win a valuable NFT every day.<br />
-               The community will vote and decide which NFT projects we will purchase after<br /> mint sells out in order to start our lottery NFT pool
-
+                    You have a chance to win a valuable NFT every day.<br />
+                    The community will vote and decide which NFT projects we will purchase after<br /> mint sells out in order to start our lottery NFT pool
                </p>
-  </div>
+            </div>
            </div>
-                   <div className="row">
-               <div className="col-sm-12 text-center imgset"> <img src="images/backgroundpng_webgroups.png" height="300" className=""/> </div>
+            <div className="row">
+               <div className="col-sm-12 text-center imgset"> <img src="images/backgroundpng_webgroups.png" height="300" className=""/> 
+               </div>
            </div>
        </div>
 
- <div id="regular_lottery" className="container-fluid  reg_lottery">
- <div className="row">
+        <div id="regular_lottery" className="container-fluid  reg_lottery">
+            <div className="row">
                <div className="col-sm-12 pb-2">
                    <img src="images/regularlottery.png"  className="mt-5 deskpc"/>  
                    <img src="images/zerohead.png"  className="mt-2 tabmob"/> 
                    <img src="images/regularlottery_mobile.png"  className="mt-2 tabmob"/> 
-       
-
-                   </div>
+                </div>
            </div>
-</div>
+        </div>
 
-<div id="special_lottery" className="container-fluid  reg_lottery">
- <div className="row">
+        <div id="special_lottery" className="container-fluid  reg_lottery">
+            <div className="row">
                <div className="col-sm-12 pb-2">
                    <img src="images/speciallottery.png"  className="mt-2 deskpc"/> 
                    <img src="images/special-mobile.png"  className="mt-2 tabmob"/> 
                    </div>
            </div>
-</div>
-<div id="exclusive_lottery" className="container-fluid   reg_lottery exclusive_lottery">
- <div className="row">
+        </div>
+        <div id="exclusive_lottery" className="container-fluid   reg_lottery exclusive_lottery">
+            <div className="row">
                <div className="col-sm-12 pb-2">
                    <img src="images/exclusivelottery.png"  className="mt-2 deskpc"/>
                    <img src="images/exclusivelottery_mob.png"  className="mt-2 tabmob"/> 
                    </div>
            </div>
-</div>
+        </div>
 
-<div id="end_lottery" className="container-fluid reg_lottery">
- <div className="row">
+        <div id="end_lottery" className="container-fluid reg_lottery">
+            <div className="row">
                <div className="col-sm-12 pb-2">
                    <img src="images/lottery_end.png"  className="mt-2"/> 
-
-                   </div>
+                </div>
            </div>
-</div>
- <div id="parityection" className="container-fluid  heroparity">
- <div className="row">
+        </div>
+        <div id="parityection" className="container-fluid  heroparity">
+            <div className="row">
                <div className="col-sm-12 pb-2 rarity_col">
                    <h1 className="headsmain pl-5 pt-5 pb-3"> RARITY</h1> 
                    <img src="images/paritysec_01.png"  className="mt-2"/> 
-
-                   </div>
+                </div>
            </div>
-</div>
-
-
+        </div>
        <div id="teamsection" className="container-fluid herofive">
-           <div className="row text-center">
-               <div className="col-sm-12 pb-2">
+            <div className="row text-center">
+                <div className="col-sm-12 pb-2">
                    <h1 className="headsmain "> THE TEAM</h1> </div>
            </div>
            <div className="row text-center texthero ">
-               <div className="col-sm-6 pb-2">
+               <div className="col-sm-12">
                    <div className="row ">
                        <div className="col-sm-12 img-adj"> <img src="images/18.png" height="300" className="mt-2"/>
                            <h3 className="headsmain  mbd-0 text-center cb mtt "> CRYPTONIS</h3>
                            <h3 className="headsmain  mbm text-center cb"> Founder</h3>
                            <p className="para text-center"> Early NFT investor and BAYC holder, artist and creator. 
-Prior to Web3 and NFT, he was  consultant in digital strategy and is a  Startup founder (Ecommerce Marketplace)
-He’s our Master Zero
+                                Prior to Web3 and NFT, he was  consultant in digital strategy and is a  Startup founder (Ecommerce Marketplace)
+                                He’s our Master Zero
                                 </p>
                                <a href="https://twitter.com/cryptonis4" target={{target:"_blank"}}>
-                   <img className="seicn cbw" src="images/twitter.svg"/>
-                   </a>
+                            <img className="seicn cbw" src="images/twitter.svg"/>
+                            </a>
                        </div>
                    </div>
-                   <div className="row">
+                   {/* <div className="row">
                        <div className=" col-sm-12"> <img src="images/32.png" height="300" className="mt-5"/>
                            <h3 className="headsmain  mbd-0 text-center cb mtt "> THE NIZZAR</h3>
                            <h3 className="headsmain  mbm text-center cb "> Consigliere</h3>
                            <p className="para text-center"> Nizzar is an OG in the NFT space ! Early investor, early BAYC holder and currently managing a 10M$ Vault called’ UnlimitArt’, 
-He drew Zero project roadmap with Crytponis</p>
+                                He drew Zero project roadmap with Cr]ytponis</p>
                                <a href="https://twitter.com/Thenizzar" target={{target:"_blank"}}>
-                   <img className="seicn cbw" src="images/twitter.svg"/>
-                   </a>
+                            <img className="seicn cbw" src="images/twitter.svg"/>
+                            </a>
+                       </div>
+                   </div> */}
+                </div>
+            </div>
+            <div className="row text-center texthero mt-2 ">
+               <div className="col-sm-6">
+                   <div className="row">
+                       <div className=" col-sm-12"> 
+                            <img src="images/42.png" height="300" />
+                            <h3 className="headsmain  mbd-0 text-center cb mtt ">LOUIS</h3>
+                            <h3 className="headsmain  mbm text-center cb ">Developer</h3>
+    
+                            <p className="para text-center"> Master Solidity Developer in France 
+                            Louis has worked on several DEFI projects and have been involved in several big Nft projects 
+                            He’s the tech guru </p>
                        </div>
                    </div>
                </div>
                <div className="col-sm-6">
                    <div className="row">
-                       <div className=" col-sm-12"> <img src="images/42.png" height="300" className="mt-2"/>
-                           <h3 className="headsmain  mbd-0 text-center cb mtt ">LOUIS</h3>
-                           <h3 className="headsmain  mbm text-center cb ">Developer</h3>
-   
-                           <p className="para text-center"> Master Solidity Developer in France <br />
-Louis has worked on several DEFI projects <br /> and have been involved in several big Nft projects <br />
-He’s the tech guru </p>
-                       </div>
-                   </div>
-                   <div className="row">
-                       <div className="col-sm-12 setpading"> <img src="images/44.png" height="300" className="mt-5"/>
-                           <h3 className="headsmain  mbd-0 text-center cb mtt "> SYED</h3>
-                           <h3 className="headsmain mbm text-center cb ">Artists Group</h3>
-                           <p className="para text-center"> Syed is The Co-Founder of Galictic NFT Studio 
-                               <br /> along with Habib and Talal. Expert in 
-                               <br /> Design and NFT Token Generation.  </p>
+                       <div className="col-sm-12"> 
+                            <img src="images/44.png" height="300" />
+                            <h3 className="headsmain  mbd-0 text-center cb mtt "> SYED</h3>
+                            <h3 className="headsmain mbm text-center cb ">Backend Dev</h3>
+                            <p className="para text-center"> Syed is The Co-Founder of Galictic NFT Studio 
+                               along with Habib and Talal. 
+                              Expert in  Design and NFT Token Generation
+                               using Dynamic Algorithm.  
+                            </p>
                        </div>
                    </div>
                </div>
@@ -568,8 +620,8 @@ He’s the tech guru </p>
                     
                     <h3 className="headsmain  mbd-0 cb mtt ">Where will the revenue be allocated ?</h3>
                     <p className="para cb">50% of mint  will be used to purchase NFTs for the lottery wallet.  <br />
-20% will be redistributed to the team <br />
-30% will be used to build and develop the Roadmap v2</p>
+                        20% will be redistributed to the team <br />
+                        30% will be used to build and develop the Roadmap v2</p>
                 </div>
             </div>
             <div className="row text-right flexxcol">
@@ -579,15 +631,15 @@ He’s the tech guru </p>
                 <div className="col-sm-6 set-colend ">
                     <h3 className="headsmain  mbd-0 cb mtt pb-3 "> What’s the benefit of <br />
                         holding a Zero NFT ?</h3>
-                                            <p className="para cb pb-3"> 
-                                            Zero NFT gives you exclusive access to our daily lotteries to win NFTs including bluechip (s.a Cool cat, doodle, Veefriends and many more…)
-                                            </p>
-                                            <h3 className="headsmain  mbd-0 cb mtt pb-3"> 
-                                            What's the next phase ?
-                                             </h3>
-                                            <p className="para cb pb-3"> 
-                                            Sandbox land, Fully immersive lottery in the Metaverse, Mint pass for our upcoming collections... It's only the beginning and we are here to stay (Announcements will be made later on)
-                                            </p>      
+                    <p className="para cb pb-3"> 
+                    Zero NFT gives you exclusive access to our daily lotteries to win NFTs including bluechip (s.a Cool cat, doodle, Veefriends and many more…)
+                    </p>
+                    <h3 className="headsmain  mbd-0 cb mtt pb-3"> 
+                    What's the next phase ?
+                        </h3>
+                    <p className="para cb pb-3"> 
+                    Sandbox land, Fully immersive lottery in the Metaverse, Mint pass for our upcoming collections... It's only the beginning and we are here to stay (Announcements will be made later on)
+                    </p>      
                 </div>
             </div>
        </div>
