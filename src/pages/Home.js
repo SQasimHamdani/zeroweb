@@ -15,6 +15,9 @@ const ZERO_ADDRESS = "0x094a44a140ef59b8ebf9e7fa92234649dc44cd2f";
 function Home() {   
     const [error, setError] = useState('');
 
+    
+    const [discordInvite, setdiscordInvite] = useState('https://discord.gg/E4X2cWVK');
+    
     // const [mintPrice, setmintPrice] = useState(0.04);
 
     const [supply, setSupply] = useState({})
@@ -36,7 +39,6 @@ function Home() {
     const [metamaskIsInstalled, setmetamaskIsInstalled] = useState("undefined");
 
     const [showModal, setShowModal] = useState(false);
-
     useEffect(() => {
         fetchData();
     }, [])
@@ -281,7 +283,7 @@ function Home() {
                             <a href="https://twitter.com/zerozeronft" target={{target:"_blank"}}>
                             <img className="seicon" src="images/twitter.svg"/>
                             </a>
-                            <a href="https://discord.gg/dDjBp8YF" target={{target:"_blank"}}>
+                            <a href={discordInvite} target={{target:"_blank"}}>
                             <img className="seicon" src="images/discord.svg"/>
                             </a>
                             <a href="https://opensea.io/collection/zero-project" target={{target:"_blank"}}>
@@ -650,7 +652,7 @@ function Home() {
                    <a href="https://twitter.com/zerozeronft" target={{target:"_blank"}}>
                    <img className="seicn cbw" src="images/twitter.svg"/>
                    </a>
-                   <a href="https://discord.gg/dDjBp8YF" target={{target:"_blank"}}>
+                   <a href={discordInvite} target={{target:"_blank"}}>
                    <img className="seicn cbw" src="images/discord.svg"/>
                             </a>
                    <a href="https://opensea.io/collection/zero-project" target={{target:"_blank"}}>
