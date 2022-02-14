@@ -39,6 +39,7 @@ function Home() {
     const [metamaskIsInstalled, setmetamaskIsInstalled] = useState("undefined");
 
     const [showModal, setShowModal] = useState(false);
+    const [showWhitelistButton, setshowWhitelistButton] = useState(false);
     useEffect(() => {
         fetchData();
     }, [])
@@ -334,19 +335,24 @@ function Home() {
                             </div>
                         </div>
 
-                        <div className="row">
-                            <div className="col-sm  text-center ">
-                                <div className="buttons_mint_div">
-                                    <button className="mintbtn m-2" onClick={WLdecreaseMintNumber}>-</button>
-                                    <button className="mintbtn m-2" disabled={claimingNft ? 1 : 0} onClick={() => mintMethod(2)}>{claimingNft ? "BUSY" : "WL MINT"} {WLmintNumber}</button>
+                        {showWhitelistButton ? (
+                            <div>
+                                <div className="row">
+                                    <div className="col-sm  text-center ">
+                                        <div className="buttons_mint_div">
+                                            <button className="mintbtn m-2" onClick={WLdecreaseMintNumber}>-</button>
+                                            <button className="mintbtn m-2" disabled={claimingNft ? 1 : 0} onClick={() => mintMethod(2)}>{claimingNft ? "BUSY" : "WL MINT"} {WLmintNumber}</button>
 
-                                    <button className="mintbtn m-2" onClick={WLincreaseMintNumber}>+</button>
-                                      <span className="d-block"><strong>{WLstrTokenPrice}</strong></span>
-                                    <span className="d-block">Max Mint 5</span>
-
+                                            <button className="mintbtn m-2" onClick={WLincreaseMintNumber}>+</button>
+                                            <span className="d-block"><strong>{WLstrTokenPrice}</strong></span>
+                                            <span className="d-block">Max Mint 5</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                            ): (
+                            <></>
+                        )}
 
                         { error &&
                             <div className='text-center mint_under_button'>
@@ -370,25 +376,31 @@ function Home() {
                                         <br />
                                         <span className="d-block"><strong>0.04Ξ</strong> (0.07Ξ after 20%mint progress)  </span>
                                         <span className="d-block">Max Mint 20</span>
-
                                         <div className="row">
                                             <div className="col-sm  text-center ">
                                                 <br></br>
                                             </div>
                                         </div>
-                                        <div className="row">
-                                            <div className="col-sm  text-center ">
-                                                <div className="buttons_mint_div">
-                                                    <button className="mintbtn m-2" onClick={WLdecreaseMintNumber}>-</button>
-                                                    <button className="mintbtn m-2" disabled={claimingNft ? 1 : 0} onClick={() => mintMethod(2)}>{claimingNft ? "BUSY" : "WL MINT"} {WLmintNumber}</button>
+                                        {showWhitelistButton ? (
+                                            <div>
 
-                                                    <button className="mintbtn m-2" onClick={WLincreaseMintNumber}>+</button>
-                                                    <span className="d-block"><strong>0.04Ξ</strong></span>
-                                                    <span className="d-block">Max Mint 5</span>
+                                                <div className="row">
+                                                    <div className="col-sm  text-center ">
+                                                        <div className="buttons_mint_div">
+                                                            <button className="mintbtn m-2" onClick={WLdecreaseMintNumber}>-</button>
+                                                            <button className="mintbtn m-2" disabled={claimingNft ? 1 : 0} onClick={() => mintMethod(2)}>{claimingNft ? "BUSY" : "WL MINT"} {WLmintNumber}</button>
 
+                                                            <button className="mintbtn m-2" onClick={WLincreaseMintNumber}>+</button>
+                                                            <span className="d-block"><strong>0.04Ξ</strong></span>
+                                                            <span className="d-block">Max Mint 5</span>
+
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                            ): (
+                                            <></>
+                                        )}
                                     </div>
                                 )}
                             </div>
