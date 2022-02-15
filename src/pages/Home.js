@@ -374,7 +374,9 @@ function Home() {
 
                                         <button className="mintbtn m-2" onClick={increaseMintNumber}>+</button>
                                         <br />
-                                        <span className="d-block"><strong>0.07Ξ</strong> (0.07Ξ after 20%mint progress)  </span>
+                                                  <span className="d-block"><strong>0.07Ξ</strong>
+                                                      {/* (0.07Ξ after 20%mint progress) */}
+                                                  </span>
                                         <span className="d-block">Max Mint 20</span>
                                         <div className="row">
                                             <div className="col-sm  text-center ">
