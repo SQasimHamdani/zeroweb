@@ -16,7 +16,7 @@ function Home() {
     const [error, setError] = useState('');
 
     
-    const [discordInvite, setdiscordInvite] = useState('https://discord.gg/E4X2cWVK');
+    const [discordInvite, setdiscordInvite] = useState('https://discord.gg/HqhdsZrYC4');
     
     // const [mintPrice, setmintPrice] = useState(0.04);
 
