@@ -11,6 +11,41 @@
   font-weight: normal;
   src: local('Alte Haas Grotesk Bold'), url('AlteHaasGroteskBold.woff') format('woff');
 }
+@keyframes slidebg {
+  to {
+    background-position:20vw;
+  }
+}
+.cust_modal{
+  height: 60% !important;
+  }
+  .closemdlbtn{
+    top: -25px !important;
+  }
+  
+.btn_cion:hover{
+  background-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
+  animation:slidebg 5s linear infinite;
+}
+.text_icn{
+font-size: 18px;
+font-weight: bold;
+position: relative;
+    top: 4px;
+}
+.btn_cion{
+width: 100%;
+max-width: 200px;
+}
+.btn_meta{
+  background: #d06608;
+}
+.btn_connect{
+  background: #04192f;
+}
+.btn_cb{
+  background: #0552fc;
+}
 html, body{
   overflow-x: hidden !important;
   scroll-behavior: smooth;
@@ -53,11 +88,18 @@ body {
 width: fit-content;
 margin: 0 auto;
 }
-.mint_under_button p{
+.mint_under_button span{
 border-radius: 5px;
 padding: 8px 15px; 
 font-weight: 300;
-margin: 0px auto 20px;
+margin: 0px auto 0px;
+}
+.mint_under_button .bg-success{
+  padding: 10px;
+  border-radius: 5px;
+} 
+.btn:focus, .btn.focus{
+  box-shadow: none;
 }
 .mintedcountsbar{
     font-size: 18px; 
@@ -510,6 +552,12 @@ display: grid;
       margin: 0 auto !important;
     padding: 20px;
     }
+    .cust_modal{
+      height: 50% !important;
+}
+.closemdlbtn{
+  top: -40px !important;
+}
     .main_rpmap h3{
 font-size: 18px;
 

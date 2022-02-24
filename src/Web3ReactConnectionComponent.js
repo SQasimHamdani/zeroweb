@@ -1,6 +1,6 @@
 import { useWeb3React } from '@web3-react/core';
-import { injected, walletconnect, resetWalletConnector, walletlink } from './Helpers/connectors';
-import { getContract } from './Helpers/contract';
+import { injected, walletconnect, resetWalletConnector, walletlink } from './helpers/connectors';
+import { getContract } from './helpers/contract';
 import React from 'react';
 import { ethers } from 'ethers';
 
@@ -64,22 +64,39 @@ const Web3ReactConnectionComponent = () => {
         //render the modal JSX in the portal div.
         return ReactDom.createPortal(
             <div className="container" ref={modalRef} onClick={closeModal}>
-                <div className="modal row text-center">
+                <div className="modal cust_modal row text-center">
+                <div className="col-sm-12">
                     <Fragment>
-                        <div className='col-sm-12'>
+                    <div className="row text-center">
+                        <div className="col-sm-12">
                             <h2>Connect Wallets</h2>
                         </div>
-                        <div className='col-sm-12 text-center'>
-                            <button onClick={connectMetamaskSimple} className='btn btn-info'>Metamask</button>
                         </div>
-                        {/* <div className='col-sm-12'>
-                            <button onClick={connectWalletConnectSimple} className='btn btn-info'>WalletConnect</button>
+                        <div className="row text-center mt-3 mb-3 ">
+                        <div className="col-sm-12 text-center">
+                            <button onClick={connectMetamaskSimple} className="btn_cion btn_meta btn btn-info">
+                            <img className="seicon" src="images/metamask.svg" />
+                           <span className="text_icn"> Metamask </span>
+                            </button>
+                            
                         </div>
-                        <div className='col-sm-12'>
-                            <button onClick={connectCoinbaseSimple} className='btn btn-info'>CoinBase</button>
-                        </div> */}
-                    </Fragment>
+                        </div>
+                        <div className="row text-center mt-3 mb-3 ">
+                        <div className="col-sm-12">
+                            <button onClick={connectWalletConnectSimple} className="btn_cion btn_connect btn btn-info">
+                            <img className="seicon" src="images/walletconnect.svg" />
+                           <span className="text_icn"> WalletConnect </span></button>
+                        </div>
+                        </div>
+                        <div className="row text-center mt-3 mb-3 ">
+                        <div className="col-sm-12">
+                            <button onClick={connectCoinbaseSimple} className="btn_cion btn_cb btn btn-info">
+                            <img className="seicon" src="images/coinbasewallet.svg" />
+                           <span className="text_icn"> CoinBase </span></button>
+                        </div>
+                        </div>                    </Fragment>
                     <button className='closemdlbtn' onClick={() => setShowModal(false)}>X</button>
+                </div>
                 </div>
             </div>,
             document.getElementById("portal")
@@ -297,7 +314,7 @@ const Web3ReactConnectionComponent = () => {
             }
             catch (err) {
                 // console.log("Error", err)
-                setMessage("")
+                setMessage("");
 
                 if ( err?.code === 4001) {
                     // console.log("User Declined Payment")
@@ -457,8 +474,8 @@ const Web3ReactConnectionComponent = () => {
                         <>
                         { error == "Make sure you are on Etherium Mainnet" ? (
                             <div className='text-center mint_under_button'>
-                                <button onClick={changeNetwork} variant="contained">
-                                    <p className="bg-danger text-light">Switch to Mainnet Ethereum</p>
+                                <button className="btn" onClick={changeNetwork} >
+                                    <span className="bg-danger text-light">Switch to Mainnet Ethereum</span>
                                 </button>
                             </div>
                         ):(
