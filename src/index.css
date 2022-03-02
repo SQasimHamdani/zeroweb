@@ -38,6 +38,10 @@ code {
   position: relative;
   animation: animate 0.3s;
 }
+.heroone .mint_under_button p{
+padding: 10px;
+border-radius: 10px;
+} 
 .modal .closemdlbtn {
   position: absolute;
   top: 7px;

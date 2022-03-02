@@ -19,9 +19,9 @@
 .cust_modal{
   height: 60% !important;
   }
-  .closemdlbtn{
-    top: -25px !important;
-  }
+.closemdlbtn{
+top: -25px !important;
+}
   
 .btn_cion:hover{
   background-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
@@ -556,7 +556,7 @@ display: grid;
       height: 50% !important;
 }
 .closemdlbtn{
-  top: -40px !important;
+  top: -80px !important;
 }
     .main_rpmap h3{
 font-size: 18px;
