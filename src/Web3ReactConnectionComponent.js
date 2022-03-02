@@ -95,8 +95,9 @@ const Web3ReactConnectionComponent = () => {
                            <span className="text_icn"> CoinBase </span></button>
                         </div>
                         </div>                    </Fragment>
-                    <button className='closemdlbtn' onClick={() => setShowModal(false)}>X</button>
-                </div>
+                    </div>
+                                        <button className='closemdlbtn' onClick={() => setShowModal(false)}>X</button>
+
                 </div>
             </div>,
             document.getElementById("portal")

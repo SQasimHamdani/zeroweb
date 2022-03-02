@@ -20,7 +20,7 @@
   height: 60% !important;
   }
 .closemdlbtn{
-top: -25px !important;
+/* top: -25px !important; */
 }
   
 .btn_cion:hover{
@@ -556,7 +556,7 @@ display: grid;
       height: 50% !important;
 }
 .closemdlbtn{
-  top: -80px !important;
+  /* top: -80px !important; */
 }
     .main_rpmap h3{
 font-size: 18px;
